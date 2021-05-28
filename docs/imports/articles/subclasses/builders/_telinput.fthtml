@@ -1,0 +1,23 @@
+h3 (#TelInputBuilder) {
+
+    a (href="#TelInputBuilder") "TelInputBuilder"
+    " extends "
+    extendLink "TextInputBuilder"
+
+}
+
+p html_encode("This element builder is used to create a control for entering a telephone number. Displays a telephone keypad in some devices with dynamic keypads")
+details
+{
+
+    summary "Documentation"
+
+    import "templates/subclass_methods" {
+        name    "constructor"
+        args    "id?: string"
+        returns "TelInputBuilder<HTMLInputElement>"
+        usage   "new TelInputBuilder();"
+        refs    "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/tel"
+    }
+
+}

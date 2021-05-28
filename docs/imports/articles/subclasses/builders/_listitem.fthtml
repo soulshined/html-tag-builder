@@ -1,0 +1,17 @@
+h3 (#ListItemBuilder) { a (href="#ListItemBuilder") "ListItemBuilder" }
+
+p html_encode("This element builder is used to create an item in a list. It must be contained in a parent element: an ordered list (<ol>), an unordered list (<ul>), or a menu (<menu>). In menus and unordered lists, list items are usually displayed using bullet points. In ordered lists, they are usually displayed with an ascending counter on the left, such as a number or letter")
+details
+{
+
+    summary "Documentation"
+
+    import "templates/subclass_methods" {
+        name    "constructor"
+        args    "html: string"
+        returns "ListItemBuilder<HTMLLIElement>"
+        usage   "new ListItemBuilder('cat');"
+        refs    "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li"
+    }
+
+}

@@ -1,0 +1,16 @@
+h3 (#OptionBuilder) { a (href="#OptionBuilder") "OptionBuilder" }
+
+p html_encode("This element builder is used to create an item contained in a `<select>`, an `<optgroup>`, or a `<datalist>` element. As such, `<option>` can represent menu items in popups and other lists of items in an HTML document")
+details
+{
+
+    summary "Documentation"
+    import "templates/subclass_methods" {
+        name    "constructor"
+        args    "content: string; value?: string; id?: string"
+        returns "OptionBuilder<HTMLOptionElement>"
+        usage   "new OptionBuilder('Foo', 'foo');"
+        refs    "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/option"
+    }
+
+}

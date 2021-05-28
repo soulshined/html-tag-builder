@@ -1,0 +1,66 @@
+h3 (#AreaBuilder) { a (href="#AreaBuilder") "AreaBuilder" }
+
+p html_encode("This element builder is used to create an area inside an image map that has predefined clickable areas. An image map allows geometric areas on an image to be associated with hypertext link")
+details
+{
+
+    summary "Documentation"
+    import "templates/subclass_methods" {
+        name    "constructor"
+        args    "coords: string; shape?: 'rect' | 'circle' | 'poly' | 'default'; id?: string"
+        returns "AreaBuilder<HTMLAreaElement>"
+        refs    "
+            https://developer.mozilla.org/en-US/docs/Web/HTML/Element/area
+        "
+
+        usage   "new AreaBuilder('www.example.com');"
+    }
+
+    import "templates/subclass_methods" {
+        name        "href"
+        args        "url: string; alt: string"
+        returns     "AreaBuilder<HTMLAreaElement>"
+        description html_encode("The hyperlink target for the area. Its value is a valid URL. This attribute may be omitted; if so, the <area> element does not represent a hyperlink")
+        usage       "new AreaBuilder('www.example.com').href('www.myimage.com', 'This image is mine');"
+    }
+
+    import "templates/subclass_methods" {
+        name        "hreflang"
+        args        "lang: string"
+        returns     "AreaBuilder<HTMLAreaElement>"
+        refs        "
+            https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-hreflang
+        "
+
+        description "Hints at the human language of the linked URL. No built-in functionality"
+        usage       "new AreaBuilder('www.example.com').hreflang('en');"
+    }
+
+    import "templates/subclass_methods" {
+        name        "ping"
+        args        "urls: string[]"
+        returns     "AreaBuilder<HTMLAreaElement>"
+        usage       "new AreaBuilder('www.example.com').ping(['somelink.php', 'someotherlink.php']);"
+        description "A list of URLs. When the link is followed, the browser will send POST requests with the body PING to the URLs. Typically for tracking"
+    }
+
+    import "templates/subclass_methods" {
+        name        "rel"
+        args        "value: string"
+        returns     "AreaBuilder<HTMLAreaElement>"
+        description "The relationship of the linked URL as space-separated link types"
+        usage       "new AreaBuilder('www.example.com').rel('noopener');"
+        refs        "
+            https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types
+        "
+    }
+
+    import "templates/subclass_methods" {
+        name        "target"
+        args        "value: '_self' | '_blank' | '_parent' | '_top'"
+        returns     "AreaBuilder<HTMLAreaElement>"
+        description "A keyword or author-defined name of the browsing context to display the linked resource"
+        usage       "new AreaBuilder('www.example.com').target('_self');"
+    }
+
+}

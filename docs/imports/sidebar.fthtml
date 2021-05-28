@@ -1,0 +1,77 @@
+#vars
+
+    subclasses json("&./articles/subclasses/subclasses")
+    methods    json("&./articles/methods/methods")
+
+#end
+
+aside
+{
+
+    select (onchange="location=`#${this.value}`;") {
+        otpgroup (label="Getting Started") { option (value="usage") "Usage" }
+
+        optgroup (label=Options) {
+            each str_split('scriptAsync, useOptionContentForEmptyOptionValue, defaultInputType, mode' ', ') {
+                option (value="TagBuilderOptions.${@this | trim }") replace(trim(@this) "^static" "")
+            }
+        }
+
+        optgroup (label="Builder Pattern Methods") {
+            each @methods {
+                option (value="TagBuilder.${@this | trim }") replace(trim(@this) "^static" "")
+            }
+        }
+
+        optgroup (label=Subclasses) {
+            each @subclasses {
+                option (value="${@this | trim }Builder") trim(@this)
+            }
+        }
+    }
+
+    nav
+    {
+        ul
+        {
+            li
+            {
+                a (href='#usage') 'Getting Started'
+                ul (.sublist) {
+                    li { a (href="#usage") 'Usage' }
+                }
+            }
+            li
+            {
+                a (href='#options') 'Options'
+                ul (.sublist) {
+                    each str_split('scriptAsync, useOptionContentForEmptyOptionValue, defaultInputType, mode' ', ') {
+                        li
+                        {
+                            a (href="#TagBuilderOptions.${@this | trim }") replace(trim(@this) "^static" "")
+                        }
+                    }
+                }
+            }
+            li
+            {
+                a (href='#methods') 'Builder Pattern Methods'
+                ul (.sublist) {
+                    each @methods {
+                        li { a (href="#TagBuilder.${@this | trim }") replace(trim(@this) "^static" "") }
+                    }
+                }
+            }
+            li
+            {
+                a (href="#subclasses") 'Subclasses'
+                ul (.sublist) {
+                    each @subclasses {
+                        li { a (href="#${@this | trim }Builder") trim(@this) }
+                    }
+                }
+            }
+        }
+    }
+
+}

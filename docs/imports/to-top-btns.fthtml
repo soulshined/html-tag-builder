@@ -1,0 +1,5 @@
+div (#to-tops aria-description="Navigate quickly to the top of the page") {
+
+    button (#scroll-to-top-btn aria-label="navigate to top of page" type=button)
+
+}

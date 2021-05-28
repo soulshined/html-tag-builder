@@ -1,0 +1,22 @@
+section (#subclasses) {
+
+    h2 "Subclasses"
+
+    p
+    {
+        "In order to help facilitate a semantic HTML experience and self-documenting code, there are numerous TagBuilder subclasses at your disposal to quickly create specific elements but also semantic-driven elements . These subclasses have unique methods respective to their purpose, for example, the TableBuilder has an  "
+        code "addRow()"
+ html_encode(" method to quickly add a <tr> with data and the ListBuilder has an ")
+        code "addSublist()"
+ html_encode(" method to add a sublist to a <ul> or <ol>, the semantic proper way by wrapping the sublist in a <li>")
+    }
+
+    #vars
+        subclasses json("&./subclasses")
+    #end
+
+    each sort(@subclasses) {
+        import "&./builders/_${ @this | lower }"
+    }
+
+}

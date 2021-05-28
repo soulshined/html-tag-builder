@@ -1,0 +1,23 @@
+h3 (#RangeInputBuilder) {
+
+    a (href="#RangeInputBuilder") "RangeInputBuilder"
+    " extends "
+    extendLink "InputBuilder"
+
+}
+
+p html_encode("This element builder is used to create a control for entering a number whose exact value is not important. Displays as a range widget defaulting to the middle value. Used in conjunction min and max to define the range of acceptable values")
+details
+{
+
+    summary "Documentation"
+
+    import "templates/subclass_methods" {
+        name    "constructor"
+        args    "value?: string; id?: string"
+        returns "RangeInputBuilder<HTMLInputElement>"
+        usage   "new RangeInputBuilder();"
+        refs    "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range"
+    }
+
+}

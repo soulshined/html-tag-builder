@@ -1,0 +1,43 @@
+{
+  "name": "html-tag-builder",
+  "displayName": "HTML Tag Builder",
+  "version": "1.0.0",
+  "description": "Generate HTML tags and elements from a javascript object using builder patterns",
+  "main": "src/html-tag-builder.js",
+  "types": "src/html-tag-builder.d.ts",
+  "homepage": "https://soulshined.github.io/html-tag-builder",
+  "repository": {
+    "url": "https://github.com/soulshined/html-tag-builder"
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "@powershell .\\tests\\SpecRunner.html; .\\tests\\HeadlessSpecRunner.html",
+    "pretest": "npm run clean && npm run build",
+    "clean": "@powershell -Command Remove-Item ./src -Include *.js,*.js.map -Recurse"
+  },
+  "keywords": [
+    "html",
+    "helper",
+    "builder",
+    "attr",
+    "attributes",
+    "tag",
+    "create",
+    "template",
+    "url",
+    "src",
+    "href",
+    "helpers",
+    "generate",
+    "element",
+    "elements"
+  ],
+  "author": "David Freer <davidwfreer@pm.me> (https://davidfreer.me)",
+  "license": "MIT",
+  "engines": {
+    "node": ">=12.18.3"
+  },
+  "devDependencies": {
+    "@types/node": "^15.6.1"
+  }
+}

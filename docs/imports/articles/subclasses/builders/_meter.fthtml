@@ -1,0 +1,72 @@
+h3 (#MeterBuilder) { a (href="#MeterBuilder") "MeterBuilder" }
+
+p html_encode("This element builder is used to create an element that represents either a scalar value within a known range or a fractional value")
+
+details
+{
+
+    summary "Documentation"
+
+    import "templates/subclass_methods" {
+        name    "constructor"
+        args    "id?: string"
+        returns "MeterBuilder<HTMLMeterElement>"
+        usage   "new MeterBuilder();"
+        refs    "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meter"
+    }
+
+    import "templates/subclass_methods" {
+        name        "min"
+        args        "value: number"
+        returns     "MeterBuilder<HTMLMeterElement>"
+        usage       "new MeterBuilder().min(5);"
+        description "The lower numeric bound of the measured range. This must be less than the maximum value (max attribute), if specified. If unspecified, the minimum value is 0"
+    }
+
+    import "templates/subclass_methods" {
+        name        "max"
+        args        "value: number"
+        returns     "MeterBuilder<HTMLMeterElement>"
+        usage       "new MeterBuilder().max(10);"
+        description "The upper numeric bound of the measured range. This must be greater than the minimum value (min attribute), if specified. If unspecified, the maximum value is 1"
+    }
+
+    import "templates/subclass_methods" {
+        name    "minmax"
+        args    "min: number; max: number"
+        returns "MeterBuilder<HTMLMeterElement>"
+        usage   "new MeterBuilder().minmax(5, 10);"
+    }
+
+    import "templates/subclass_methods" {
+        name        "low"
+        args        "value: number"
+        returns     "MeterBuilder<HTMLMeterElement>"
+        usage       "new MeterBuilder().low(5);"
+        description "The upper numeric bound of the low end of the measured range. This must be greater than the minimum value (min attribute), and it also must be less than the high value and maximum value (high attribute and max attribute, respectively), if any are specified. If unspecified, or if less than the minimum value, the low value is equal to the minimum value"
+    }
+
+    import "templates/subclass_methods" {
+        name    "high"
+        args    "value: number"
+        returns "MeterBuilder<HTMLMeterElement>"
+        usage   "new MeterBuilder().high(10);"
+    }
+
+    import "templates/subclass_methods" {
+        name        "lowhigh"
+        args        "low: number; high: number"
+        returns     "MeterBuilder<HTMLMeterElement>"
+        usage       "new MeterBuilder().lowhigh(5, 10);"
+        description "The lower numeric bound of the high end of the measured range. This must be less than the maximum value (max attribute), and it also must be greater than the low value and minimum value (low attribute and min attribute, respectively), if any are specified. If unspecified, or if greater than the maximum value, the high value is equal to the maximum value"
+    }
+
+    import "templates/subclass_methods" {
+        name        "optimum"
+        args        "value: number"
+        returns     "MeterBuilder<HTMLMeterElement>"
+        usage       "new MeterBuilder().optimum(10);"
+        description "This attribute indicates the optimal numeric value. It must be within the range (as defined by the min attribute and max attribute). When used with the low attribute and high attribute, it gives an indication where along the range is considered preferable. For example, if it is between the min attribute and the low attribute, then the lower range is considered preferred. The browser may color the meter's bar differently depending on whether the value is less than or equal to the optimum value"
+    }
+
+}

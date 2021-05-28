@@ -1,0 +1,63 @@
+h3 (#AnchorBuilder) { a (href="#AnchorBuilder") "AnchorBuilder" }
+
+p html_encode("This element builder is used to create a hyperlink to web pages, files, email addresses, locations in the same page, or anything else a URL can address")
+details
+{
+
+    summary "Documentation"
+
+    import "templates/subclass_methods" {
+        name    "constructor"
+        args    "href: string; target?: '_self' | '_blank' | '_parent' | '_top' = 'self'; id?: string"
+        returns "AnchorBuilder<HTMLAnchorElement>"
+        refs    "
+            https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a
+        "
+
+        usage   "new AnchorBuilder('www.example.com');"
+    }
+
+    import "templates/subclass_methods" {
+        name        "hreflang"
+        args        "lang: string"
+        returns     "AnchorBuilder<HTMLAnchorElement>"
+        refs        "
+            https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-hreflang
+        "
+
+        description "Hints at the human language of the linked URL. No built-in functionality"
+        usage       "new AnchorBuilder('www.example.com').hreflang('en');"
+    }
+
+    import "templates/subclass_methods" {
+        name        "mimeType"
+        args        "value: string"
+        returns     "AnchorBuilder<HTMLAnchorElement>"
+        refs        "
+            https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-type
+        "
+
+        description "Hints at the linked URL’s format with a MIME type"
+        usage       "new AnchorBuilder('www.example.com').mimeType('image/png');"
+    }
+
+    import "templates/subclass_methods" {
+        name        "ping"
+        args        "urls: string[]"
+        returns     "AnchorBuilder<HTMLAnchorElement>"
+        usage       "new AnchorBuilder('www.example.com').ping(['somelink.php', 'someotherlink.php']);"
+        description "A list of URLs. When the link is followed, the browser will send POST requests with the body PING to the URLs. Typically for tracking"
+    }
+
+    import "templates/subclass_methods" {
+        name        "rel"
+        args        "value: string"
+        returns     "AnchorBuilder<HTMLAnchorElement>"
+        description "The relationship of the linked URL as space-separated link types"
+        usage       "new AnchorBuilder('www.example.com').rel('noopener');"
+        refs        "
+            https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types
+        "
+    }
+
+}

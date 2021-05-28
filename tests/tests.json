@@ -1,0 +1,38 @@
+[
+    "tag-builder",
+    "tag-builder-options",
+
+    "subclasses/node/table",
+    "subclasses/node/script",
+    "subclasses/node/form",
+    "subclasses/node/template",
+
+    "subclasses/node/scalar/meter",
+    "subclasses/node/scalar/progress",
+
+    "subclasses/node/media/video",
+    "subclasses/node/media/picture",
+    "subclasses/node/media/iframe",
+    "subclasses/node/media/embed",
+    "subclasses/node/media/audio",
+
+    "subclasses/node/lists/ul-ol",
+    "subclasses/node/lists/select",
+    "subclasses/node/lists/details",
+    "subclasses/node/lists/description",
+    "subclasses/node/lists/datalist",
+
+    "subclasses/node/input/input",
+    "subclasses/node/input/text",
+    "subclasses/node/input/number",
+    "subclasses/node/input/img",
+    "subclasses/node/input/file",
+    "subclasses/node/input/date",
+    "subclasses/node/input/checkbox",
+
+    "subclasses/node/inline/span",
+    "subclasses/node/inline/area",
+    "subclasses/node/inline/anchor",
+
+    "subclasses/node/containers/figure"
+]

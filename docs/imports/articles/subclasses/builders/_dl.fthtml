@@ -1,0 +1,27 @@
+h3 (#DLBuilder) { a (href="#DLBuilder") "DLBuilder" }
+
+p html_encode("This element builder is used to create an element that represents a description list. The element encloses a list of groups of terms (specified using the <dt> element) and descriptions (provided by <dd> elements). Common uses for this element are to implement a glossary or to display metadata (a list of key-value pairs)")
+details
+{
+
+    summary "Documentation"
+
+    import "templates/subclass_methods" {
+        name        "constructor"
+        args        "wrapDtDdGroupsInDiv?: boolean; groupsDivClasses?: classes; id?: string"
+        returns     "DLBuilder<HTMLDListElement>"
+        usage       "new DLBuilder();"
+        description html_encode("Semantic HTML allows for premitted content to be one or more `<div>` elements if you don't want the `<dt>` and `<dd>` elements to be direct descendants")
+        refs        "
+            https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl#wrapping_name-value_groups_in_htmlelementdiv_elements
+        "
+    }
+
+    import "templates/subclass_methods" {
+        name    "addTerm"
+        args    "term: string; ...dd(string | TagBuilder<HTMLElement>)[]"
+        returns "DLBuilder<HTMLDListElement>"
+        usage   "new DLBuilder();"
+    }
+
+}

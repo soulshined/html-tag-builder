@@ -1,0 +1,48 @@
+h3 (#ListBuilder) { a (href="#ListBuilder") "ListBuilder" }
+
+p html_encode("This element builder is used to create an element with a list of items rendered in list format")
+details
+{
+
+    summary "Documentation"
+
+    import "templates/subclass_methods" {
+        name        "constructor"
+        args        "isOrdered?: boolean = false; style?: string; id?: string"
+        returns     "ListBuilder<HTMLULListElement>"
+        description {
+            p html_encode("Identify if the list should be ordered <ol></ol> or unordered")
+            P "The list-style of the given list"
+        }
+        usage       "new ListBuilder();"
+    }
+
+    import "templates/subclass_methods" {
+        name    "addItem"
+        args    "item: string | ListItemBuilder"
+        returns "ListBuilder<HTMLULListElement>"
+        usage   "new ListBuilder().addItem('cat')
+                 .addItem('dog')
+                 .addItem(new ListItemBuilder('horse'));"
+
+        refs    "#ListItemBuilder"
+    }
+
+    import "templates/subclass_methods" {
+        name    "addItems"
+        args    "items: (string | ListItemBuilder)[]"
+        returns "ListBuilder<HTMLULListElement>"
+        usage   "new ListBuilder().addItems('cat', 'dog', new ListItemBuilder('horse'));"
+        refs    "#ListItemBuilder"
+    }
+
+    import "templates/subclass_methods" {
+        name        "addSublist"
+        args        "listBuilder: ListBuilder"
+        description html_encode("Add's a sublist list `<ul>` or `<ol>` with proper HTML markup by automatically adding it to a `<li>`. This is semantic HTML as well as proper HTML markup")
+        returns     "ListBuilder<HTMLULListElement>"
+        usage       "new ListBuilder().addSublist(new ListBuilder().addItems(['cat', 'dog']));"
+        refs        "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul#nesting_a_list"
+    }
+
+}

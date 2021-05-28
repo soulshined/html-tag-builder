@@ -1,0 +1,134 @@
+h3 (#TextAreaBuilder) { a (href="#TextAreaBuilder") "TextAreaBuilder" }
+
+p html_encode("This element builder is used to create an element represents a multi-line plain-text editing control, useful when you want to allow users to enter a sizeable amount of free-form text, for example a comment on a review or feedback form")
+details
+{
+
+    summary "Documentation"
+
+    import "templates/subclass_methods" {
+        name    "constructor"
+        args    "rows?: number; cols?: number; id?: string"
+        returns "TextAreaBuilder<HTMLTextAreaElement>"
+        usage   "new TextAreaBuilder();"
+        refs    "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea"
+    }
+
+    import "templates/subclass_methods" {
+        name        "autocomplete"
+        args        "value: string"
+        returns     "TextAreaBuilder<HTMLTextAreaElement>"
+        description "Hint for form autofill feature"
+        usage       "new TextAreaBuilder().autocomplete('url');"
+        refs        "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdefautocomplete"
+    }
+
+    import "templates/subclass_methods" {
+        name        "autofocus"
+        args        ""
+        returns     "TextAreaBuilder<HTMLTextAreaElement>"
+        description "Automatically focus the form control when the page is loaded"
+        usage       "new TextAreaBuilder().autofocus();"
+        refs        "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-autofocus"
+    }
+
+    import "templates/subclass_methods" {
+        name        "disabled"
+        args        ""
+        returns     "TextAreaBuilder<HTMLTextAreaElement>"
+        description "Disables the control"
+        usage       "new TextAreaBuilder().disabled();"
+        refs        "
+            https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdefdisabled,
+            #DataListBuilder
+        "
+    }
+
+    import "templates/subclass_methods" {
+        name        "maxLength"
+        args        ""
+        returns     "TextAreaBuilder<HTMLTextAreaElement>"
+        description "The maximum number of characters (UTF-16 code units) required that the user should enter"
+        usage       "new TextAreaBuilder().maxLength(250);"
+    }
+
+    import "templates/subclass_methods" {
+        name        "minLength"
+        args        ""
+        returns     "TextAreaBuilder<HTMLTextAreaElement>"
+        description "The minimum number of characters (UTF-16 code units) required that the user should enter"
+        usage       "new TextAreaBuilder().minLength(1);"
+    }
+
+    import "templates/subclass_methods" {
+        name        "name"
+        args        "value: string"
+        returns     "TextAreaBuilder<HTMLTextAreaElement>"
+        description "Name of the form control. Submitted with the form as part of a name/value pair"
+        usage       "new TextAreaBuilder().name('email');"
+        refs        "
+            https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdefname
+        "
+    }
+
+    import "templates/subclass_methods" {
+        name        "onInvalid"
+        args        "value: string"
+        returns     "TextAreaBuilder<HTMLTextAreaElement>"
+        description "Text that will appear under on this form control when it is resolved to invalid. This set's the validity message"
+        usage       "new TextAreaBuilder().onInvalid('Oops. This input control must contain at least 1 upper and 1 lowercase character');"
+        refs        "
+            https://developer.mozilla.org/en-US/docs/Web/API/HTMLObjectElement/setCustomValidity
+        "
+    }
+
+    import "templates/subclass_methods" {
+        name        "placeholder"
+        args        "value: string"
+        returns     "TextAreaBuilder<HTMLTextAreaElement>"
+        description "Text that appears in the form control when it has no value set"
+        usage       "new TextAreaBuilder().placeholder('Enter value here');"
+        refs        "
+            https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdefplaceholder
+        "
+    }
+
+    import "templates/subclass_methods" {
+        name        "readonly"
+        args        ""
+        returns     "TextAreaBuilder<HTMLTextAreaElement>"
+        description "Specify that the control is readonly"
+        usage       "new TextAreaBuilder().readonly();"
+        refs        "
+            https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/readonly
+        "
+    }
+
+    import "templates/subclass_methods" {
+        name        "required"
+        args        ""
+        returns     "TextAreaBuilder<HTMLTextAreaElement>"
+        description "A value is required or must be check for the form to be submittable"
+        usage       "new TextAreaBuilder().required();"
+        refs        "
+            https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/required
+        "
+    }
+
+    import "templates/subclass_methods" {
+        name        "value"
+        args        "value: string"
+        returns     "TextAreaBuilder<HTMLTextAreaElement>"
+        description "value The initial value of the control"
+        usage       "new TextAreaBuilder().value('foobar');"
+    }
+
+    import "templates/subclass_methods" {
+        name        "wrap"
+        args        "value: 'hard' | 'soft'"
+        returns     "TextAreaBuilder<HTMLTextAreaElement>"
+        description "Indicates how the control wraps text"
+        usage       "new TextAreaBuilder().wrap('foobar');"
+    }
+
+}

@@ -1,0 +1,6 @@
+.dev
+.vscode
+tests/
+todo
+docs/
+fthtmlconfig.json

@@ -1,0 +1,37 @@
+[
+    "headless",
+
+    "subclasses/headless/template",
+    "subclasses/headless/table",
+    "subclasses/headless/script",
+    "subclasses/headless/form",
+
+    "subclasses/headless/scalar/meter",
+    "subclasses/headless/scalar/progress",
+
+    "subclasses/headless/media/audio",
+    "subclasses/headless/media/embed",
+    "subclasses/headless/media/iframe",
+    "subclasses/headless/media/picture",
+    "subclasses/headless/media/video",
+
+    "subclasses/headless/lists/datalist",
+    "subclasses/headless/lists/description",
+    "subclasses/headless/lists/details",
+    "subclasses/headless/lists/select",
+    "subclasses/headless/lists/ul-ol",
+
+    "subclasses/headless/input/checkbox",
+    "subclasses/headless/input/date",
+    "subclasses/headless/input/file",
+    "subclasses/headless/input/img",
+    "subclasses/headless/input/input",
+    "subclasses/headless/input/number",
+    "subclasses/headless/input/text",
+
+    "subclasses/headless/inline/anchor",
+    "subclasses/headless/inline/area",
+    "subclasses/headless/inline/span",
+
+    "subclasses/headless/containers/figure"
+]

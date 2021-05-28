@@ -1,0 +1,14 @@
+{
+    "rootDir": "./docs",
+    "exportDir": "./docs",
+    "importDir": "./docs/imports",
+    "jsonDir": "./.dev/json",
+    "prettify": true,
+    "extend": [
+        "https://api.davidfreer.me/fthtml/configs/fthtmlconfig.master.json"
+    ],
+    "keepTreeStructure": true,
+    "globalTinyTemplates": {
+        "extendLink": "<a href=\"#${val}\" target=\"_blank\" style=\"margin-left: 20px\">${val}</a>"
+    }
+}

@@ -1,0 +1,26 @@
+h3 (#DateTimeLocalInputBuilder) {
+
+    a (href="#DateTimeLocalInputBuilder") "DateTimeLocalInputBuilder"
+    " extends "
+    extendLink "DateInputBuilder"
+
+}
+
+p html_encode("This element builder is used to create a control for entering a date and time, with no time zone. Opens a date picker or numeric wheels for date- and time-components when active in supporting browsers")
+details
+{
+
+    summary "Documentation"
+
+    import "templates/subclass_methods" {
+        name    "constructor"
+        args    "value?: string; id?: string"
+        returns "DateTimeLocalInputBuilder<HTMLInputElement>"
+        refs    "
+            https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/datetime-local
+        "
+
+        usage   "new DateTimeLocalInputBuilder();"
+    }
+
+}

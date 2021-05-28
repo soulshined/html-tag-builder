@@ -1,0 +1,5 @@
+node_modules/
+.dev
+tsconfig.*.json
+todo
+!.vscode/local.code-snippets

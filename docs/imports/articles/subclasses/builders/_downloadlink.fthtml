@@ -1,0 +1,22 @@
+h3 (#DownloadLinkBuilder) {
+
+    a (href="#DownloadLinkBuilder") "DownloadLinkBuilder"
+    " extends "
+    extendLink "AnchorBuilder"
+
+}
+
+p html_encode("An extended class of AnchorBuilder that creates an `<a>` tag specifically meant to act as a clickable download link")
+details
+{
+
+    summary "Documentation"
+
+    import "templates/subclass_methods" {
+        name    "constructor"
+        args    "href: string; filename: string; id?: string"
+        returns "DownloadLinkBuilder<HTMLAnchorElement>"
+        usage   "new DownloadLinkBuilder('www.example.com/api/file.json', 'api_example.json');"
+    }
+
+}

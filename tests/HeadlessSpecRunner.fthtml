@@ -1,0 +1,33 @@
+doctype "html"
+
+#vars
+
+    tests json("&./headless-tests")
+
+#end
+
+html (lang=en) {
+
+    head
+    {
+        meta (charset=utf-8)
+        title 'HTML Tag Builder Tests'
+        link (href='https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.8.0/jasmine.min.css' rel=stylesheet)
+        script (src='https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.8.0/jasmine.min.js')
+        script (src='https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.8.0/jasmine-html.js')
+        script (src='https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.8.0/boot.min.js')
+        script (src="../src/html-tag-builder.js")
+        js {
+
+            TagBuilderOptions.mode = 'headless';
+
+        }
+        script (src="ALL_HTML_TAGS.js")
+        script (src="index.js")
+
+        each @tests {
+            script (src="${ @this | trim | lower }-spec.js")
+        }
+    }
+
+}

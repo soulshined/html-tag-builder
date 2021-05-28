@@ -1,0 +1,51 @@
+h3 (#IframeBuilder) { a (href="#IframeBuilder") "IframeBuilder" }
+
+p html_encode("This element builder is used to create a inline frame element (`<iframe>`) that represents a nested browsing context, embedding another HTML page into the current one")
+details
+{
+
+    summary "Documentation"
+
+    import "templates/subclass_methods" {
+        name        "constructor"
+        args        "src: string; id?: string"
+        returns     "IframeBuilder<HTMLIframeElement>"
+        usage       "new IframeBuilder('www.example.com/index.html');"
+        description html_encode("The URL of the page to embed. Use a value of `about:blank` to embed an empty page that conforms to the same-origin policy. Also note that programmatically removing an `<iframe>`'s src attribute (e.g. via Element.removeAttribute()) causes `about:blank` to be loaded in the frame in Firefox (from version 65), Chromium-based browsers, and Safari/iOS")
+        refs        "
+            https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe
+        "
+    }
+
+    import "templates/subclass_methods" {
+        name        "allow"
+        args        "value: string"
+        returns     "IframeBuilder<HTMLIframeElement>"
+        usage       "new IframeBuilder('www.example.com/index.html').allow('microphone fullscreen');"
+        description html_encode("Specifies a feature policy for the `<iframe>`. The policy defines what features are available to the `<iframe>` based on the origin of the request (e.g. access to the microphone, camera, battery, web-share API, etc.)")
+    }
+
+    import "templates/subclass_methods" {
+        name    "referrerPolicy"
+        args    "value: 'no-referrer' | 'no-referrer-when-downgrade' | 'origin' | 'origin-when-cross-origin' | 'same-origin' | 'strict-origin' | 'strict-origin-when-cross-origin' | 'unsafe-url'"
+        returns "IframeBuilder<HTMLIframeElement>"
+        usage   "new IframeBuilder('www.example.com/index.html').referrerPolicy('origin');"
+    }
+
+    import "templates/subclass_methods" {
+        name        "sandbox"
+        args        "value: 'allow-downloads' | 'allow-forms' | 'allow-modals' | 'allow-orientation-lock' | 'allow-pointer-lock' | 'allow-popups' | 'allow-popups-to-escape-sandbox' | 'allow-presentation' | 'allow-same-origin' | 'allow-scripts' | 'allow-top-navigation' | 'allow-top-navigation-by-user-activation' | string"
+        returns     "IframeBuilder<HTMLIframeElement>"
+        usage       "new IframeBuilder('www.example.com/index.html').sandbox('');"
+        description "Applies extra restrictions to the content in the frame. The value of the attribute can either be empty to apply all restrictions, or space-separated tokens to lift particular restrictions"
+    }
+
+    import "templates/subclass_methods" {
+        name        "srcdoc"
+        args        "value: string"
+        returns     "IframeBuilder<HTMLIframeElement>"
+        usage       "new IframeBuilder('www.example.com/index.html').srcdoc('<h1>Hello World</h1>');"
+        description "Inline HTML to embed, overriding the src attribute. If a browser does not support the srcdoc attribute, it will fall back to the URL in the src attribute"
+    }
+
+}

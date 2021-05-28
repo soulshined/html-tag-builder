@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+        "target": "ES2019",
+        "sourceMap": false,
+        "preserveConstEnums": true,
+        "removeComments": true,
+        "outFile": "./src/html-tag-builder.js"
+    },
+    "include": [
+        "./src/**/*"
+    ]
+}

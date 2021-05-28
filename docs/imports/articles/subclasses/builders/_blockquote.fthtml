@@ -1,0 +1,21 @@
+h3 (#BlockquoteBuilder) { a (href="#BlockquoteBuilder") "BlockquoteBuilder" }
+
+p html_encode("This element builder is used to create an element that indicates the enclosed text is an extended quotation. Usually, this is rendered visually by indentation. A URL for the source of the quotation may be given using the cite attribute, while a text representation of the source can be given using the `<cite>` element")
+details
+{
+
+    summary "Documentation"
+
+    import "templates/subclass_methods" {
+        name        "constructor"
+        args        "cite?: string; id?: string"
+        returns     "BlockquoteBuilder<HTMLQuoteElement>"
+        refs        "
+            https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote
+        "
+
+        description html_encode("This element builder is used to create an element that indicates the enclosed text is an extended quotation. Usually, this is rendered visually by indentation. A URL for the source of the quotation may be given using the cite attribute, while a text representation of the source can be given using the `<cite>` element")
+        usage       "new BlockquoteBuilder('https://www.huxley.net/bnw/four.html');"
+    }
+
+}

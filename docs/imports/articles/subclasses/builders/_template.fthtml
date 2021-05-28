@@ -1,0 +1,39 @@
+h3 (#TemplateBuilder) { a (href="#TemplateBuilder") "TemplateBuilder" }
+
+p html_encode("This element builder is used to create a mechanism for holding HTML that is not to be rendered immediately when a page is loaded but may be instantiated subsequently during runtime using JavaScript")
+
+p html_encode("Think of a template as a content fragment that is being stored for subsequent use in the document. While the parser does process the contents of the <template> element while loading the page, it does so only to ensure that those contents are valid; the element's contents are not rendered, however")
+details
+{
+
+    summary "Documentation"
+
+    import "templates/subclass_methods" {
+        name    "constructor"
+        args    "id: string"
+        returns "TemplateBuilder<HTMLInputElement>"
+        usage   "new TemplateBuilder();"
+        refs    "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template"
+    }
+
+    import "templates/subclass_methods" {
+        name    "addStylesToRoot"
+        args    "cssText: string"
+        returns "TemplateBuilder<HTMLInputElement>"
+        usage   "new TemplateBuilder().addStylesToRoot(`div {
+    background-color: red;
+}
+a, a::before {
+    content : \"#\";
+}`);"
+    }
+
+    import "templates/subclass_methods" {
+        name    "addSlots"
+        args    "...slot: SlotBuilder[]"
+        returns "TemplateBuilder<HTMLInputElement>"
+        usage   "new TemplateBuilder().addSlots(new SlotBuilder('description', 'foobar'));"
+        refs    "#SlotBuilder"
+    }
+
+}

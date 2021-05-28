@@ -1,0 +1,18 @@
+h3 (#SlotBuilder) { a (href="#SlotBuilder") "SlotBuilder" }
+
+p html_encode("This element builder is used to create an element - part of the Web Components technology suite - that is a placeholder inside a web component that you can fill with your own markup, which lets you create separate DOM trees and present them together")
+
+details
+{
+
+    summary "Documentation"
+
+    import "templates/subclass_methods" {
+        name    "constructor"
+        args    "name: string; content: html | TagBuilder<HTMLElement>; id?: string"
+        returns "SlotBuilder<HTMLSlotElement>"
+        usage   "new SlotBuilder('todo', '<ul><li>Do x</li><li>Do y</li></ul>);"
+        refs    "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/slot"
+    }
+
+}

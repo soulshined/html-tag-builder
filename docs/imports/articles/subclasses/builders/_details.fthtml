@@ -1,0 +1,20 @@
+h3 (#DetailsBuilder) { a (href="#DetailsBuilder") "DetailsBuilder" }
+
+p html_encode("This element builder is used to create a disclosure widget in which information is visible only when the widget is toggled into an \"open\" state. A summary or label must be provided using the `<summary>` element")
+details
+{
+
+    summary "Documentation"
+
+    import "templates/subclass_methods" {
+        name    "constructor"
+        args    "summary?: string; open?: boolean; id?: string"
+        returns "DetailsBuilder<HTMLDetailsElement>"
+        refs    "
+            https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details
+        "
+
+        usage   "new DetailsBuilder();"
+    }
+
+}

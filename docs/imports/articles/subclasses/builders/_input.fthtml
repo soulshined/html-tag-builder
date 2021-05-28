@@ -1,0 +1,119 @@
+h3 (#InputBuilder) { a (href="#InputBuilder") "InputBuilder" }
+
+p html_encode("This element builder is used to create interactive controls for web-based forms in order to accept data from the user; a wide variety of types of input data and control widgets are available, depending on the device and user agent")
+details
+{
+
+    summary "Documentation"
+
+    import "templates/subclass_methods" {
+        name        "constructor"
+        args        "type?: string = 'text'; id?: string"
+        returns     "InputBuilder<HTMLInputElement>"
+        description "Provide input type (i.e., text, sumbit, button, email etc)"
+        usage       "new InputBuilder();"
+    }
+
+    import "templates/subclass_methods" {
+        name        "autocomplete"
+        args        "value: string"
+        returns     "InputBuilder<HTMLInputElement>"
+        description "Hint for form autofill feature"
+        usage       "new InputBuilder().autocomplete('url');"
+        refs        "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdefautocomplete"
+    }
+
+    import "templates/subclass_methods" {
+        name        "autofocus"
+        args        ""
+        returns     "InputBuilder<HTMLInputElement>"
+        description "Automatically focus the form control when the page is loaded"
+        usage       "new InputBuilder().autofocus();"
+        refs        "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-autofocus"
+    }
+
+    import "templates/subclass_methods" {
+        name        "datalist"
+        args        "id: string"
+        returns     "InputBuilder<HTMLInputElement>"
+        description html_encode("The value given should be the id of a `<datalist>` element located in the same document which provides predefined values to suggest to the user for this input")
+        usage       "new InputBuilder().datalist('myDataList');"
+        refs        "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Input#htmlattrdeflist"
+    }
+
+    import "templates/subclass_methods" {
+        name        "disabled"
+        args        ""
+        returns     "InputBuilder<HTMLInputElement>"
+        description "Disables the control"
+        usage       "new InputBuilder().disabled();"
+        refs        "
+            https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdefdisabled,
+            #DataListBuilder
+        "
+    }
+
+    import "templates/subclass_methods" {
+        name        "name"
+        args        "value: string"
+        returns     "InputBuilder<HTMLInputElement>"
+        description "Name of the form control. Submitted with the form as part of a name/value pair"
+        usage       "new InputBuilder().name('email');"
+        refs        "
+            https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdefname
+        "
+    }
+
+    import "templates/subclass_methods" {
+        name        "onInvalid"
+        args        "value: string"
+        returns     "InputBuilder<HTMLInputElement>"
+        description "Text that will appear under on this form control when it is resolved to invalid. This set's the validity message"
+        usage       "new InputBuilder().onInvalid('Oops. This input control must contain at least 1 upper and 1 lowercase character');"
+        refs        "
+            https://developer.mozilla.org/en-US/docs/Web/API/HTMLObjectElement/setCustomValidity
+        "
+    }
+
+    import "templates/subclass_methods" {
+        name        "placeholder"
+        args        "value: string"
+        returns     "InputBuilder<HTMLInputElement>"
+        description "Text that appears in the form control when it has no value set"
+        usage       "new InputBuilder().placeholder('Enter value here');"
+        refs        "
+            https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdefplaceholder
+        "
+    }
+
+    import "templates/subclass_methods" {
+        name        "readonly"
+        args        ""
+        returns     "InputBuilder<HTMLInputElement>"
+        description "Specify that the control is readonly"
+        usage       "new InputBuilder().readonly();"
+        refs        "
+            https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/readonly
+        "
+    }
+
+    import "templates/subclass_methods" {
+        name        "required"
+        args        ""
+        returns     "InputBuilder<HTMLInputElement>"
+        description "A value is required or must be check for the form to be submittable"
+        usage       "new InputBuilder().required();"
+        refs        "
+            https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/required
+        "
+    }
+
+    import "templates/subclass_methods" {
+        name        "value"
+        args        "value: string"
+        returns     "InputBuilder<HTMLInputElement>"
+        description "value The initial value of the control"
+        usage       "new InputBuilder().value('foobar');"
+    }
+
+}

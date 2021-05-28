@@ -1,0 +1,29 @@
+h3 (#EmailInputBuilder) {
+
+    a (href="#EmailInputBuilder") "EmailInputBuilder"
+    " extends "
+    extendLink "TextInputBuilder"
+
+}
+
+p html_encode("This element builder is used to create a field for editing an email address. Looks like a text input, but has validation parameters and relevant keyboard in supporting browsers and devices with dynamic keyboards")
+details
+{
+
+    summary "Documentation"
+
+    import "templates/subclass_methods" {
+        name    "constructor"
+        args    "id?: string"
+        returns "EmailInputBuilder<HTMLInputElement>"
+        usage   "new EmailInputBuilder();"
+    }
+
+    import "templates/subclass_methods" {
+        name    "multiple"
+        args    ""
+        returns "EmailInputBuilder<HTMLInputElement>"
+        usage   "new EmailInputBuilder().multiple();"
+    }
+
+}

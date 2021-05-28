@@ -1,0 +1,22 @@
+h3 (#DownloadAreaBuilder) {
+
+    a (href="#DownloadAreaBuilder") "DownloadAreaBuilder"
+    " extends "
+    extendLink "AreaBuilder"
+
+}
+
+p html_encode("An extended class of AreaBuilder that creates an `<area>` tag specifically meant to act as a clickable download link")
+details
+{
+
+    summary "Documentation"
+
+    import "templates/subclass_methods" {
+        name    "constructor"
+        args    "filename: string; coords: string; shape?: 'rect' | 'circle' | 'poly' | 'default'; id?: string"
+        returns "DownloadAreaBuilder<HTMLAreaElement>"
+        usage   "new DownloadAreaBuilder('mydownloadfilename.png', '130,160,60');"
+    }
+
+}

@@ -1,0 +1,46 @@
+h3 (#NumberInputBuilder) {
+
+    a (href="#NumberInputBuilder") "NumberInputBuilder"
+    " extends "
+    extendLink "InputBuilder"
+
+}
+
+p html_encode("This element builder is used to create a control for entering a number. Displays a spinner and adds default validation when supported. Displays a numeric keypad in some devices with dynamic keypads")
+details
+{
+
+    summary "Documentation"
+    import "templates/subclass_methods" {
+        name    "constructor"
+        args    "value?: string; id?: string"
+        returns "NumberInputBuilder<HTMLInputElement>"
+        usage   "new NumberInputBuilder();"
+        refs    "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/month"
+    }
+
+    import "templates/subclass_methods" {
+        name        "min"
+        args        "value: string"
+        returns     "NumberInputBuilder<HTMLInputElement>"
+        usage       "new NumberInputBuilder().min('2.222222222');"
+        description "The minimum value to accept for this control"
+    }
+
+    import "templates/subclass_methods" {
+        name        "max"
+        args        "value: string"
+        returns     "NumberInputBuilder<HTMLInputElement>"
+        usage       "new NumberInputBuilder().max('10.235');"
+        description "The maximum value to accept for this control"
+    }
+
+    import "templates/subclass_methods" {
+        name        "step"
+        args        "interval: string"
+        returns     "NumberInputBuilder<HTMLInputElement>"
+        usage       "new NumberInputBuilder().step('10');"
+        description "A stepping interval to use when using up and down arrows to adjust the value, as well as for validation"
+    }
+
+}

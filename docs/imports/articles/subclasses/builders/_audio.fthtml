@@ -1,0 +1,82 @@
+h3 (#AudioBuilder) { a (href="#AudioBuilder") "AudioBuilder" }
+
+p html_encode("This element builder is used to create embed sound content in documents. It may contain one or more audio sources, represented using the src attribute or the <source> element: the browser will choose the most suitable one. It can also be the destination for streamed media, using a MediaStream")
+details
+{
+
+    summary "Documentation"
+
+    import "templates/subclass_methods" {
+        name    "constructor"
+        args    "src: string; id?: string"
+        returns "AudioBuilder<HTMLAudioElement>"
+        refs    "
+            https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio
+        "
+
+        usage   "new AudioBuilder('www.example.com/audio.mp3');"
+    }
+
+    import "templates/subclass_methods" {
+        name        "addFallbackSrc"
+        args        "src: string; type: string"
+        returns     "AudioBuilder<HTMLAudioElement>"
+        description {
+            p "Add a source for browsers that don't support main src"
+            p html_encode("Provide url and mimetype of url content")
+        }
+        usage       "new AudioBuilder('www.example.com/audio.mp3').addFallbackSrc('www.example.com/audio.wma', 'audio/mwa');"
+    }
+
+    import "templates/subclass_methods" {
+        name        "loop"
+        args        ""
+        returns     "AudioBuilder<HTMLAudioElement>"
+        description "The audio player will automatically seek back to the start upon reaching the end of the audio"
+        usage       "new AudioBuilder('www.example.com/audio.mp3').loop();"
+    }
+
+    import "templates/subclass_methods" {
+        name        "muted"
+        args        ""
+        returns     "AudioBuilder<HTMLAudioElement>"
+        description "Mutes the element"
+        usage       "new AudioBuilder('www.example.com/audio.mp3').muted();"
+    }
+
+    import "templates/subclass_methods" {
+        name        "noControls"
+        args        ""
+        returns     "AudioBuilder<HTMLAudioElement>"
+        description "Indicates that the browser will not offer controls to allow the user to control audio playback, including volume, seeking, and pause/resume playback"
+        usage       "new AudioBuilder('www.example.com/audio.mp3').noControls();"
+    }
+
+    import "templates/subclass_methods" {
+        name        "onNotSupported"
+        args        "html: string"
+        returns     "AudioBuilder<HTMLAudioElement>"
+        description "HTML or text to be displayed for browsers that do not support this element"
+        usage       "new AudioBuilder('www.example.com/audio.mp3').onNotSupported('<div>Not supported in this browser</div>');"
+    }
+
+    import "templates/subclass_methods" {
+        name        "preload"
+        args        "value: 'none' | 'metadata' | 'auto' = 'auto'"
+        returns     "AudioBuilder<HTMLAudioElement>"
+        description "Provide a hint to the browser about what the author thinks will lead to the best user experience"
+        usage       "new AudioBuilder('www.example.com/audio.mp3').preload('auto');"
+        refs        "
+            https://developer.mozilla.org/en-US/docs/Web/HTML/Element/track
+        "
+    }
+
+    import "templates/subclass_methods" {
+        name        "track"
+        args        "src: string; kind: 'subtitles' | 'captions' | 'descriptions' | 'chapters' | 'metadata'; isDefault?: boolean; srclang?: string; label?: string"
+        returns     "AudioBuilder<HTMLAudioElement>"
+        description "Specify timed text tracks (or time-based data), for example to automatically handle subtitles. The tracks are formatted in WebVTT format (.vtt files) — Web Video Text Tracks"
+        usage       "new AudioBuilder('www.example.com/audio.mp3').track('/media/examples/source.vtt', 'captions', true, 'en');"
+    }
+
+}

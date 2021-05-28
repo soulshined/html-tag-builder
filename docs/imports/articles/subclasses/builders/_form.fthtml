@@ -1,0 +1,61 @@
+h3 (#FormBuilder) { a (href="#FormBuilder") "FormBuilder" }
+
+p html_encode("This element builder is used to create a document section containing interactive controls for submitting information")
+
+details
+{
+
+    summary "Documentation"
+
+    import "templates/subclass_methods" {
+        name    "constructor"
+        args    "actionUrl: string; method?: string; id?: string"
+        returns "FormBuilder<HTMLFormElement>"
+        usage   "new FormBuilder('submit.php', 'post');"
+        refs    "
+            https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form
+        "
+    }
+
+    import "templates/subclass_methods" {
+        name    "acceptCharset"
+        args    "...value: string[]"
+        returns "FormBuilder<HTMLFormElement>"
+        usage   "new FormBuilder('submit.php', 'post').acceptCharset(['utf-8']);"
+    }
+
+    import "templates/subclass_methods" {
+        name    "enctype"
+        args    "value: 'application/x-www-form-urlencoded' | 'multipart/form-data' | 'text/plain'"
+        returns "FormBuilder<HTMLFormElement>"
+        usage   "new FormBuilder('submit.php', 'post').acceptCharset(['utf-8']);"
+    }
+
+    import "templates/subclass_methods" {
+        name        "rel"
+        args        "value: string"
+        returns     "FormBuilder<HTMLFormElement>"
+        description "The relationship of the linked URL as space-separated link types"
+        usage       "new FormBuilder('submit.php', 'post').rel('noopener');"
+        refs        "
+            https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types
+        "
+    }
+
+    import "templates/subclass_methods" {
+        name        "target"
+        args        "value: '_self' | '_blank' | '_parent' | '_top'"
+        returns     "FormBuilder<HTMLFormElement>"
+        description "Indicates where to display the response after submitting the form"
+        usage       "new FormBuilder('submit.php', 'post').target('_self');"
+    }
+
+    import "templates/subclass_methods" {
+        name        "noValidate"
+        args        ""
+        returns     "FormBuilder<HTMLFormElement>"
+        description "Indicates that the form shouldn't be validated when submitted"
+        usage       "new FormBuilder('submit.php', 'post').noValidate();"
+    }
+
+}

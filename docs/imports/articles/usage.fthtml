@@ -1,0 +1,96 @@
+section (#usage) {
+
+    h2 "Usage"
+    article
+    {
+        h3 (#usage-node) "Node"
+
+        pre
+        {
+            code "> npm install html-tag-builder"
+        }
+
+        pre
+        {
+            code html_encode("const { TagBuilder } = require('html-tag-builder');
+
+const div = new TagBuilder('div').innerHTML('Hello World')
+                                 .contentEditable()
+                                 .caret('red')
+                                 .style({ 'font-size': '2rem' });
+console.log(div.build());")
+        }
+
+        p
+        {
+            "Depending on your node environment, you may not want, or have, browser based DOM logic, so you can alternatively use html-tag-builder in "
+            a (href="#TagBuilderOptions.mode") "headless mode"
+        }
+    } // end of article
+
+    article
+    {
+        h3 (#usage-ts-single) "Typescript Single File"
+        p "In circumstances where you are using typescript to generate single-file-compiled scripts, there are many ways to add the index.d.ts file for type checking."
+        p "One way is to just install it with npm and then reference it:"
+        pre
+        {
+            code html_encode('/// <reference path="./node_modules/html-tag-builder/src/html-tag-builder.ts" />')
+        }
+        p "Then just include the files in your tsconfig:"
+        pre
+        {
+            code '"compilerOptions": {
+    "outFile": "src/index.js"
+},
+"include": [
+    "./src/**/*",
+    "./node_modules/html-tag-builder/src/**/*"
+]'
+        }
+    } // end of article
+
+    article
+    {
+        h3 (#usage-jsdelivr) "jsDelivr"
+
+        pre
+        {
+            code html_encode("<html>
+   <head>
+        <script src=\"https://cdn.jsdelivr.net/npm/html-tag-builder/src/html-tag-builder.min.js\"></script>
+   </head>
+   <body>
+
+        <script>
+            const h1 = new TagBuilder('h1').innerHTML('Hello World').build();
+            document.body.appendChild(h1);
+        </script>
+   </body>
+</html>")
+        }
+    } // end of article
+    article
+    {
+        h3 (#usage-local-js) "Local js file"
+
+        p "You can simply just import the html-tag-builder.js file into your local project"
+
+        pre
+        {
+            code html_encode("<html>
+   <head>
+        <script src=\"/js/html-tag-builder.js\"></script>
+   </head>
+   <body>
+
+        <script>
+            const h1 = new TagBuilder('h1').innerHTML('Hello World').build();
+            document.body.appendChild(h1);
+        </script>
+   </body>
+</html>")
+        }
+    } // end of article
+
+}

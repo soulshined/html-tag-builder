@@ -1,0 +1,84 @@
+h3 (#ScriptBuilder) { a (href="#ScriptBuilder") "ScriptBuilder" }
+
+p html_encode("This element builder is used to create an element that is used to embed executable code or data; this is typically used to embed or refer to JavaScript code")
+
+details
+{
+
+    summary "Documentation"
+
+    import "templates/subclass_methods" {
+        name    "constructor"
+        args    "id?: string"
+        returns "ScriptBuilder<HTMLScriptElement>"
+        usage   "new ScriptBuilder();"
+        refs    "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script"
+    }
+
+    import "templates/subclass_methods" {
+        name    "async"
+        args    ""
+        returns "ScriptBuilder<HTMLScriptElement>"
+        usage   "new ScriptBuilder().async();"
+    }
+
+    import "templates/subclass_methods" {
+        name    "crossOrigin"
+        args    "value: 'anonymous' | 'use-credentials' | ''"
+        returns "ScriptBuilder<HTMLScriptElement>"
+        usage   "new ScriptBuilder().async();"
+    }
+
+    import "templates/subclass_methods" {
+        name    "defer"
+        args    ""
+        returns "ScriptBuilder<HTMLScriptElement>"
+        usage   "new ScriptBuilder().defer();"
+    }
+
+    import "templates/subclass_methods" {
+        name        "integrity"
+        args        "value: string"
+        returns     "ScriptBuilder<HTMLScriptElement>"
+        usage       "new ScriptBuilder().integrity('sha384-oqVuAfXRKap7fdgcCY5uykM6+R9GqQ8K/uxy9rx7HNQlGYl1kPzQho1wx4JwY8wC');"
+        description "This attribute contains inline metadata that a user agent can use to verify that a fetched resource has been delivered free of unexpected manipulation"
+    }
+
+    import "templates/subclass_methods" {
+        name        "noModule"
+        args        ""
+        returns     "ScriptBuilder<HTMLScriptElement>"
+        usage       "new ScriptBuilder().noModule();"
+        description "Indicate that the script should not be executed in browsers that support ES2015 modules — in effect, this can be used to serve fallback scripts to older browsers that do not support modular JavaScript code"
+    }
+
+    import "templates/subclass_methods" {
+        name        "nonce"
+        args        "value: string"
+        returns     "ScriptBuilder<HTMLScriptElement>"
+        usage       "new ScriptBuilder().nonce('12350987123092');"
+        description "A cryptographic nonce (number used once) to whitelist scripts in a script-src Content-Security-Policy. The server must generate a unique nonce value each time it transmits a policy. It is critical to provide a nonce that cannot be guessed as bypassing a resource's policy is otherwise trivial"
+    }
+
+    import "templates/subclass_methods" {
+        name    "referrerPolicy"
+        args    "value: 'no-referrer' | 'no-referrer-when-downgrade' | 'origin' | 'origin-when-cross-origin' | 'same-origin' | 'strict-origin' | 'strict-origin-when-cross-origin' | 'unsafe-url'"
+        returns "ScriptBuilder<HTMLScriptElement>"
+        usage   "new ScriptBuilder().referrerPolicy('origin');"
+    }
+
+    import "templates/subclass_methods" {
+        name    "src"
+        args    "value: string"
+        returns "ScriptBuilder<HTMLScriptElement>"
+        usage   "new ScriptBuilder().src('/js/master.js');"
+    }
+
+    import "templates/subclass_methods" {
+        name    "type"
+        args    "value: 'module' | string"
+        returns "ScriptBuilder<HTMLScriptElement>"
+        usage   "new ScriptBuilder().type('module');"
+    }
+
+}

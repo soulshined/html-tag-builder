@@ -1,0 +1,23 @@
+h3 (#UrlInputBuilder) {
+
+    a (href="#UrlInputBuilder") "UrlInputBuilder"
+    " extends "
+    extendLink "TextInputBuilder"
+
+}
+
+p html_encode("This element builder is used to create a field for entering a URL. Looks like a text input, but has validation parameters and relevant keyboard in supporting browsers and devices with dynamic keyboards")
+details
+{
+
+    summary "Documentation"
+
+    import "templates/subclass_methods" {
+        name    "constructor"
+        args    "id?: string"
+        returns "UrlInputBuilder<HTMLInputElement>"
+        usage   "new UrlInputBuilder();"
+        refs    "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/url"
+    }
+
+}

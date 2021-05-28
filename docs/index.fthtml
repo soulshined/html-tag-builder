@@ -1,0 +1,46 @@
+doctype "html"
+html (lang=en) {
+
+    head
+    {
+        meta (charset=utf-8)
+        title "HTML Tag Builder"
+        meta (content="IE=edge" http-equiv=X-UA-Compatible)
+        meta (content="width=device-width, initial-scale=1" name=viewport)
+        link (href="./css/main.min.css" media=screen rel=stylesheet type="text/css")
+        script (src='https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@15.0.0/dist/smooth-scroll.polyfills.min.js')
+    }
+    body
+    {
+        import "header"
+        import "sidebar"
+        main
+        {
+            h1 'API'
+            import "main"
+        }
+        import "footer"
+
+        import "to-top-btns"
+        js {
+
+            const scroll = new SmoothScroll('a[href*="#"]', {
+                durationMax: 1000
+            });
+
+            // region TOP BTNS
+            const topBtn = document.getElementById('scroll-to-top-btn');
+            topBtn.onclick = () => scroll.animateScroll(0);
+            const totopsdiv = document.getElementById('to-tops');
+            window.onscroll = (() => {
+                if (window.pageYOffset > 200) {
+                    totopsdiv.style.display = 'flex';
+                }
+                else totopsdiv.style.display = 'none';
+
+            });
+
+        }
+    }
+
+}

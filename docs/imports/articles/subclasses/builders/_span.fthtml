@@ -1,0 +1,66 @@
+h3 (#SpanBuilder) { a (href="#SpanBuilder") "SpanBuilder" }
+
+p html_encode("This element builder is used to create a generic inline container for phrasing content, which does not inherently represent anything. It can be used to group elements for styling purposes (using the class or id attributes), or because they share attribute values, such as lang. It should be used only when no other semantic element is appropriate. `<span>` is very much like a <div> element, but `<div>` is a block-level element whereas a `<span>` is an inline element")
+details
+{
+
+    summary "Documentation"
+
+    import "templates/subclass_methods" {
+        name    "constructor"
+        args    "style?: ('bold' | 'bolder' | 'lighter' | 'italic' | 'underline' | 'strikethrough')[], id?: string"
+        returns "SpanBuilder<HTMLSpanElement>"
+        usage   "new SpanBuilder(['bold', 'italic', 'underline']);"
+        refs    "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/span"
+    }
+
+    import "templates/subclass_methods" {
+        name    "bold"
+        args    ""
+        returns "SpanBuilder<HTMLSpanElement>"
+        usage   "new SpanBuilder().bold();"
+    }
+
+    import "templates/subclass_methods" {
+        name    "bolder"
+        args    ""
+        returns "SpanBuilder<HTMLSpanElement>"
+        usage   "new SpanBuilder().bolder();"
+    }
+
+    import "templates/subclass_methods" {
+        name    "italic"
+        args    ""
+        returns "SpanBuilder<HTMLSpanElement>"
+        usage   "new SpanBuilder().italic();"
+    }
+
+    import "templates/subclass_methods" {
+        name    "lighter"
+        args    ""
+        returns "SpanBuilder<HTMLSpanElement>"
+        usage   "new SpanBuilder().lighter();"
+    }
+
+    import "templates/subclass_methods" {
+        name    "underline"
+        args    ""
+        returns "SpanBuilder<HTMLSpanElement>"
+        usage   "new SpanBuilder().underline();"
+    }
+
+    import "templates/subclass_methods" {
+        name    "strikethrough"
+        args    ""
+        returns "SpanBuilder<HTMLSpanElement>"
+        usage   "new SpanBuilder().strikethrough();"
+    }
+
+    import "templates/subclass_methods" {
+        name    "color"
+        args    "value: string"
+        returns "SpanBuilder<HTMLSpanElement>"
+        usage   "new SpanBuilder().color('red');"
+    }
+
+}

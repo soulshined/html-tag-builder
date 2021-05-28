@@ -1,0 +1,23 @@
+h3 (#RadioInputBuilder) {
+
+    a (href="#RadioInputBuilder") "RadioInputBuilder"
+    " extends "
+    extendLink "InputBuilder"
+
+}
+
+p html_encode("A radio button, allowing a single value to be selected out of multiple choices with the same name value")
+details
+{
+
+    summary "Documentation"
+
+    import "templates/subclass_methods" {
+        name    "constructor"
+        args    "checked?: boolean = false; id?: string"
+        returns "RadioInputBuilder<HTMLInputElement>"
+        usage   "new RadioInputBuilder();"
+        refs    "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/radio"
+    }
+
+}

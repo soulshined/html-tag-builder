@@ -1,0 +1,36 @@
+h3 (#DataListBuilder) { a (href="#DataListBuilder") "DataListBuilder" }
+
+p html_encode("This element builder is used to create an element that contains a set of `<option>` elements that represent the permissible or recommended options available to choose from within other controls")
+details
+{
+
+    summary "Documentation"
+
+    import "templates/subclass_methods" {
+        name        "constructor"
+        args        "id: string"
+        returns     "DataListBuilder<HTMLDataListElement>"
+        refs        "
+            https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist
+        "
+
+        description "id is required"
+        usage       "new DataListBuilder();"
+    }
+
+    import "templates/subclass_methods" {
+        name        "addOption"
+        args        "content: string; value: string; classes?: string[]"
+        returns     "DataListBuilder<HTMLDataListElement>"
+        description html_encode('Add an `<option>` element to the datalist')
+        usage       "new DataListBuilder().addOption('pick this option', 'option1');"
+    }
+
+    import "templates/subclass_methods" {
+        name    "addOptions"
+        args    "...option: (html | OptionBuilder)[]"
+        returns "DataListBuilder<HTMLDataListElement>"
+        usage   "new DataListBuilder().addOptions('pick this option', new OptionBuilder('option 2'));"
+    }
+
+}

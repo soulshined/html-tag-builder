@@ -1,0 +1,78 @@
+section (#options) {
+
+    h2 "Options"
+
+    p "All options are static setters"
+
+    import "templates/setter" {
+        name        "scriptAsync"
+        args        "v: boolean = true"
+        usage       "TagBuilderOptions.scriptAsync = true;"
+        description html_encode("This flag will automatically set the `aysnc` value of any `<script>` elements when created via `ScriptBuilder`")
+    }
+
+    import "templates/setter" {
+        name        "useOptionContentForEmptyOptionValue"
+        args        "v: boolean = true"
+        usage       "TagBuilderOptions.useOptionContentForEmptyOptionValue = true;"
+        description {
+            p "When creating options via the `OptionBuilder`, this flag will automatically create values for the `value` attribute based on the content given"
+            p "The value created will always be lowercase"
+
+            p "For example:"
+            pre
+            {
+                code "new OptionBuilder('Monday').build();"
+            }
+            p "Will create:"
+            pre
+            {
+                code html_encode("<option value=\"monday\">Monday</option>")
+            }
+
+            p "It handles content with spaces as well:"
+            pre
+            {
+                code "new OptionBuilder('Last Friday of the Month').build();"
+            }
+            p "Will create:"
+            pre
+            {
+                code html_encode("<option value=\"last-friday-of-the-month\">Last Friday of the Month</option>")
+            }
+        }
+    } // end of import
+
+    import "templates/setter" {
+        name  "defaultInputType"
+        args  "v: string = 'text'"
+        usage "TagBuilderOptions.defaultInputType = 'email';"
+    }
+
+    import "templates/setter" {
+        name        "mode"
+        args        "v: 'headless' | 'document' = 'document'"
+        description {
+            p "Sets the builder pattern mode type"
+            p
+            {
+                code "headless"
+                " mode allows you to use `html-tag-builder` without any `document` or `window` based browser logic. This mode will only return strings and requires you to use the `buildHTML()` builder method"
+            }
+            p
+            {
+                code "document"
+                " mode uses `document` and `window` based logic to create document elements using `document.createElement()`. This mode returns HTMLElements which give you the ability to interact with the element's native properties, events and values and allows for accessing that element via the `build()` builder method"
+            }
+        }
+        usage       "TagBuilderOptions.mode = 'headless';
+const tag = new TagBuilder('div').innerHTML('foobar').buildHTML();
+console.log(tag); // <div>foobar</div>
+
+TagBuilderOptions.mode = 'document';
+const tag = new TagBuilder('div').innerHTML('foobar').build();
+console.log(tag); // HTMLElement
+"
+    }
+
+}

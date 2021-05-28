@@ -1,0 +1,70 @@
+h3
+{
+
+    #if len("${ args | trim }") gt 0
+        #vars
+            args substring(join(str_split(replace("${ args }" ":.*?(;|$)" ";") ";") ", ") 0 -2)
+        #end
+
+        span { "${ name }( ${ @args } )" }
+    #else
+        span "${ name }()"
+    #end
+
+} // end of h3
+
+#if len("${ returns | trim }") gt 0
+
+    p
+    {
+        "Returns: "
+        code html_encode("${ returns }")
+    }
+
+#end
+
+p "${ description? }"
+
+ul
+{
+
+    #if len("${ args | trim }") gt 0
+        li
+        {
+            p "Arguments"
+            ul
+            {
+                each str_split("${ args }" ";") {
+                    li (.arg) {
+                        code @this
+                    }
+                }
+            }
+        }
+    #end
+
+    #if len("${ usage? | trim  }") gt 0
+        li
+        {
+            p "Usage"
+            pre
+            {
+                code html_encode("${ usage }")
+            }
+        }
+    #end
+
+    #if len("${ refs? }") gt 0
+
+        li
+        {
+            span "See also: "
+            ul (.list-inline .refs) {
+                each str_split("${ refs }" ",") {
+                    li { a (.nounderline href=@this target=_blank) replace(@this ".*/" "MDN ") }
+                }
+            }
+        }
+    #end
+
+}

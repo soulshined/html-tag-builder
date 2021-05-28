@@ -1,0 +1,125 @@
+h3 (#SelectBuilder) { a (href="#SelectBuilder") "SelectBuilder" }
+
+p html_encode("This element builder is used to create an element that represents a control that provides a menu of options")
+details
+{
+
+    summary "Documentation"
+
+    import "templates/subclass_methods" {
+        name        "constructor"
+        args        "instructionMessage?: string; id?: string"
+        returns     "SelectBuilder<HTMLSelectElement>"
+        usage       "new SelectBuilder();"
+        description "Instruction message, if provided, will be the first option in the element that is usually used as a placeholder. It is automatically given an attribute `value` of `\"\"` and disabled for selection"
+        refs        "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select"
+    }
+
+    import "templates/subclass_methods" {
+        name        "addOptionGroup"
+        args        "label: string; ...option: OptionBuilder[]"
+        returns     "SelectBuilder<HTMLSelectElement>"
+        usage       "new SelectBuilder().addOptionGroup('Types of Pets', new OptionBuilder('cat'), new OptionsBuilder('dog'));"
+        description html_encode("Create an `<optgroup>` container with provided options")
+        refs        "#OptionBuilder"
+    }
+
+    import "templates/subclass_methods" {
+        name    "addOption"
+        args    "content: string; value: string; classes: string[]"
+        returns "SelectBuilder<HTMLSelectElement>"
+        usage   "new SelectBuilder().addOption('Big cat', 'cat');"
+    }
+
+    import "templates/subclass_methods" {
+        name    "addOptions"
+        args    "options: (string | OptionBuilder)[]"
+        returns "SelectBuilder<HTMLSelectElement>"
+        usage   "new SelectBuilder().addOptions('dog', new OptionBuilder('Big cat', 'cat'));"
+        refs    "#OptionBuilder"
+    }
+
+    import "templates/subclass_methods" {
+        name        "autocomplete"
+        args        "value: string"
+        returns     "SelectBuilder<HTMLSelectElement>"
+        description "Hint for form autofill feature"
+        usage       "new SelectBuilder().autocomplete('url');"
+        refs        "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdefautocomplete"
+    }
+
+    import "templates/subclass_methods" {
+        name        "autofocus"
+        args        ""
+        returns     "SelectBuilder<HTMLSelectElement>"
+        description "Automatically focus the form control when the page is loaded"
+        usage       "new SelectBuilder().autofocus();"
+        refs        "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-autofocus"
+    }
+
+    import "templates/subclass_methods" {
+        name        "disabled"
+        args        ""
+        returns     "SelectBuilder<HTMLSelectElement>"
+        description "Disables the control"
+        usage       "new SelectBuilder().disabled();"
+        refs        "
+            https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdefdisabled,
+            #DataListBuilder
+        "
+    }
+
+    import "templates/subclass_methods" {
+        name        "multiple"
+        args        ""
+        returns     "SelectBuilder<HTMLSelectElement>"
+        description "Indicates that multiple options can be selected in the list"
+        usage       "new SelectBuilder().multiple();"
+        refs        "
+            https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdefdisabled,
+            #DataListBuilder
+        "
+    }
+
+    import "templates/subclass_methods" {
+        name        "name"
+        args        "value: string"
+        returns     "SelectBuilder<HTMLSelectElement>"
+        description "Name of the form control. Submitted with the form as part of a name/value pair"
+        usage       "new SelectBuilder().name('email');"
+        refs        "
+            https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdefname
+        "
+    }
+
+    import "templates/subclass_methods" {
+        name        "onInvalid"
+        args        "value: string"
+        returns     "SelectBuilder<HTMLSelectElement>"
+        description "Text that will appear under on this form control when it is resolved to invalid. This set's the validity message"
+        usage       "new SelectBuilder().onInvalid('Oops. This input control must contain at least 1 upper and 1 lowercase character');"
+        refs        "
+            https://developer.mozilla.org/en-US/docs/Web/API/HTMLObjectElement/setCustomValidity
+        "
+    }
+
+    import "templates/subclass_methods" {
+        name        "required"
+        args        ""
+        returns     "SelectBuilder<HTMLSelectElement>"
+        description "A value is required or must be check for the form to be submittable"
+        usage       "new SelectBuilder().required();"
+        refs        "
+            https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/required
+        "
+    }
+
+    import "templates/subclass_methods" {
+        name        "size"
+        args        "value: number"
+        returns     "SelectBuilder<HTMLSelectElement>"
+        description "If the control is presented as a scrolling list box (multiple) this attribute indicates how many rows should be displayed at a time"
+        usage       "new SelectBuilder().size(10);"
+    }
+
+}

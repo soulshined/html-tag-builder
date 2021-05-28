@@ -1,0 +1,17 @@
+#vars
+
+    sections str_split("
+        usage,
+        options,
+        methods/methods
+    " ",")
+
+#end
+
+each @sections {
+
+    import "articles/${ @this | trim | lower }"
+
+}
+
+import "articles/subclasses/main"

@@ -1,0 +1,30 @@
+h3 (#PictureBuilder) { a (href="#PictureBuilder") "PictureBuilder" }
+
+p html_encode("This element builder is used to create a `<picture>` element that contains zero or more `<source>` elements and one `<img>` element to offer alternative versions of an image for different display/device scenarios")
+
+p html_encode("The browser will consider each child `<source>` element and choose the best match among them. If no matches are found—or the browser doesn't support the `<picture>` element—the URL of the `<img>` element's src attribute is selected. The selected image is then presented in the space occupied by the `<img>` element")
+details
+{
+
+    summary "Documentation"
+    import "templates/subclass_methods" {
+        name    "constructor"
+        args    "imgBuilder: ImageBuilder; id?: string"
+        returns "PictureBuilder<HTMLPictureElement>"
+        usage   "new PictureBuilder();"
+        refs    "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/picture, #ImageBuilder"
+    }
+
+    import "templates/subclass_methods" {
+        name        "source"
+        args        "...source: SourceBuilder[]"
+        returns     "PictureBuilder<HTMLPictureElement>"
+        usage       "new PictureBuilder().source(new SourceBuilder('/myimage.png', 'image/png'));"
+        description html_encode("Add an alternate source (`<source>`) tag via SourceBuilders")
+        refs        "
+            https://developer.mozilla.org/en-US/docs/Web/HTML/Element/picture,
+            #SourceBuilder
+        "
+    }
+
+}

@@ -1,0 +1,24 @@
+{
+    "New Tag" : {
+        "prefix" : "tag",
+        "scope" : "ts, typescript",
+        "body" : [
+            "class $1Builder extends TagBuilder<${2:HTMLDetailsElement}> {",
+            "\tconstructor($3id?: string) {",
+            "\t\tsuper('$4', id);",
+            "\t}",
+            "}"
+        ]
+    },
+    "it-equals" : {
+        "prefix": "it",
+        "scope": "javascript",
+        "body": [
+            "it('should $1', function() {",
+            "\tconst ${2:ul} = createDocElement('${2:ul}');",
+            "\t$0",
+            "\tnew BuilderTest(new TagBuilder('${2:ul}')$3).toEqualNode(${2:ul});",
+            "})"
+        ]
+    }
+}
