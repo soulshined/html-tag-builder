@@ -1,0 +1,22 @@
+[
+    "append",
+    "attr",
+    "bounds",
+    "build",
+    "buildHTML",
+    "classes",
+    "clone",
+    "height",
+    "innerHTML",
+    "insertAdjacent",
+    "margin",
+    "on",
+    "origin",
+    "padding",
+    "position",
+    "prepend",
+    "slot",
+    "style",
+    "tabindex",
+    "width"
+]

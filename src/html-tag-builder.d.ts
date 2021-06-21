@@ -6,6 +6,171 @@ declare module "html-tag-builder" {
     export type referrerPolicy = 'no-referrer' | 'no-referrer-when-downgrade' | 'origin' | 'origin-when-cross-origin' | 'same-origin' | 'strict-origin' | 'strict-origin-when-cross-origin' | 'unsafe-url';
     export type crossOrigin = 'anonymous' | 'use-credentials' | '';
 
+    export abstract class AbstractTagBuilder<T extends HTMLElement | SVGElement> {
+        /**
+         * @param tagName Name of element
+         * @param id of element
+         * @param xmlns namespace to use, if one is provided it will use document.createElementNS, otherwise it defaults to browser default
+         */
+        constructor(tagName: string, id?: string, xmlns?: string);
+        //region attributes
+        /**
+         *
+         * @param key the target attribute key
+         * @param value the value of the attribute. This value will always be cast to a string
+         */
+        attr(key: string, value: any): AbstractTagBuilder<T>;
+        /**
+         * Assigns a slot in a shadow DOM shadow tree to an element: An element with a slot attribute is assigned to the slot created by the <slot> element whose name attribute's value matches that slot attribute's value.
+         * @param value
+         * @see [https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/slot](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/slot)
+         */
+        slot(value: string): AbstractTagBuilder<T>;
+        /**
+         * An integer attribute indicating if the element can take input focus (is focusable), if it should participate to sequential keyboard navigation, and if so, at what position. It can take several values:
+         * - a negative value means that the element should be focusable, but should not be reachable via sequential keyboard navigation
+         * - 0 means that the element should be focusable and reachable via sequential keyboard navigation, but its relative order is defined by the platform convention
+         * - a positive value means that the element should be focusable and reachable via sequential keyboard navigation; the order in which the elements are focused is the increasing value of the tabindex. If several elements share the same tabindex, their relative order follows their relative positions in the document.
+         * @see [https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/tabindex](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/tabindex)
+         */
+        tabindex(index: number): AbstractTagBuilder<T>;
+        //endregion attrs
+
+        //region relationships
+        /**
+         * Inserts a set of Node objects or DOMString objects after the last child of the Element. DOMString objects are inserted as equivalent Text nodes.
+         * @see [https://developer.mozilla.org/en-US/docs/Web/API/Element/append](https://developer.mozilla.org/en-US/docs/Web/API/Element/append)
+         */
+        append(...child: (html | AbstractTagBuilder<HTMLElement | SVGElement>)[]): AbstractTagBuilder<T>;
+        /**
+         * Inserts a set of Node objects or DOMString objects before the first child of the Element. DOMString objects are inserted as equivalent Text nodes.
+         * @see [https://developer.mozilla.org/en-US/docs/Web/API/Element/prepend](https://developer.mozilla.org/en-US/docs/Web/API/Element/prepend)
+         */
+        prepend(...child: (html | AbstractTagBuilder<HTMLElement | SVGElement>)[]): AbstractTagBuilder<T>;
+        /**
+         * This is only guaranteed to work in `headless` mode
+         * @param sibling element to insert
+         * @param [default = 'after'] placement place before preceding element begins or after it ends
+         */
+        insertAdjacent(sibling: AbstractTagBuilder<HTMLElement | SVGElement>, placement: 'after' | 'before'): AbstractTagBuilder<T>;
+        //endregion relationships
+
+        //region content
+        /**
+         * Sets the HTML or XML markup contained within the element
+         * @param html A DOMString containing the HTML serialization of the element's descendants. Setting the value of innerHTML removes all of the element's descendants and replaces them with nodes constructed by parsing the HTML given in the string html.
+         *
+         * Note; this does not append HTML, it sets the HTMl, to append elements/html use `.append()`
+         * @see [https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML](https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML)
+         */
+        innerHTML(html: html): AbstractTagBuilder<T>;
+        //endregion content
+
+        //styling
+
+        public abstract bounds(width: string | number, height: string | number): AbstractTagBuilder<T>;
+        /**
+         * Add classes to the element
+         * @param aClass one class name per index
+         */
+        classes(...aClass: classes): AbstractTagBuilder<T>;
+
+        public abstract height(height: string | number): AbstractTagBuilder<T>;
+        /**
+         * @param cssShorthand css short-hand equivalent rest params
+         * - 1 value  : apply to all sides
+         * - 2 values : apply to vertical | horizontal
+         * - 3 values : apply to top | horizontal | bottom
+         * - 4 values : apply to top right bottom left
+         * - greater than 4 or 0 values will be ignored
+         * @see [https://developer.mozilla.org/en-US/docs/Web/CSS/margin](https://developer.mozilla.org/en-US/docs/Web/CSS/margin)
+         */
+        margin(...cssShorthand: string[]): AbstractTagBuilder<T>;
+        /**
+         * If the values are null or undefined they will be ignored
+         * @param top value and unit (for example 100px or 1em or 100% etc)
+         * @param right value and unit (for example 100px or 1em or 100% etc)
+         * @param bottom value and unit (for example 100px or 1em or 100% etc)
+         * @param left value and unit (for example 100px or 1em or 100% etc)
+         */
+        origin(top?: string, right?: string, bottom?: string, left?: string): AbstractTagBuilder<T>;
+        /**
+         * @param cssShorthand css short-hand equivalent rest param
+         * - 1 value  : apply to all sides
+         * - 2 values : apply to vertical | horizontal
+         * - 3 values : apply to top | horizontal | bottom
+         * - 4 values : apply to top right bottom left
+         * - greater than 4 or 0 values will be ignored
+         * @see [https://developer.mozilla.org/en-US/docs/Web/CSS/padding](https://developer.mozilla.org/en-US/docs/Web/CSS/padding)
+         */
+        padding(...cssShorthand: string[]): AbstractTagBuilder<T>;
+        /**
+         * @param value sets how an element is positioned in a document. The top, right, bottom, and left properties determine the final location of positioned elements.
+         * - relative : The element is positioned according to the normal flow of the document, and then offset relative to itself based on the values of top, right, bottom, and left. The offset does not affect the position of any other elements; thus, the space given for the element in the page layout is the same as if position were static
+         * - absolute : The element is removed from the normal document flow, and no space is created for the element in the page layout. It is positioned relative to its closest positioned ancestor, if any; otherwise, it is placed relative to the initial containing block. Its final position is determined by the values of top, right, bottom, and left
+         * - static [default] : The element is positioned according to the normal flow of the document. The top, right, bottom, left, and z-index properties have no effect
+         * - fixed : The element is removed from the normal document flow, and no space is created for the element in the page layout. It is positioned relative to the initial containing block established by the viewport, except when one of its ancestors has a transform, perspective, or filter property set to something other than none, in which case that ancestor behaves as the containing block. (Note that there are browser inconsistencies with perspective and filter contributing to containing block formation.) Its final position is determined by the values of top, right, bottom, and left.
+         * - sticky : The element is positioned according to the normal flow of the document, and then offset relative to its nearest scrolling ancestor and containing block (nearest block-level ancestor), including table-related elements, based on the values of top, right, bottom, and left. The offset does not affect the position of any other elements
+         * @see [https://developer.mozilla.org/en-US/docs/Web/CSS/position](https://developer.mozilla.org/en-US/docs/Web/CSS/position)
+         */
+        position(value: 'relative' | 'absolute' | 'static' | 'fixed' | 'sticky'): AbstractTagBuilder<T>;
+        /**
+         * @param obj CSS property-value pairs. Each property/value pair you provide is validated against using the users agents native [window.CSS.supports()](https://developer.mozilla.org/en-US/docs/Web/API/CSS/supports) method. Anything that is not supported will be ignored
+         *
+         * For example:
+         * ```js
+         * builder.style({
+         *      'padding-left': '20px',
+         *      'border-top-left-radius': '2.5em'
+         * })
+         * ```
+         * Notice how the example demonstrates the names of the css properties are not the javascript camelcase variants, they are the css property names as-is
+         */
+        style(obj: { [key: string]: string | number | boolean }): AbstractTagBuilder<T>;
+
+        public abstract width(width: string | number): AbstractTagBuilder<T>;
+        //styling
+
+        //region events
+
+        /**
+         * Sets up a function that will be called whenever the specified event is delivered to the target
+         * @param event A case-sensitive string representing the [event type](https://developer.mozilla.org/en-US/docs/Web/Events) to listen for
+         * @param listener The object that receives a notification (an object that implements the Event interface) when an event of the specified type occurs [the event listener callback](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#the_event_listener_callback)
+         * @param options An options object specifies characteristics about the event listener
+         * - capture : A Boolean indicating that events of this type will be dispatched to the registered listener before being dispatched to any EventTarget beneath it in the DOM tree
+         * - once : A Boolean indicating that the listener should be invoked at most once after being added. If true, the listener would be automatically removed when invoked
+         * - passive : A Boolean that, if true, indicates that the function specified by listener will never call preventDefault(). If a passive listener does call preventDefault(), the user agent will do nothing other than generate a console warning
+         * - signal : An AbortSignal. The listener will be removed when the given AbortSignal’s abort() method is called
+         * @see [https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener)
+         */
+        on(event: keyof GlobalEventHandlersEventMap, listener: (this: T, ev: Event) => any, options?: boolean | AddEventListenerOptions): AbstractTagBuilder<T>;
+        //endregion events
+
+        //region model
+
+        public abstract clone(): AbstractTagBuilder<T>;
+        /**
+         * @return The node the current builder manages as an HTMLElement
+         */
+        build(): T;
+        /**
+         * This is the required build method when in `headless` mode.
+         * @return HTML string of element
+         */
+        buildHTML(): html;
+        /**
+         * Returns the HTML tag name of the element.
+         * @returns uppercase tag name
+         */
+        public get tagName(): string;
+        /**
+         * @returns id of element, if exists
+         */
+        public get tagId(): string | null;
+
+    }
+
     export class TagBuilderOptions {
         /**
          * This flag will automatically set the `aysnc` value of any `<script>` elements
@@ -54,7 +219,7 @@ declare module "html-tag-builder" {
      * new TagBuilder('div', 'myDiv').classes('aClass', 'bClass', 'cClass').build()
      * ```
      */
-    export class TagBuilder<T extends HTMLElement> {
+    export class TagBuilder<T extends HTMLElement> extends AbstractTagBuilder<T> {
         /**
          * @param tagName name of html tag
          * @param id for tag
@@ -67,12 +232,6 @@ declare module "html-tag-builder" {
          * @see [https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/accesskey](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/accesskey)
          */
         accessKey(value: string): TagBuilder<T>;
-        /**
-         *
-         * @param key the target attribute key
-         * @param value the value of the attribute. This value will always be cast to a string
-         */
-        attr(key: string, value: any): TagBuilder<T>;
         /**
          * Provides a hint to browsers as to the type of virtual keyboard configuration to use when editing this element or its contents. Used primarily on `<input>` elements, but is usable on any element while in contenteditable mode.
          * @param value [default 'text']
@@ -103,53 +262,15 @@ declare module "html-tag-builder" {
          */
         hidden(): TagBuilder<T>;
         /**
-         * Assigns a slot in a shadow DOM shadow tree to an element: An element with a slot attribute is assigned to the slot created by the <slot> element whose name attribute's value matches that slot attribute's value.
-         * @param value
-         * @see [https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/slot](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/slot)
-         */
-        slot(value: string): TagBuilder<T>;
-        /**
          * Coerce the element to be checked for spelling errors
          * @see [https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/spellcheck](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/spellcheck)
          */
         spellcheck(): TagBuilder<T>;
         /**
-         * An integer attribute indicating if the element can take input focus (is focusable), if it should participate to sequential keyboard navigation, and if so, at what position. It can take several values:
-         * - a negative value means that the element should be focusable, but should not be reachable via sequential keyboard navigation
-         * - 0 means that the element should be focusable and reachable via sequential keyboard navigation, but its relative order is defined by the platform convention
-         * - a positive value means that the element should be focusable and reachable via sequential keyboard navigation; the order in which the elements are focused is the increasing value of the tabindex. If several elements share the same tabindex, their relative order follows their relative positions in the document.
-         * @see [https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/tabindex](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/tabindex)
-         */
-        tabindex(index: number): TagBuilder<T>;
-        /**
          * Sets the text representing advisory information related to the element it belongs to. Such information can typically, but not necessarily, be presented to the user as a tooltip.
          * @see [https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/title](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/title)
          */
         title(title: string): TagBuilder<T>;
-        /**
-         * Inserts a set of Node objects or DOMString objects after the last child of the Element. DOMString objects are inserted as equivalent Text nodes.
-         * @see [https://developer.mozilla.org/en-US/docs/Web/API/Element/append](https://developer.mozilla.org/en-US/docs/Web/API/Element/append)
-         */
-        append(...child: (html | TagBuilder<HTMLElement>)[]): TagBuilder<T>;
-        /**
-         * Inserts a set of Node objects or DOMString objects before the first child of the Element. DOMString objects are inserted as equivalent Text nodes.
-         * @see [https://developer.mozilla.org/en-US/docs/Web/API/Element/prepend](https://developer.mozilla.org/en-US/docs/Web/API/Element/prepend)
-         */
-        prepend(...child: (html | TagBuilder<HTMLElement>)[]): TagBuilder<T>;
-        /**
-         * This is only guaranteed to work in `headless` mode
-         * @param sibling element to insert
-         * @param [default = 'after'] placement place before preceding element begins or after it ends
-         */
-        insertAdjacent(sibling: TagBuilder<HTMLElement>, placement: 'after' | 'before'): TagBuilder<T>;
-        /**
-         * Sets the HTML or XML markup contained within the element
-         * @param html A DOMString containing the HTML serialization of the element's descendants. Setting the value of innerHTML removes all of the element's descendants and replaces them with nodes constructed by parsing the HTML given in the string html.
-         *
-         * Note; this does not append HTML, it sets the HTMl, to append elements/html use `.append()`
-         * @see [https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML](https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML)
-         */
-        innerHTML(html: html): TagBuilder<T>;
         /**
          * Represents the "rendered" text content of a node and its descendants.
          * `innerText` is easily confused with Node.textContent, but there are important differences between the two. Basically, `innerText` is aware of the rendered appearance of text, while `textContent` is not.
@@ -168,78 +289,11 @@ declare module "html-tag-builder" {
          */
         autocapitalize(value: 'off' | 'on' | 'none' | 'sentences' | 'words' | 'characters'): TagBuilder<T>;
         /**
-         * Set the width and height css properties of the element
-         * @param width value and unit (for example 100px or 100% or 1em)
-         * @param height value and unit (for example 100px or 100% or 1em)
-         */
-        bounds(width: string, height: string): TagBuilder<T>;
-        /**
          * Set the css caret-color property of the element
          * @param color color name or value
          * @see [https://developer.mozilla.org/en-US/docs/Web/CSS/caret-color](https://developer.mozilla.org/en-US/docs/Web/CSS/caret-color)
          */
         caret(color: string): TagBuilder<T>;
-        /**
-         * Add classes to the element
-         * @param classes one class name per index
-         */
-        classes(...aClass: classes): TagBuilder<T>;
-        /**
-         * Set the height of the element
-         * @param height value and unit (for example 100px or 1em)
-         */
-        height(height: string): TagBuilder<T>;
-        /**
-         * @param cssShorthand css short-hand equivalent rest params
-         * - 1 value  : apply to all sides
-         * - 2 values : apply to vertical | horizontal
-         * - 3 values : apply to top | horizontal | bottom
-         * - 4 values : apply to top right bottom left
-         * - greater than 4 or 0 values will be ignored
-         * @see [https://developer.mozilla.org/en-US/docs/Web/CSS/margin](https://developer.mozilla.org/en-US/docs/Web/CSS/margin)
-         */
-        margin(...cssShorthand: string[]): TagBuilder<T>;
-        /**
-         * If the values are null or undefined they will be ignored
-         * @param top value and unit (for example 100px or 1em or 100% etc)
-         * @param right value and unit (for example 100px or 1em or 100% etc)
-         * @param bottom value and unit (for example 100px or 1em or 100% etc)
-         * @param left value and unit (for example 100px or 1em or 100% etc)
-         */
-        origin(top?: string, right?: string, bottom?: string, left?: string): TagBuilder<T>;
-        /**
-         * @param cssShorthand css short-hand equivalent rest param
-         * - 1 value  : apply to all sides
-         * - 2 values : apply to vertical | horizontal
-         * - 3 values : apply to top | horizontal | bottom
-         * - 4 values : apply to top right bottom left
-         * - greater than 4 or 0 values will be ignored
-         * @see [https://developer.mozilla.org/en-US/docs/Web/CSS/padding](https://developer.mozilla.org/en-US/docs/Web/CSS/padding)
-         */
-        padding(...cssShorthand: string[]): TagBuilder<T>;
-        /**
-         * @param value sets how an element is positioned in a document. The top, right, bottom, and left properties determine the final location of positioned elements.
-         * - relative : The element is positioned according to the normal flow of the document, and then offset relative to itself based on the values of top, right, bottom, and left. The offset does not affect the position of any other elements; thus, the space given for the element in the page layout is the same as if position were static
-         * - absolute : The element is removed from the normal document flow, and no space is created for the element in the page layout. It is positioned relative to its closest positioned ancestor, if any; otherwise, it is placed relative to the initial containing block. Its final position is determined by the values of top, right, bottom, and left
-         * - static [default] : The element is positioned according to the normal flow of the document. The top, right, bottom, left, and z-index properties have no effect
-         * - fixed : The element is removed from the normal document flow, and no space is created for the element in the page layout. It is positioned relative to the initial containing block established by the viewport, except when one of its ancestors has a transform, perspective, or filter property set to something other than none, in which case that ancestor behaves as the containing block. (Note that there are browser inconsistencies with perspective and filter contributing to containing block formation.) Its final position is determined by the values of top, right, bottom, and left.
-         * - sticky : The element is positioned according to the normal flow of the document, and then offset relative to its nearest scrolling ancestor and containing block (nearest block-level ancestor), including table-related elements, based on the values of top, right, bottom, and left. The offset does not affect the position of any other elements
-         * @see [https://developer.mozilla.org/en-US/docs/Web/CSS/position](https://developer.mozilla.org/en-US/docs/Web/CSS/position)
-         */
-        position(value: 'relative' | 'absolute' | 'static' | 'fixed' | 'sticky'): TagBuilder<T>;
-        /**
-         * @param obj CSS property-value pairs. Each property/value pair you provide is validated against using the users agents native [window.CSS.supports()](https://developer.mozilla.org/en-US/docs/Web/API/CSS/supports) method. Anything that is not supported will be ignored
-         *
-         * For example:
-         * ```js
-         * builder.style({
-         *      'padding-left': '20px',
-         *      'border-top-left-radius': '2.5em'
-         * })
-         * ```
-         * Notice how the example demonstrates the names of the css properties are not the javascript camelcase variants, they are the css property names as-is
-         */
-        style(obj: { [key: string]: string | number | boolean }): TagBuilder<T>;
         /**
          *
          * @param transform text to a specfic case
@@ -262,11 +316,6 @@ declare module "html-tag-builder" {
          */
         visibility(value: 'visible' | 'hidden' | 'collapse'): TagBuilder<T>;
         /**
-         * Set the width of the element
-         * @param width value and unit (for example 100px or 1em)
-         */
-        width(width: string): TagBuilder<T>;
-        /**
          * Set the element to specifically be for screen readers only using the [WCAG Standards](https://www.w3.org/WAI/tutorials/forms/labels/#note-on-hiding-elements)
          *
          * This will automatically add the following styles inline to the element:
@@ -285,34 +334,6 @@ declare module "html-tag-builder" {
          */
         screenReaderOnly(): TagBuilder<T>;
 
-        //events
-        /**
-         * Sets up a function that will be called whenever the specified event is delivered to the target
-         * @param event A case-sensitive string representing the [event type](https://developer.mozilla.org/en-US/docs/Web/Events) to listen for
-         * @param listener The object that receives a notification (an object that implements the Event interface) when an event of the specified type occurs [the event listener callback](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#the_event_listener_callback)
-         * @param options An options object specifies characteristics about the event listener
-         * - capture : A Boolean indicating that events of this type will be dispatched to the registered listener before being dispatched to any EventTarget beneath it in the DOM tree
-         * - once : A Boolean indicating that the listener should be invoked at most once after being added. If true, the listener would be automatically removed when invoked
-         * - passive : A Boolean that, if true, indicates that the function specified by listener will never call preventDefault(). If a passive listener does call preventDefault(), the user agent will do nothing other than generate a console warning
-         * - signal : An AbortSignal. The listener will be removed when the given AbortSignal’s abort() method is called
-         * @see [https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener)
-         */
-        on(event: keyof GlobalEventHandlersEventMap, listener: (this: HTMLElement, ev: Event) => any, options?: boolean | AddEventListenerOptions): TagBuilder<T>;
-
-        /**
-         * Clone the current tag builder. This deep clones the node it respectively manages
-         * Note: this uses the same HTMLElement.cloneNode() method native to browsers, therefor, things like id's and individual configurations for a given node will be duplicated as-is
-         */
-        clone(): TagBuilder<T>;
-        /**
-         * @return The node the current builder manages as an HTMLElement
-         */
-        build(): T;
-        /**
-         * This is the required build method when in `headless` mode.
-         * @return HTML string of element
-         */
-        buildHTML(): html;
         /**
          * Parse an html string of HTML elements and cast that element to a TagBuilder
          *
@@ -325,15 +346,29 @@ declare module "html-tag-builder" {
          * @return null if no HTMLElement.nodeType(1) found
          */
         static parse(html: html): TagBuilder<HTMLElement>[];
+
+        //abstract
         /**
-         * Returns the HTML tag name of the element.
-         * @returns uppercase tag name
+         * Set the width of the element
+         * @param width value and unit (for example 100px or 1em or 25)
          */
-        public get tagName(): string;
+        width(width: string): TagBuilder<T>;
         /**
-         * @returns id of element, if exists
+         * Set the width and height of the element
+         * @param width value and unit (for example 100px or 100% or 1em or 25)
+         * @param height value and unit (for example 100px or 100% or 1em or 25)
          */
-        public get tagId(): string | null;
+        public bounds(width: string, height: string): TagBuilder<T>;
+        /**
+         * Set the height of the element
+         * @param height value and unit (for example 100px or 1em or 25)
+         */
+        public height(height: string): TagBuilder<T>;
+        /**
+         * Clone the current tag builder. This deep clones the node it respectively manages
+         * Note: this uses the same HTMLElement.cloneNode() method native to browsers, therefor, things like id's and individual configurations for a given node will be duplicated as-is
+         */
+        public clone(): TagBuilder<T>;
     }
 
     /**
@@ -823,7 +858,7 @@ declare module "html-tag-builder" {
          * Disables the control
          * @see [https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdefdisabled](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdefdisabled)
          */
-        disabled() : TextAreaBuilder;
+        disabled(): TextAreaBuilder;
         /**
          * @param value The maximum number of characters (UTF-16 code units) that the user can enter. If this value isn't specified, the user can enter an unlimited number of characters
          */
@@ -1516,7 +1551,7 @@ declare module "html-tag-builder" {
          *
          * @param row Set rows of the element
          */
-        setRows(...row: html[]): TableBuilder;
+        setRows(...row: html[][]): TableBuilder;
     }
 
     /**
@@ -1548,5 +1583,108 @@ declare module "html-tag-builder" {
          */
         addStylesToRoot(cssText: string): TemplateBuilder;
         addSlots(...slot: SlotBuilder[]): TemplateBuilder;
+    }
+
+    /**
+     * This element builder is used to create XML-based markup language for describing two-dimensional based vector graphics
+     * @see [https://developer.mozilla.org/en-US/docs/Web/SVG](https://developer.mozilla.org/en-US/docs/Web/SVG)
+     */
+    export class SVGBuilder extends AbstractTagBuilder<SVGElement> {
+        /**
+         *
+         * @param viewBox The value of the viewBox attribute is a list of four numbers: min-x, min-y, width and height. The numbers separated by whitespace and/or a comma, which specify a rectangle in user space which is mapped to the bounds of the viewport established for the associated SVG element
+         * @param id
+         * @param xmlns [default = 'http://www.w3.org/2000/svg']
+         * @throws Error if xmlns is empty or null
+         */
+        constructor(viewBox?: string, id?: string, xmlns?: string);
+
+        //abstract
+        /**
+         * Set the width of the element
+         * @param width value and unit (for example 100px or 1em or 25)
+         */
+        width(width: string | number): SVGBuilder;
+        /**
+         * Set the width and height of the element
+         * @param width value and unit (for example 100px or 100% or 1em or 25)
+         * @param height value and unit (for example 100px or 100% or 1em or 25)
+         */
+        public bounds(width: string | number, height: string | number): SVGBuilder;
+        /**
+         * Set the height of the element
+         * @param height value and unit (for example 100px or 1em or 25)
+         */
+        public height(height: string | number): SVGBuilder;
+        /**
+         * Clone the current tag builder. This deep clones the node it respectively manages
+         * Note: this uses the same HTMLElement.cloneNode() method native to browsers, therefor, things like id's and individual configurations for a given node will be duplicated as-is
+         */
+        public clone(): SVGBuilder;
+    }
+
+    /**
+     * This element builder is used to create any kind of SVG element, or SVG animation.
+     * See [https://developer.mozilla.org/en-US/docs/Web/SVG/Element](https://developer.mozilla.org/en-US/docs/Web/SVG/Element) for a complete overview
+     */
+    export class SVGElementBuilder<T extends SVGElement> extends AbstractTagBuilder<T> {
+        /**
+         *
+         * @param element Name of svg element (line, circle, rect, polygon, text, animate etc) see [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Element) for a complete list of elements
+         * @param xmlns [default = 'http://www.w3.org/2000/svg']
+         * @throws Error if xmlns is empty or null
+         */
+        constructor(element: string, xmlns?: string, id?: string);
+        /**
+         * @param value For shapes and text it's a presentation attribute that defines the color (or any SVG paint servers like gradients or patterns) used to paint the element; for animation it defines the final state of the animation
+         */
+        fill(value: string): SVGElementBuilder<T>;
+        /**
+         * A presentation attribute defining the color (or any SVG paint servers like gradients or patterns) used to paint the outline of the shape
+         * @param stroke
+         * @param width
+         */
+        stroke(stroke: string, width: string | number): SVGElementBuilder<T>;
+        /**
+         * How the svg fragment must be deformed if it is displayed with a different aspect ratio
+         * @param value "<align> [<meetOrSlice]"
+         */
+        preserveAspectRatio(value: string): SVGElementBuilder<T>;
+        /**
+         * @param value The displayed x coordinate of the svg container. No effect on outermost svg elements
+         */
+        x(value: string | number): SVGElementBuilder<T>;
+        /**
+         * @param value The displayed y coordinate of the svg container. No effect on outermost svg elements
+         */
+        y(value: string | number): SVGElementBuilder<T>;
+        /**
+         * The value of the viewBox attribute is a list of four numbers: min-x, min-y, width and height. The numbers separated by whitespace and/or a comma, which specify a rectangle in user space which is mapped to the bounds of the viewport established for the associated SVG element
+         * @param viewBox The SVG viewport coordinates for the current SVG fragment
+         */
+        viewBox(viewBox: string): SVGElementBuilder<T>;
+
+        //abstract
+        /**
+         * Set the width of the element
+         * @param width value and unit (for example 100px or 1em or 25)
+         */
+        width(width: string | number): SVGElementBuilder<T>;
+        /**
+         * Set the width and height of the element
+         * @param width value and unit (for example 100px or 100% or 1em or 25)
+         * @param height value and unit (for example 100px or 100% or 1em or 25)
+         */
+        public bounds(width: string | number, height: string | number): SVGElementBuilder<T>;
+        /**
+         * Set the height of the element
+         * @param height value and unit (for example 100px or 1em or 25)
+         */
+        public height(height: string | number): SVGElementBuilder<T>;
+        /**
+         * Clone the current tag builder. This deep clones the node it respectively manages
+         * Note: this uses the same HTMLElement.cloneNode() method native to browsers, therefor, things like id's and individual configurations for a given node will be duplicated as-is
+         */
+        public clone(): SVGElementBuilder<T>;
     }
 }

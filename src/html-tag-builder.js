@@ -30,75 +30,38 @@ class Attributes extends Map {
         return clone;
     }
 }
-class TagBuilder {
-    constructor(tagName, id) {
-        this.node = null;
-        this.hNode = null;
-        this.isCached = false;
+class AbstractTagBuilder {
+    constructor(tagName, id, xmlns) {
+        this._node = null;
+        this._hNode = null;
+        this._isCached = false;
         Objects.requireNonNull(tagName, 'tagName in TagBuilder');
         tagName = tagName.trim().toLowerCase();
         if (TagBuilderOptions.mode === 'headless') {
-            this.hNode = this.headlessBuilder(tagName, id);
+            this.hNode = this.headlessBuilder(tagName, id, xmlns);
             return;
         }
-        const elem = document.createElement(tagName);
-        elem.contentEditable = 'inherit';
-        elem.draggable = false;
+        if (!Objects.isEmptyOrWhitespace(xmlns)) {
+            const elem = document.createElementNS(xmlns, tagName);
+            this.node = elem;
+        }
+        else {
+            const elem = document.createElement(tagName);
+            elem.contentEditable = 'inherit';
+            elem.draggable = false;
+            this.node = elem;
+        }
         if (!Objects.isEmptyOrWhitespace(id)) {
             if (document.querySelector(`#${id}`) !== null)
                 throw new Error(`Tag with '${id}' id already exists in the document tree`);
-            elem.id = id;
+            this.node.id = id;
         }
-        this.node = elem;
-    }
-    accessKey(value) {
-        if (this.isHeadlessMode)
-            this.hNode.attr('accesskey', value);
-        else
-            this.node.accessKey = value.trim();
-        return this;
     }
     attr(key, value) {
         if (this.isHeadlessMode)
             this.hNode.attr(key, value);
         else
             this.node.setAttribute(key, `${value}`);
-        return this;
-    }
-    inputMode(value = 'text') {
-        value = Objects.ofNullable(value, 'text');
-        if (this.isHeadlessMode)
-            this.hNode.attr('inputmode', value);
-        else
-            this.node.inputMode = value;
-        return this;
-    }
-    contentEditable() {
-        if (this.isHeadlessMode)
-            this.hNode.attr('contenteditable', true);
-        else
-            this.node.contentEditable = 'true';
-        return this;
-    }
-    dir(value) {
-        if (this.isHeadlessMode)
-            this.hNode.attr('dir', value);
-        else
-            this.node.dir = value;
-        return this;
-    }
-    draggable() {
-        if (this.isHeadlessMode)
-            this.hNode.attr('draggable', true);
-        else
-            this.node.draggable = true;
-        return this;
-    }
-    hidden() {
-        if (this.isHeadlessMode)
-            this.hNode.attr('hidden', true);
-        else
-            this.node.hidden = true;
         return this;
     }
     slot(value) {
@@ -108,25 +71,11 @@ class TagBuilder {
             this.node.slot = value;
         return this;
     }
-    spellcheck() {
-        if (this.isHeadlessMode)
-            this.hNode.attr('spellcheck', true);
-        else
-            this.node.spellcheck = true;
-        return this;
-    }
     tabIndex(index) {
         if (this.isHeadlessMode)
             this.hNode.attr('tabindex', index);
         else
             this.node.tabIndex = index;
-        return this;
-    }
-    title(title) {
-        if (this.isHeadlessMode)
-            this.hNode.attr('title', title);
-        else
-            this.node.title = title;
         return this;
     }
     append(...child) {
@@ -135,7 +84,7 @@ class TagBuilder {
             return this;
         if (this.isHeadlessMode) {
             this.hNode.append(...child.map(e => {
-                if (e instanceof TagBuilder)
+                if (e instanceof AbstractTagBuilder)
                     return e.buildHTML();
                 else
                     return e;
@@ -143,7 +92,7 @@ class TagBuilder {
             return this;
         }
         this.node.append(...child.map(e => {
-            if (e instanceof TagBuilder)
+            if (e instanceof AbstractTagBuilder)
                 return e.build();
             else
                 return e;
@@ -156,7 +105,7 @@ class TagBuilder {
             return this;
         if (this.isHeadlessMode) {
             this.hNode.prepend(...child.map(e => {
-                if (e instanceof TagBuilder)
+                if (e instanceof AbstractTagBuilder)
                     return e.buildHTML();
                 else
                     return e;
@@ -164,7 +113,7 @@ class TagBuilder {
             return this;
         }
         this.node.prepend(...child.map(e => {
-            if (e instanceof TagBuilder)
+            if (e instanceof AbstractTagBuilder)
                 return e.build();
             else
                 return e;
@@ -185,28 +134,6 @@ class TagBuilder {
             this.node.innerHTML = html;
         return this;
     }
-    innerText(text) {
-        if (this.isHeadlessMode)
-            this.hNode.innerHTML(text);
-        else
-            this.node.innerText = text;
-        return this;
-    }
-    autocapitalize(value) {
-        if (this.isHeadlessMode)
-            this.hNode.attr('autocapitalize', value);
-        else
-            this.node.autocapitalize = value;
-        return this;
-    }
-    bounds(width, height) {
-        this.style({ width, height });
-        return this;
-    }
-    caret(color) {
-        this.style({ 'caret-color': color });
-        return this;
-    }
     classes(...aClass) {
         if (!Array.isArray(aClass))
             throw new Error(`Invalid datatype for classes. Got '${typeof aClass}' expecting array of strings for node: [type = '${this.node.nodeType}', tagName = '${this.node.tagName}']`);
@@ -220,10 +147,6 @@ class TagBuilder {
             if (!this.node.classList.contains(e))
                 this.node.classList.add(e);
         });
-        return this;
-    }
-    height(height) {
-        this.style({ height });
         return this;
     }
     margin(...cssShorthand) {
@@ -268,33 +191,6 @@ class TagBuilder {
         }
         return this;
     }
-    textcase(transform) {
-        if (['uppercase', 'lowercase', 'none', 'capitalize', 'inherit'].includes(transform)) {
-            this.style({ 'text-transform': transform });
-        }
-        return this;
-    }
-    visibility(value) {
-        this.style({ 'visibility': value });
-        return this;
-    }
-    width(width) {
-        this.style({ width });
-        return this;
-    }
-    screenReaderOnly() {
-        this.style({
-            border: 0,
-            clip: 'rect(0 0 0 0)',
-            height: '1px',
-            margin: '-1px',
-            overflow: 'hidden',
-            padding: 0,
-            position: 'absolute',
-            width: '1px'
-        });
-        return this;
-    }
     on(event, listener, options) {
         if (this.isHeadlessMode)
             this.hNode.attr(`on${event}`.toLowerCase(), listener);
@@ -302,38 +198,32 @@ class TagBuilder {
             this.node.addEventListener(event, listener, options);
         return this;
     }
-    clone() {
-        const builder = new TagBuilder(this.tagName, this.tagId);
-        builder.isCached = this.isCached;
-        if (this.isHeadlessMode)
-            builder.hNode = this.hNode.clone();
-        else
-            builder.node = this.node.cloneNode(true);
-        return builder;
-    }
     build() {
         return this.node;
     }
     buildHTML() {
         return this.isHeadlessMode ? this.hNode.build() : this.build().outerHTML;
     }
-    static parse(html) {
-        if (TagBuilderOptions.mode === 'headless')
-            throw new Error('Parse is not supported in headless mode');
-        const template = document.createElement('template');
-        template.innerHTML = html;
-        const nodes = template.content.childNodes;
-        if (nodes.length === 0)
-            return null;
-        const result = [...nodes].filter(e => e.nodeType === 1).map((e) => {
-            const builder = new TagBuilder(e.tagName, e.id);
-            Object.entries(e.attributes).forEach(entry => {
-                builder.attr(entry[1].name, entry[1].value);
-            });
-            builder.node.append(...e.children);
-            return builder;
-        });
-        return result.length === 0 ? null : result;
+    get isSVGElement() {
+        return this.node instanceof SVGElement;
+    }
+    get isCached() {
+        return this._isCached;
+    }
+    set isCached(val) {
+        this._isCached = val;
+    }
+    get node() {
+        return this._node;
+    }
+    set node(node) {
+        this._node = node;
+    }
+    get hNode() {
+        return this._hNode;
+    }
+    set hNode(hNode) {
+        this._hNode = hNode;
     }
     get tagName() {
         return this.isHeadlessMode ? this.hNode.tagName().toUpperCase() : this.node.tagName;
@@ -344,7 +234,7 @@ class TagBuilder {
     get isHeadlessMode() {
         return TagBuilderOptions.mode === 'headless' || Objects.isDefined(this.hNode);
     }
-    headlessBuilder(tagName, id) {
+    headlessBuilder(tagName, id, xmlns) {
         class HNode {
             constructor(tagName, id) {
                 this._attrs = new Attributes();
@@ -357,7 +247,10 @@ class TagBuilder {
                 this._tagName = tagName;
                 if (!Objects.isEmptyOrWhitespace(id))
                     this.attrs.set('id', id);
-                this.attrs.set('draggable', false);
+                if (!Objects.isEmptyOrWhitespace(xmlns))
+                    this.attrs.set('xmlns', xmlns);
+                else
+                    this.attrs.set('draggable', false);
                 this.attrs.set('class', new Set());
             }
             get tagName() {
@@ -467,6 +360,148 @@ class TagBuilder {
             };
         };
         return createNode(tagName, id);
+    }
+}
+class TagBuilder extends AbstractTagBuilder {
+    constructor(tagName, id) {
+        super(tagName, id);
+    }
+    accessKey(value) {
+        if (this.isHeadlessMode)
+            this.hNode.attr('accesskey', value);
+        else
+            this.node.accessKey = value.trim();
+        return this;
+    }
+    inputMode(value = 'text') {
+        value = Objects.ofNullable(value, 'text');
+        if (this.isHeadlessMode)
+            this.hNode.attr('inputmode', value);
+        else
+            this.node.inputMode = value;
+        return this;
+    }
+    contentEditable() {
+        if (this.isHeadlessMode)
+            this.hNode.attr('contenteditable', true);
+        else
+            this.node.contentEditable = 'true';
+        return this;
+    }
+    dir(value) {
+        if (this.isHeadlessMode)
+            this.hNode.attr('dir', value);
+        else
+            this.node.dir = value;
+        return this;
+    }
+    draggable() {
+        if (this.isHeadlessMode)
+            this.hNode.attr('draggable', true);
+        else
+            this.node.draggable = true;
+        return this;
+    }
+    hidden() {
+        if (this.isHeadlessMode)
+            this.hNode.attr('hidden', true);
+        else
+            this.node.hidden = true;
+        return this;
+    }
+    spellcheck() {
+        if (this.isHeadlessMode)
+            this.hNode.attr('spellcheck', true);
+        else
+            this.node.spellcheck = true;
+        return this;
+    }
+    title(title) {
+        if (this.isHeadlessMode)
+            this.hNode.attr('title', title);
+        else
+            this.node.title = title;
+        return this;
+    }
+    innerText(text) {
+        if (this.isHeadlessMode)
+            this.hNode.innerHTML(text);
+        else
+            this.node.innerText = text;
+        return this;
+    }
+    autocapitalize(value) {
+        if (this.isHeadlessMode)
+            this.hNode.attr('autocapitalize', value);
+        else
+            this.node.autocapitalize = value;
+        return this;
+    }
+    bounds(width, height) {
+        this.style({ width, height });
+        return this;
+    }
+    caret(color) {
+        this.style({ 'caret-color': color });
+        return this;
+    }
+    height(height) {
+        this.style({ height });
+        return this;
+    }
+    textcase(transform) {
+        if (['uppercase', 'lowercase', 'none', 'capitalize', 'inherit'].includes(transform)) {
+            this.style({ 'text-transform': transform });
+        }
+        return this;
+    }
+    visibility(value) {
+        this.style({ 'visibility': value });
+        return this;
+    }
+    width(width) {
+        this.style({ width });
+        return this;
+    }
+    screenReaderOnly() {
+        this.style({
+            border: 0,
+            clip: 'rect(0 0 0 0)',
+            height: '1px',
+            margin: '-1px',
+            overflow: 'hidden',
+            padding: 0,
+            position: 'absolute',
+            width: '1px'
+        });
+        return this;
+    }
+    clone() {
+        const builder = new TagBuilder(this.tagName, this.tagId);
+        builder.isCached = this.isCached;
+        if (this.isHeadlessMode)
+            builder.hNode = this.hNode.clone();
+        else
+            builder.node = this.node.cloneNode(true);
+        return builder;
+    }
+    static parse(html) {
+        if (TagBuilderOptions.mode === 'headless')
+            throw new Error('Parse is not supported in headless mode');
+        const template = document.createElement('template');
+        template.innerHTML = html;
+        const nodes = template.content.childNodes;
+        if (nodes.length === 0)
+            return null;
+        const result = [...nodes].filter(e => e.nodeType === 1).map((e) => {
+            const builder = new TagBuilder(e.tagName, e.id);
+            Object.entries(e.attributes).forEach(entry => {
+                builder.attr(entry[1].name, entry[1].value);
+            });
+            builder.node.append(...e.children);
+            return builder;
+        });
+        return result.length === 0 ? null : result;
     }
 }
 class TagBuilderOptions {
@@ -1971,13 +2006,13 @@ class TableBuilder extends TagBuilder {
             this.addHeader(...html);
         return this;
     }
-    setRows(...row) {
+    setRows(...rows) {
         if (this.isHeadlessMode)
             this.body = new TagBuilder('tbody');
         else
             this.body.innerHTML = '';
-        if (row.length > 0)
-            this.addRow(...row);
+        if (rows.length > 0)
+            rows.forEach(row => this.addRow(...row));
         return this;
     }
     clone() {
@@ -2091,6 +2126,91 @@ class TemplateBuilder extends TagBuilder {
         return this.node;
     }
 }
+class SVGBuilder extends AbstractTagBuilder {
+    constructor(viewBox, id, xmlns = 'http://www.w3.org/2000/svg') {
+        super('svg', id, xmlns);
+        if (Objects.isEmptyOrWhitespace(xmlns))
+            Objects.requireNonNull(null, 'xmlns');
+        if (!Objects.isEmptyOrWhitespace(viewBox))
+            this.attr('viewBox', viewBox);
+    }
+    bounds(width, height) {
+        this.width(width);
+        this.height(height);
+        return this;
+    }
+    height(height) {
+        this.attr('height', height);
+        return this;
+    }
+    width(width) {
+        this.attr('width', width);
+        return this;
+    }
+    clone() {
+        const builder = new SVGBuilder();
+        builder.isCached = this.isCached;
+        if (this.isHeadlessMode)
+            builder.hNode = this.hNode.clone();
+        else
+            builder.node = this.node.cloneNode(true);
+        return builder;
+    }
+}
+class SVGElementBuilder extends AbstractTagBuilder {
+    constructor(element, xmlns = 'http://www.w3.org/2000/svg', id) {
+        super(element, id, xmlns);
+        if (Objects.isEmptyOrWhitespace(xmlns))
+            Objects.requireNonNull(null, 'xmlns');
+    }
+    fill(value) {
+        this.attr('fill', value);
+        return this;
+    }
+    stroke(stroke, width) {
+        this.attr('stroke', stroke);
+        this.attr('stroke-width', width);
+        return this;
+    }
+    width(width) {
+        this.attr('width', width);
+        return this;
+    }
+    height(height) {
+        this.attr('height', height);
+        return this;
+    }
+    bounds(width, height) {
+        this.width(width);
+        this.height(height);
+        return this;
+    }
+    preserveAspectRatio(value) {
+        this.attr('preserveAspectRatio', value);
+        return this;
+    }
+    x(value) {
+        this.attr('x', value);
+        return this;
+    }
+    y(value) {
+        this.attr('y', value);
+        return this;
+    }
+    viewBox(viewBox) {
+        this.attr('viewBox', viewBox);
+        return this;
+    }
+    clone() {
+        const builder = new SVGElementBuilder(this.tagName);
+        builder.isCached = this.isCached;
+        if (this.isHeadlessMode)
+            builder.hNode = this.hNode.clone();
+        else
+            builder.node = this.node.cloneNode(true);
+        return builder;
+    }
+}
 if (typeof module !== "undefined" && module.exports) {
     module.exports = {
         TagBuilder,
@@ -2145,6 +2265,8 @@ if (typeof module !== "undefined" && module.exports) {
         ColGroupBuilder,
         TableBuilder,
         SlotBuilder,
-        TemplateBuilder
+        TemplateBuilder,
+        SVGBuilder,
+        SVGElementBuilder
     };
 }

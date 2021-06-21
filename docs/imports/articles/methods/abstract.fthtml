@@ -1,0 +1,299 @@
+#vars
+
+    usage    "${ usage }"
+
+    datatype "${ returns }"
+
+    builder  replace("${ returns }" "(.*Builder).*$" "$1")
+
+    generic  replace("${ returns }" ".*?\<([^\>]*)\>.*?" "$1")
+
+#end
+
+import "templates/methods" {
+
+    name        "attr"
+    args        "key: string; value: any"
+    returns     "${ @datatype }"
+    exactId     "${ @builder }.attr"
+    description "Alias for element.setAttribute()"
+    usage       "${ @usage }.attr('data-scroll', true);"
+
+}
+
+import "templates/methods" {
+
+    name        "slot"
+    args        "value: string"
+    returns     "${ @datatype }"
+    exactId     "${ @builder }.slot"
+    description "Assigns a slot in a shadow DOM shadow tree to an element: An element with a slot attribute is assigned to the slot created by the &lt;slot&gt; element whose name attribute's value matches that slot attribute's value"
+    refs        "https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/slot"
+    usage       "${ @usage }.slot('description');"
+
+}
+
+import "templates/methods" {
+
+    name        "tabindex"
+    args        "index: number"
+    returns     "${ @datatype }"
+    exactId     "${ @builder }.tabIndex"
+    description "An integer attribute indicating if the element can take input focus (is focusable), if it should participate to sequential keyboard navigation, and if so, at what position"
+    usage       "${ @usage }.tabindex('-1');"
+    refs        "https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/tabindex"
+
+}
+
+import "templates/methods" {
+
+    name        "append"
+    args        "child: ...(html | ${ @datatype })[]"
+    returns     "${ @datatype }"
+    exactId     "${ @builder }.append"
+    description "Inserts a set of tag builder objects or DOMString objects after the last child of the Element. DOMString objects are inserted as equivalent Text nodes"
+    refs        "https://developer.mozilla.org/en-US/docs/Web/API/Element/append](https://developer.mozilla.org/en-US/docs/Web/API/Element/append"
+    usage       "//example using plain text
+${ @usage }.append('foobar foobaz foodad');
+
+//example using a tag builder object
+${ @usage }.append(${ @usage }.innerHTML('foobar'));
+
+//data types can be used in tandem:
+${ @usage }.append('foobar', ${ @usage }.innerHTML('foodad'));"
+
+} // end of import
+
+import "templates/methods" {
+
+    name        "prepend"
+    args        "child: ...(html | ${ @datatype })[]"
+    returns     "${ @datatype }"
+    exactId     "${ @builder }.prepend"
+    description "Inserts a set of tag builder objects or DOMString objects before the first child of the Element. DOMString objects are inserted as equivalent Text nodes"
+    refs        "https://developer.mozilla.org/en-US/docs/Web/API/Element/prepend](https://developer.mozilla.org/en-US/docs/Web/API/Element/prepend"
+    usage       "//example using plain text
+${ @usage }.prepend('foobar foobaz foodad');
+
+//example using a tag builder object
+${ @usage }.prepend(${ @usage }.innerHTML('foobar'));
+
+//data types can be used in tandem:
+${ @usage }.prepend('foobar', ${ @usage }.innerHTML('foodad'));"
+
+} // end of import
+
+import "templates/methods" {
+
+    name        "insertAdjacent"
+    args        "sibling: ${ @datatype }; placement: 'after' | 'before' = 'after'"
+    returns     "${ @datatype }"
+    exactId     "${ @builder }.insertAdjacent"
+    description {
+        p "Insert a sibling adjacent to the owning element. This is only guaranteed to work in `headless` mode"
+    }
+    usage       "${ @usage }.insertAdjacent(${ @usage } 'before');"
+
+}
+
+import "templates/methods" {
+
+    name        "innerHTML"
+    args        "html: string"
+    returns     "${ @datatype }"
+    exactId     "${ @builder }.innerHTML"
+    description "A DOMString containing the HTML serialization of the element's descendants. Setting the value of innerHTML removes all of the element's descendants and replaces them with nodes constructed by parsing the HTML given in the string htmlString"
+    refs        "https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML"
+    usage       "${ @usage }.innerHTML('foobar');"
+
+}
+
+import "templates/methods" {
+
+    name        "bounds"
+    args        "width: string; height: string"
+    returns     "${ @datatype }"
+    exactId     "${ @builder }.bounds"
+    description "Set the width and height css properties of the element using CSS values"
+    usage       "${ @usage }.bounds('100px', '50%');"
+
+}
+
+import "templates/methods" {
+
+    name        "classes"
+    args        "...aClass: string[]"
+    returns     "${ @datatype }"
+    exactId     "${ @builder }.classes"
+    description "Add classes to the element"
+    usage       "${ @usage }.classes('foo', 'bar', 'baz', 'dad');"
+
+}
+
+import "templates/methods" {
+
+    name        "height"
+    args        "height: string"
+    returns     "${ @datatype }"
+    exactId     "${ @builder }.height"
+    description "Set the height of the element"
+    usage       "${ @usage }.height('100px');"
+
+}
+
+import "templates/methods" {
+
+    name        "margin"
+    args        "...cssShorthand: string[]"
+    returns     "${ @datatype }"
+    exactId     "${ @builder }.margin"
+    description "CSS margin short-hand equivalent rest parameters. This behaves exactly like you would use in CSS files"
+
+    usage       "//apply to all sides:
+${ @usage }.margin('5px'); //CSS equivalent = margin: 5px;
+
+//apply to vertical | horizontal
+${ @usage }.margin('5px', '10px'); //CSS equivalent = margin: 5px 10px;
+
+//apply to top | horizontal | bottom
+${ @usage }.margin('5px', '10px', '8px'); //CSS equivalent = margin: 5px 10px 8px;
+
+//apply to top | right | bottom | left
+${ @usage }.margin('5px', '6px', '7px', '8px'); //CSS equivalent = margin: 5px 6px 7px 8px;"
+
+    refs        "https://developer.mozilla.org/en-US/docs/Web/CSS/margin"
+
+} // end of import
+
+import "templates/methods" {
+
+    name        "origin"
+    args        "top?: string; right?: string; bottom?: string; left?: string"
+    returns     "${ @datatype }"
+    exactId     "${ @builder }.origin"
+    description "Set position properties using CSS values. If the argmuents are null or undefined they will be ignored"
+    usage       "//setting the left property ignoring the rest
+${ @usage }.origin(null, null, null, '-10px'); //CSS equivalent = left: -10px;"
+
+}
+
+import "templates/methods" {
+
+    name        "padding"
+    args        "...cssShorthand: string[]"
+    returns     "${ @datatype }"
+    exactId     "${ @builder }.padding"
+    description "CSS padding short-hand equivalent rest parameters. This behaves exactly like you would use in CSS files"
+
+    usage       "//apply to all sides:
+${ @usage }.padding('5px'); //CSS equivalent = padding: 5px;
+
+//apply to vertical | horizontal
+${ @usage }.padding('5px', '10px'); //CSS equivalent = padding: 5px 10px;
+
+//apply to top | horizontal | bottom
+${ @usage }.padding('5px', '10px', '8px'); //CSS equivalent = padding: 5px 10px 8px;
+
+//apply to top | right | bottom | left
+${ @usage }.padding('5px', '6px', '7px', '8px'); //CSS equivalent = padding: 5px 6px 7px 8px;"
+
+    refs        "https://developer.mozilla.org/en-US/docs/Web/CSS/padding"
+
+} // end of import
+
+import "templates/methods" {
+
+    name        "position"
+    args        "value: 'relative' | 'absolute' | 'static' | 'fixed' | 'sticky'"
+    returns     "${ @datatype }"
+    exactId     "${ @builder }.position"
+    description "Sets how an element is positioned in a document. The top, right, bottom, and left properties determine the final location of positioned elements"
+    refs        "https://developer.mozilla.org/en-US/docs/Web/CSS/position"
+    usage       "${ @usage }.position('relative');"
+
+}
+
+import "templates/methods" {
+
+    name        "style"
+    args        "obj: { [key: string]: string | number | boolean }"
+    returns     "${ @datatype }"
+    exactId     "${ @builder }.style"
+    description {
+        p
+        {
+            "CSS property-value pairs. Each property/value pair you provide is validated against using the users agents native "
+            a (href="https://developer.mozilla.org/en-US/docs/Web/API/CSS/supports" target=_blank) {
+                code "window.CSS.supports()"
+            }
+            "method. Anything that is not supported will be ignored"
+        }
+        p (.italic) "Notice how the usage example demonstrates the names of the CSS properties are not the javascript camelcase variants, they are the CSS property names as-is"
+    }
+    usage       "${ @usage }.style({
+    'padding-left': '20px',
+    position: 'relative',
+    color: 'red',
+    'border-top-left-radius' : '2.5em'
+});"
+
+} // end of import
+
+import "templates/methods" {
+
+    name        "width"
+    args        "width: string"
+    returns     "${ @datatype }"
+    exactId     "${ @builder }.width"
+    description "Set the width of the element"
+    usage       "${ @usage }.width('100px');"
+
+}
+
+import "templates/methods" {
+
+    name        "on"
+    args        "event: keyof GlobalEventHandlersEventMap; listener: (this: ${ @generic }, env: Event)"
+    returns     "${ @datatype }"
+    exactId     "${ @builder }.on"
+    description "Sets up a function that will be called whenever the specified event is delivered to the target"
+    refs        "https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener"
+    usage       "${ @usage }.on('click', () => alert('Hello World'));"
+
+}
+
+import "templates/methods" {
+
+    name        "clone"
+    args        ""
+    returns     "${ @datatype }"
+    exactId     "${ @builder }.clone"
+    description {
+        p "Clone the current tag builder. This deep clones the node it respectively manages"
+        p (.italic) "Note: this uses the same HTMLElement.cloneNode() method native to browsers, therefor, things like id's and individual configurations for a given node will be duplicated as-is"
+    }
+    usage       "${ @usage }.clone();"
+
+}
+
+import "templates/methods" {
+
+    name        "build"
+    args        ""
+    returns     "${ @generic }"
+    exactId     "${ @builder }.build"
+    description "The node the current builder manages as an ${ @generic }"
+    usage       "${ @usage }.build();"
+
+}
+
+import "templates/methods" {
+
+    name        "buildHTML"
+    args        ""
+    returns     replace(@generic "T extends (.*)" "$1")
+    exactId     "${ @builder }.buildHTML"
+    description "This is the required build method when in `headless` mode. It returns the outerHTML of an ${ @generic } when in `document` mode, otherwise the HTML markup when in `headless` mode"
+    usage       "${ @usage }.buildHTML();"
+
+}

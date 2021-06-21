@@ -33,5 +33,7 @@
     "subclasses/headless/inline/area",
     "subclasses/headless/inline/span",
 
-    "subclasses/headless/containers/figure"
+    "subclasses/headless/containers/figure",
+
+    "subclasses/headless/svg/svg"
 ]

@@ -34,5 +34,7 @@
     "subclasses/node/inline/area",
     "subclasses/node/inline/anchor",
 
-    "subclasses/node/containers/figure"
+    "subclasses/node/containers/figure",
+
+    "subclasses/node/svg/svg"
 ]

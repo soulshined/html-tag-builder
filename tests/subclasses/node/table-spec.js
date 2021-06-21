@@ -106,10 +106,9 @@ describe('Table Builder', function () {
             new BuilderTest(new TableBuilder()
                 .addHeader('Name', 'Age', 'Twist')
                 .addRow('bbb')
-                .setRows()
                 .setHeaders()
                 .addHeader('Total')
-                .addRow('aaa')
+                .setRows(['aaa'])
             ).toBe(table);
         })
 

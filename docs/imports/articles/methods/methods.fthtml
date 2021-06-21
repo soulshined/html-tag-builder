@@ -1,11 +1,17 @@
 section (#methods) {
 
-    h2 "Builder Pattern Methods"
+    h2 "TagBuilder Pattern Methods"
+
+    import "articles/methods/abstract" {
+        returns "TagBuilder<HTMLElement>"
+        usage   "new TagBuilder('div')"
+    }
 
     import "templates/methods" {
         name        "accessKey"
         args        "value: string"
         returns     "TagBuilder<HTMLElement>"
+        exactId     "TagBuilder.accessKey"
         description "Provides a hint for generating a keyboard shortcut for the current element"
         refs        "
             https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/accesskey
@@ -15,17 +21,10 @@ section (#methods) {
     }
 
     import "templates/methods" {
-        name        "attr"
-        args        "key: string; value: any"
-        returns     "TagBuilder<HTMLElement>"
-        description "Alias for element.setAttribute()"
-        usage       "new TagBuilder('div').attr('data-scroll', true);"
-    }
-
-    import "templates/methods" {
         name        "inputmode"
         args        "value: string"
         returns     "TagBuilder<HTMLElement>"
+        exactId     "TagBuilder.inputmode"
         description "Provides a hint to browsers as to the type of virtual keyboard configuration to use when editing this element or its contents. Used primarily on &lt;input&gt; elements, but is usable on any element while in contenteditable mode"
         refs        "
             https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode
@@ -37,6 +36,7 @@ section (#methods) {
     import "templates/methods" {
         name        "contentEditable"
         args        ""
+        exactId     "TagBuilder.contentEditable"
         returns     "TagBuilder<HTMLElement>"
         description "Coerce an element into being editable by the user. The browser modifies this tag to allow editing"
         refs        "https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/contenteditable"
@@ -47,6 +47,7 @@ section (#methods) {
         name        "dir"
         args        "value: 'ltr' | 'rtl' | 'auto'"
         returns     "TagBuilder<HTMLElement>"
+        exactId     "TagBuilder.dir"
         description "Directionality of the element's text"
         usage       "new TagBuilder('div').dir('ltr');"
         refs        "https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/dir"
@@ -56,6 +57,7 @@ section (#methods) {
         name        "draggable"
         args        ""
         returns     "TagBuilder<HTMLElement>"
+        exactId     "TagBuilder.draggable"
         description "Coerces an element into being draggable. Use the Drag and Drop API"
         refs        "https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/draggable"
         usage       "new TagBuilder('div').draggable();"
@@ -65,23 +67,16 @@ section (#methods) {
         name        "hidden"
         args        ""
         returns     "TagBuilder<HTMLElement>"
+        exactId     "TagBuilder.hidden"
         description "Coerces an element to indicate that it is not yet, or is no longer, relevant. For example, it can be used to hide elements of the page that can't be used until the login process has been completed. The browser won't render such elements. This attribute must not be used to hide content that could legitimately be shown"
         refs        "https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/hidden"
         usage       "new TagBuilder('div').hidden();"
     }
 
     import "templates/methods" {
-        name        "slot"
-        args        "value: string"
-        returns     "TagBuilder<HTMLElement>"
-        description "Assigns a slot in a shadow DOM shadow tree to an element: An element with a slot attribute is assigned to the slot created by the &lt;slot&gt; element whose name attribute's value matches that slot attribute's value"
-        refs        "https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/slot"
-        usage       "new TagBuilder('div').slot('description');"
-    }
-
-    import "templates/methods" {
         name        "spellcheck"
         args        ""
+        exactId     "TagBuilder.spellcheck"
         returns     "TagBuilder<HTMLElement>"
         description "Coerce the element to be checked for spelling errors"
         refs        "https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/spellcheck"
@@ -89,90 +84,20 @@ section (#methods) {
     }
 
     import "templates/methods" {
-        name        "tabindex"
-        args        "index: number"
-        returns     "TagBuilder<HTMLElement>"
-        description "An integer attribute indicating if the element can take input focus (is focusable), if it should participate to sequential keyboard navigation, and if so, at what position"
-        usage       "new TagBuilder('div').tabindex('-1');"
-        refs        "https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/tabindex"
-    }
-
-    import "templates/methods" {
         name        "title"
         args        "title: string"
         returns     "TagBuilder<HTMLElement>"
+        exactId     "TagBuilder.title"
         description "Sets the text representing advisory information related to the element it belongs to. Such information can typically, but not necessarily, be presented to the user as a tooltip"
         refs        "https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/title"
         usage       "new TagBuilder('div').title('foobar');"
     }
 
     import "templates/methods" {
-        name        "append"
-        args        "child: ...(html | TagBuilder)[]"
-        returns     "TagBuilder<HTMLElement>"
-        description "Inserts a set of tag builder objects or DOMString objects after the last child of the Element. DOMString objects are inserted as equivalent Text nodes"
-        refs        "https://developer.mozilla.org/en-US/docs/Web/API/Element/append](https://developer.mozilla.org/en-US/docs/Web/API/Element/append"
-        usage       "//example using plain text
-new TagBuilder('div').append('foobar foobaz foodad');
-
-//example using HTML
-new TagBuilder('div').append('<ul><li>foobar</li><li>foobaz</li><li>foodad</li></ul>');
-
-//example using a tag builder object
-new TagBuilder('div').append(new TagBuilder('div').innerHTML('foobar'));
-
-//data types can be used in tandem:
-new TagBuilder('div').append('foobar',
-                             '<ul><li>foobaz</li></ul>',
-                             new TagBuilder('div').innerHTML('foodad')
-);"
-    } // end of import
-
-    import "templates/methods" {
-        name        "prepend"
-        args        "child: ...(html | TagBuilder)[]"
-        returns     "TagBuilder<HTMLElement>"
-        description "Inserts a set of tag builder objects or DOMString objects before the first child of the Element. DOMString objects are inserted as equivalent Text nodes"
-        refs        "https://developer.mozilla.org/en-US/docs/Web/API/Element/prepend](https://developer.mozilla.org/en-US/docs/Web/API/Element/prepend"
-        usage       "//example using plain text
-new TagBuilder('div').prepend('foobar foobaz foodad');
-
-//example using HTML
-new TagBuilder('div').prepend('<ul><li>foobar</li><li>foobaz</li><li>foodad</li></ul>');
-
-//example using a tag builder object
-new TagBuilder('div').prepend(new TagBuilder('div').innerHTML('foobar'));
-
-//data types can be used in tandem:
-new TagBuilder('div').prepend('foobar',
-                              '<ul><li>foobaz</li></ul>',
-                              new TagBuilder('div').innerHTML('foodad')
-);"
-    } // end of import
-
-    import "templates/methods" {
-        name        "insertAdjacent"
-        args        "sibling: TagBuilder; placement: 'after' | 'before' = 'after'"
-        returns     "TagBuilder<HTMLElement>"
-        description {
-            p "Insert a sibling adjacent to the owning element. This is only guaranteed to work in `headless` mode"
-        }
-        usage       "new TagBuilder('div').insertAdjacent(new TagBuilder('div') 'before');"
-    }
-
-    import "templates/methods" {
-        name        "innerHTML"
-        args        "html: string"
-        returns     "TagBuilder<HTMLElement>"
-        description "A DOMString containing the HTML serialization of the element's descendants. Setting the value of innerHTML removes all of the element's descendants and replaces them with nodes constructed by parsing the HTML given in the string htmlString"
-        refs        "https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML"
-        usage       "new TagBuilder('div').innerHTML('foobar');"
-    }
-
-    import "templates/methods" {
         name        "innerText"
         args        "text: string"
         returns     "TagBuilder<HTMLElement>"
+        exactId     "TagBuilder.innerText"
         description {
             p 'Represents the "rendered" text content of a node and its descendants'
             p '`innerText` is easily confused with Node.textContent, but there are important differences between the two. Basically, `innerText` is aware of the rendered appearance of text, while `textContent` is not'
@@ -185,23 +110,17 @@ new TagBuilder('div').prepend('foobar',
         name        "autocapitalize"
         args        "value: 'off' | 'on' | 'none' | 'sentences' | 'words' | 'characters'"
         returns     "TagBuilder<HTMLElement>"
+        exactId     "TagBuilder.autocapitalize"
         description "Controls whether and how text input is automatically capitalized as it is entered/edited by the user"
         refs        "https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/autocapitalize"
         usage       "new TagBuilder('div').autocapitalize('words');"
     }
 
     import "templates/methods" {
-        name        "bounds"
-        args        "width: string; height: string"
-        returns     "TagBuilder<HTMLElement>"
-        description "Set the width and height css properties of the element using CSS values"
-        usage       "new TagBuilder('div').bounds('100px', '50%');"
-    }
-
-    import "templates/methods" {
         name        "caret"
         args        "color: string"
         returns     "TagBuilder<HTMLElement>"
+        exactId     "TagBuilder.caret"
         description "Set the css caret-color property of the element"
         usage       "new TagBuilder('div').caret('red');
 
@@ -212,108 +131,10 @@ new TagBuilder('div').caret('#FFFFFF');"
     }
 
     import "templates/methods" {
-        name        "classes"
-        args        "...aClass: string[]"
-        returns     "TagBuilder<HTMLElement>"
-        description "Add classes to the element"
-        usage       "new TagBuilder('div').classes('foo', 'bar', 'baz', 'dad');"
-    }
-
-    import "templates/methods" {
-        name        "height"
-        args        "height: string"
-        returns     "TagBuilder<HTMLElement>"
-        description "Set the height of the element"
-        usage       "new TagBuilder('div').height('100px');"
-    }
-
-    import "templates/methods" {
-        name        "margin"
-        args        "...cssShorthand: string[]"
-        returns     "TagBuilder<HTMLElement>"
-        description "CSS margin short-hand equivalent rest parameters. This behaves exactly like you would use in CSS files"
-
-        usage       "//apply to all sides:
-new TagBuilder('div').margin('5px'); //CSS equivalent = margin: 5px;
-
-//apply to vertical | horizontal
-new TagBuilder('div').margin('5px', '10px'); //CSS equivalent = margin: 5px 10px;
-
-//apply to top | horizontal | bottom
-new TagBuilder('div').margin('5px', '10px', '8px'); //CSS equivalent = margin: 5px 10px 8px;
-
-//apply to top | right | bottom | left
-new TagBuilder('div').margin('5px', '6px', '7px', '8px'); //CSS equivalent = margin: 5px 6px 7px 8px;"
-
-        refs        "https://developer.mozilla.org/en-US/docs/Web/CSS/margin"
-    } // end of import
-
-    import "templates/methods" {
-        name        "origin"
-        args        "top?: string; right?: string; bottom?: string; left?: string"
-        returns     "TagBuilder<HTMLElement>"
-        description "Set position properties using CSS values. If the argmuents are null or undefined they will be ignored"
-        usage       "//setting the left property ignoring the rest
-new TagBuilder('div').origin(null, null, null, '-10px'); //CSS equivalent = left: -10px;"
-    }
-
-    import "templates/methods" {
-        name        "padding"
-        args        "...cssShorthand: string[]"
-        returns     "TagBuilder<HTMLElement>"
-        description "CSS padding short-hand equivalent rest parameters. This behaves exactly like you would use in CSS files"
-
-        usage       "//apply to all sides:
-new TagBuilder('div').padding('5px'); //CSS equivalent = padding: 5px;
-
-//apply to vertical | horizontal
-new TagBuilder('div').padding('5px', '10px'); //CSS equivalent = padding: 5px 10px;
-
-//apply to top | horizontal | bottom
-new TagBuilder('div').padding('5px', '10px', '8px'); //CSS equivalent = padding: 5px 10px 8px;
-
-//apply to top | right | bottom | left
-new TagBuilder('div').padding('5px', '6px', '7px', '8px'); //CSS equivalent = padding: 5px 6px 7px 8px;"
-
-        refs        "https://developer.mozilla.org/en-US/docs/Web/CSS/padding"
-    } // end of import
-
-    import "templates/methods" {
-        name        "position"
-        args        "value: 'relative' | 'absolute' | 'static' | 'fixed' | 'sticky'"
-        returns     "TagBuilder<HTMLElement>"
-        description "Sets how an element is positioned in a document. The top, right, bottom, and left properties determine the final location of positioned elements"
-        refs        "https://developer.mozilla.org/en-US/docs/Web/CSS/position"
-        usage       "new TagBuilder('div').position('relative');"
-    }
-
-    import "templates/methods" {
-        name        "style"
-        args        "obj: { [key: string]: string | number | boolean }"
-        returns     "TagBuilder<HTMLElement>"
-        description {
-            p
-            {
-                "CSS property-value pairs. Each property/value pair you provide is validated against using the users agents native "
-                a (href="https://developer.mozilla.org/en-US/docs/Web/API/CSS/supports" target=_blank) {
-                    code "window.CSS.supports()"
-                }
-                "method. Anything that is not supported will be ignored"
-            }
-            p (.italic) "Notice how the usage example demonstrates the names of the CSS properties are not the javascript camelcase variants, they are the CSS property names as-is"
-        }
-        usage       "new TagBuilder('div').style({
-    'padding-left': '20px',
-    position: 'relative',
-    color: 'red',
-    'border-top-left-radius' : '2.5em'
-});"
-    } // end of import
-
-    import "templates/methods" {
         name        "textcase"
         args        "transform: 'uppercase' | 'lowercase' | 'none' | 'capitalize' | 'inherit'"
         returns     "TagBuilder<HTMLElement>"
+        exactId     "TagBuilder.textcase"
         description "Transform text to a specfic case using the CSS text-transform property"
         usage       "new TagBuilder('div').textcase('uppercase');"
         refs        "https://developer.mozilla.org/en-US/docs/Web/CSS/text-transform"
@@ -322,6 +143,7 @@ new TagBuilder('div').padding('5px', '6px', '7px', '8px'); //CSS equivalent = pa
     import "templates/methods" {
         name        "visibility"
         args        "value: 'visible' | 'hidden' | 'collapse'"
+        exactId     "TagBuilder.visibility"
         returns     "TagBuilder<HTMLElement>"
         description html_encode("The visibility CSS property shows or hides an element without changing the layout of a document. The property can also hide rows or columns in a `<table>`")
         refs        "https://developer.mozilla.org/en-US/docs/Web/CSS/visibility"
@@ -329,16 +151,9 @@ new TagBuilder('div').padding('5px', '6px', '7px', '8px'); //CSS equivalent = pa
     }
 
     import "templates/methods" {
-        name        "width"
-        args        "width: string"
-        returns     "TagBuilder<HTMLElement>"
-        description "Set the width of the element"
-        usage       "new TagBuilder('div').width('100px');"
-    }
-
-    import "templates/methods" {
         name        "screenReaderOnly"
         args        ""
+        exactId     "TagBuilder.screenReaderOnly"
         returns     "TagBuilder<HTMLElement>"
         description {
             p
@@ -370,45 +185,10 @@ new TagBuilder('div').padding('5px', '6px', '7px', '8px'); //CSS equivalent = pa
     } // end of import
 
     import "templates/methods" {
-        name        "on"
-        args        "event: keyof GlobalEventHandlersEventMap; listener: (this: HTMLElement, env: Event)"
-        returns     "TagBuilder<HTMLElement>"
-        description "Sets up a function that will be called whenever the specified event is delivered to the target"
-        refs        "https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener"
-        usage       "new TagBuilder('div').on('click', () => alert('Hello World'));"
-    }
-
-    import "templates/methods" {
-        name        "clone"
-        args        ""
-        returns     "TagBuilder<HTMLElement>"
-        description {
-            p "Clone the current tag builder. This deep clones the node it respectively manages"
-            p (.italic) "Note: this uses the same HTMLElement.cloneNode() method native to browsers, therefor, things like id's and individual configurations for a given node will be duplicated as-is"
-        }
-        usage       "new TagBuilder('div').clone();"
-    }
-
-    import "templates/methods" {
-        name        "build"
-        args        ""
-        returns     "HTMLElement"
-        description "The node the current builder manages as an HTMLElement"
-        usage       "new TagBuilder('div').build();"
-    }
-
-    import "templates/methods" {
-        name        "buildHTML"
-        args        ""
-        returns     "string"
-        description "This is the required build method when in `headless` mode. It returns the outerHTML of an HTMLElement when in `document` mode, otherwise the HTML markup when in `headless` mode"
-        usage       "new TagBuilder('div').buildHTML();"
-    }
-
-    import "templates/methods" {
         name        "static TagBuilder.parse"
         args        "html: string"
         returns     "TagBuilder<HTMLElement>"
+        exactId     "TagBuilder.parse"
         description {
             p "Parse an html string of HTML elements and cast that element to a TagBuilder"
             p "Please note, this only considers HTMLElement.nodeType of 1. Meaning this ignores comments, and document fragments and text nodes etc"

@@ -2,6 +2,7 @@
 
     subclasses json("&./articles/subclasses/subclasses")
     methods    json("&./articles/methods/methods")
+    abstract   json("&./articles/methods/abstract")
 
 #end
 
@@ -17,17 +18,20 @@ aside
             }
         }
 
-        optgroup (label="Builder Pattern Methods") {
+        optgroup (label="TagBuilder Methods") {
             each @methods {
-                option (value="TagBuilder.${@this | trim }") replace(trim(@this) "^static" "")
+                option (value="TagBuilder.${@this | trim }") replace(trim(@this) "^(.*[ ])?" "")
             }
         }
 
-        optgroup (label=Subclasses) {
+        optgroup (label="TagBuilder Subclasses") {
             each @subclasses {
                 option (value="${@this | trim }Builder") trim(@this)
             }
         }
+
+        option (value="SVGBuilder") "SVGBuilder"
+        option (value="SVGElementBuilder") "SVGElementBuilder"
     }
 
     nav
@@ -55,19 +59,54 @@ aside
             }
             li
             {
-                a (href='#methods') 'Builder Pattern Methods'
+                a (href='#methods') 'TagBuilder Methods'
                 ul (.sublist) {
                     each @methods {
-                        li { a (href="#TagBuilder.${@this | trim }") replace(trim(@this) "^static" "") }
+                        #vars
+                            method replace(trim(@this) "^.*Builder\.(.*$)" "$1")
+                        #end
+
+                        li
+                        {
+                            a (href="#TagBuilder.${@method | trim }") replace(trim(@this) "^(.*[ ])?" "")
+                        }
                     }
                 }
             }
             li
             {
-                a (href="#subclasses") 'Subclasses'
+                a (href="#subclasses") 'TagBuilder Subclasses'
                 ul (.sublist) {
                     each @subclasses {
                         li { a (href="#${@this | trim }Builder") trim(@this) }
+                    }
+                }
+            }
+            li
+            {
+                a (href="#SVGBuilder") "SVGBuilder"
+                ul (.sublist) {
+                    each @abstract {
+                        li { a (href="#SVGBuilder.${@this | trim }") replace(trim(@this) "^static" "") }
+                    }
+                }
+            }
+
+            li
+            {
+                a (href="#SVGElementBuilder") "SVGElementBuilder"
+                ul (.sublist) {
+
+                    #vars
+                        svgmethods join(@abstract ",")
+                        svgmethods "${@svgmethods},viewBox,y,x,preserveAspectRatio,stroke,fill"
+                    #end
+
+                    each sort(str_split(@svgmethods ",") 'asc') {
+                        li
+                        {
+                            a (href="#SVGElementBuilder.${@this | trim }") replace(trim(@this) "^static" "")
+                        }
                     }
                 }
             }

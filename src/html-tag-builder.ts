@@ -36,6 +36,8 @@
 /// <reference path="./model/builders/script.ts" />
 /// <reference path="./model/builders/table.ts" />
 /// <reference path="./model/builders/template.ts" />
+/// <reference path="./model/builders/svg/svg.ts" />
+/// <reference path="./model/builders/svg/element.ts" />
 
 // @ts-ignore
 if (typeof module !== "undefined" && module.exports) {
@@ -102,6 +104,9 @@ if (typeof module !== "undefined" && module.exports) {
         TableBuilder,
 
         SlotBuilder,
-        TemplateBuilder
+        TemplateBuilder,
+
+        SVGBuilder,
+        SVGElementBuilder
     };
 }

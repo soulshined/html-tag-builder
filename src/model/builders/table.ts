@@ -83,10 +83,10 @@ class TableBuilder extends TagBuilder<HTMLTableElement> {
         return this;
     }
 
-    setRows(...row: html[]) {
+    setRows(...rows: html[][]) {
         if (this.isHeadlessMode) this.body = new TagBuilder<HTMLTableSectionElement>('tbody');
         else this.body.innerHTML = '';
-        if (row.length > 0) this.addRow(...row);
+        if (rows.length > 0) rows.forEach(row => this.addRow(...row));
         return this;
     }
 

@@ -110,7 +110,7 @@ describe('Headless Table Builder', function () {
                 .setRows()
                 .setHeaders()
                 .addHeader('Total')
-                .addRow('aaa')
+                .setRows(['aaa'])
             ).toBe(getTableTemplate().build(thead, tbody));
         })
 

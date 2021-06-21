@@ -1,6 +1,15 @@
 #vars
 
-    id "TagBuilder.${name | trim }"
+    builder replace("${ usage }" "(new )?(.*)?\<.*$" "$2")
+    id      "${@builder}.${name | trim }"
+
+#end
+
+#if len("${ exactId? | trim }") gt 0
+
+    #vars
+        id "${ exactId | trim }"
+    #end
 
 #end
 

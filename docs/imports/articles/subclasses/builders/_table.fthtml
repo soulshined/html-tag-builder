@@ -9,7 +9,7 @@ details
 
     import "templates/subclass_methods" {
         name    "constructor"
-        args    "caption?: string, id?: string"
+        args    "caption?: string; id?: string"
         returns "TableBuilder<HTMLTableElement>"
         usage   "new TableBuilder();"
         refs    "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table"
@@ -55,9 +55,9 @@ details
 
     import "templates/subclass_methods" {
         name    "setRows"
-        args    "...row: string[]"
+        args    "...row: string[][]"
         returns "TableBuilder<HTMLTableElement>"
-        usage   "new TableBuilder().setRows();"
+        usage   "new TableBuilder().setRows(['A1', 'A2', 'A3'], ['B1', 'B2', 'B3']);"
     }
 
 }

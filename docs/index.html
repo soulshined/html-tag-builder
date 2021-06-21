@@ -35,7 +35,7 @@
                 <option value="TagBuilderOptions.defaultInputType">defaultInputType</option>
                 <option value="TagBuilderOptions.mode">mode</option>
             </optgroup>
-            <optgroup label="Builder Pattern Methods">
+            <optgroup label="TagBuilder Methods">
                 <option value="TagBuilder.accessKey">accessKey</option>
                 <option value="TagBuilder.append">append</option>
                 <option value="TagBuilder.attr">attr</option>
@@ -66,13 +66,13 @@
                 <option value="TagBuilder.spellcheck">spellcheck</option>
                 <option value="TagBuilder.style">style</option>
                 <option value="TagBuilder.tabindex">tabindex</option>
-                <option value="TagBuilder.static TagBuilder.parse"> TagBuilder.parse</option>
+                <option value="TagBuilder.static TagBuilder.parse">TagBuilder.parse</option>
                 <option value="TagBuilder.textcase">textcase</option>
                 <option value="TagBuilder.title">title</option>
                 <option value="TagBuilder.visibility">visibility</option>
                 <option value="TagBuilder.width">width</option>
             </optgroup>
-            <optgroup label="Subclasses">
+            <optgroup label="TagBuilder Subclasses">
                 <option value="AnchorBuilder">Anchor</option>
                 <option value="AreaBuilder">Area</option>
                 <option value="AudioBuilder">Audio</option>
@@ -124,6 +124,8 @@
                 <option value="VideoBuilder">Video</option>
                 <option value="WeekInputBuilder">WeekInput</option>
             </optgroup>
+            <option value="SVGBuilder">SVGBuilder</option>
+            <option value="SVGElementBuilder">SVGElementBuilder</option>
         </select>
         <nav>
             <ul>
@@ -140,7 +142,7 @@
                         <li><a href="#TagBuilderOptions.mode">mode</a></li>
                     </ul>
                 </li>
-                <li><a href="#methods">Builder Pattern Methods</a>
+                <li><a href="#methods">TagBuilder Methods</a>
                     <ul class="sublist">
                         <li><a href="#TagBuilder.accessKey">accessKey</a></li>
                         <li><a href="#TagBuilder.append">append</a></li>
@@ -172,14 +174,14 @@
                         <li><a href="#TagBuilder.spellcheck">spellcheck</a></li>
                         <li><a href="#TagBuilder.style">style</a></li>
                         <li><a href="#TagBuilder.tabindex">tabindex</a></li>
-                        <li><a href="#TagBuilder.static TagBuilder.parse"> TagBuilder.parse</a></li>
+                        <li><a href="#TagBuilder.parse">TagBuilder.parse</a></li>
                         <li><a href="#TagBuilder.textcase">textcase</a></li>
                         <li><a href="#TagBuilder.title">title</a></li>
                         <li><a href="#TagBuilder.visibility">visibility</a></li>
                         <li><a href="#TagBuilder.width">width</a></li>
                     </ul>
                 </li>
-                <li><a href="#subclasses">Subclasses</a>
+                <li><a href="#subclasses">TagBuilder Subclasses</a>
                     <ul class="sublist">
                         <li><a href="#AnchorBuilder">Anchor</a></li>
                         <li><a href="#AreaBuilder">Area</a></li>
@@ -231,6 +233,60 @@
                         <li><a href="#UrlInputBuilder">UrlInput</a></li>
                         <li><a href="#VideoBuilder">Video</a></li>
                         <li><a href="#WeekInputBuilder">WeekInput</a></li>
+                    </ul>
+                </li>
+                <li><a href="#SVGBuilder">SVGBuilder</a>
+                    <ul class="sublist">
+                        <li><a href="#SVGBuilder.append">append</a></li>
+                        <li><a href="#SVGBuilder.attr">attr</a></li>
+                        <li><a href="#SVGBuilder.bounds">bounds</a></li>
+                        <li><a href="#SVGBuilder.build">build</a></li>
+                        <li><a href="#SVGBuilder.buildHTML">buildHTML</a></li>
+                        <li><a href="#SVGBuilder.classes">classes</a></li>
+                        <li><a href="#SVGBuilder.clone">clone</a></li>
+                        <li><a href="#SVGBuilder.height">height</a></li>
+                        <li><a href="#SVGBuilder.innerHTML">innerHTML</a></li>
+                        <li><a href="#SVGBuilder.insertAdjacent">insertAdjacent</a></li>
+                        <li><a href="#SVGBuilder.margin">margin</a></li>
+                        <li><a href="#SVGBuilder.on">on</a></li>
+                        <li><a href="#SVGBuilder.origin">origin</a></li>
+                        <li><a href="#SVGBuilder.padding">padding</a></li>
+                        <li><a href="#SVGBuilder.position">position</a></li>
+                        <li><a href="#SVGBuilder.prepend">prepend</a></li>
+                        <li><a href="#SVGBuilder.slot">slot</a></li>
+                        <li><a href="#SVGBuilder.style">style</a></li>
+                        <li><a href="#SVGBuilder.tabindex">tabindex</a></li>
+                        <li><a href="#SVGBuilder.width">width</a></li>
+                    </ul>
+                </li>
+                <li><a href="#SVGElementBuilder">SVGElementBuilder</a>
+                    <ul class="sublist">
+                        <li><a href="#SVGElementBuilder.append">append</a></li>
+                        <li><a href="#SVGElementBuilder.attr">attr</a></li>
+                        <li><a href="#SVGElementBuilder.bounds">bounds</a></li>
+                        <li><a href="#SVGElementBuilder.build">build</a></li>
+                        <li><a href="#SVGElementBuilder.buildHTML">buildHTML</a></li>
+                        <li><a href="#SVGElementBuilder.classes">classes</a></li>
+                        <li><a href="#SVGElementBuilder.clone">clone</a></li>
+                        <li><a href="#SVGElementBuilder.fill">fill</a></li>
+                        <li><a href="#SVGElementBuilder.height">height</a></li>
+                        <li><a href="#SVGElementBuilder.innerHTML">innerHTML</a></li>
+                        <li><a href="#SVGElementBuilder.insertAdjacent">insertAdjacent</a></li>
+                        <li><a href="#SVGElementBuilder.margin">margin</a></li>
+                        <li><a href="#SVGElementBuilder.on">on</a></li>
+                        <li><a href="#SVGElementBuilder.origin">origin</a></li>
+                        <li><a href="#SVGElementBuilder.padding">padding</a></li>
+                        <li><a href="#SVGElementBuilder.position">position</a></li>
+                        <li><a href="#SVGElementBuilder.prepend">prepend</a></li>
+                        <li><a href="#SVGElementBuilder.preserveAspectRatio">preserveAspectRatio</a></li>
+                        <li><a href="#SVGElementBuilder.slot">slot</a></li>
+                        <li><a href="#SVGElementBuilder.stroke">stroke</a></li>
+                        <li><a href="#SVGElementBuilder.style">style</a></li>
+                        <li><a href="#SVGElementBuilder.tabindex">tabindex</a></li>
+                        <li><a href="#SVGElementBuilder.viewBox">viewBox</a></li>
+                        <li><a href="#SVGElementBuilder.width">width</a></li>
+                        <li><a href="#SVGElementBuilder.x">x</a></li>
+                        <li><a href="#SVGElementBuilder.y">y</a></li>
                     </ul>
                 </li>
             </ul>
@@ -381,31 +437,7 @@ console.log(tag); // HTMLElement
             </ul>
         </section>
         <section id="methods">
-            <h2>Builder Pattern Methods</h2>
-            <h3 id="TagBuilder.accessKey"><a href="#TagBuilder.accessKey" data-scroll>accessKey( value )</a></h3>
-            <p>Returns: <code>TagBuilder&#x3C;HTMLElement&#x3E;</code></p>
-            <p>Provides a hint for generating a keyboard shortcut for the current element</p>
-            <ul>
-                <li>
-                    <p>Arguments</p>
-                    <ul>
-                        <li class="arg"><code>value: string</code></li>
-                    </ul>
-                </li>
-                <li>
-                    <p>Usage</p>
-                    <pre><code>new TagBuilder(&#x27;div&#x27;).accessKey(&#x27;s&#x27;);</code></pre>
-                </li>
-                <li><span>See also: </span>
-                    <ul class="list-inline refs">
-                        <li><a class="nounderline" href="
-            https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/accesskey
-        " target="_blank">
-                                MDN accesskey
-                            </a></li>
-                    </ul>
-                </li>
-            </ul>
+            <h2>TagBuilder Pattern Methods</h2>
             <h3 id="TagBuilder.attr"><a href="#TagBuilder.attr" data-scroll>attr( key, value )</a></h3>
             <p>Returns: <code>TagBuilder&#x3C;HTMLElement&#x3E;</code></p>
             <p>Alias for element.setAttribute()</p>
@@ -420,92 +452,6 @@ console.log(tag); // HTMLElement
                 <li>
                     <p>Usage</p>
                     <pre><code>new TagBuilder(&#x27;div&#x27;).attr(&#x27;data-scroll&#x27;, true);</code></pre>
-                </li>
-            </ul>
-            <h3 id="TagBuilder.inputmode"><a href="#TagBuilder.inputmode" data-scroll>inputmode( value )</a></h3>
-            <p>Returns: <code>TagBuilder&#x3C;HTMLElement&#x3E;</code></p>
-            <p>Provides a hint to browsers as to the type of virtual keyboard configuration to use when editing this element or its contents. Used primarily on &lt;input&gt; elements, but is usable on any element while in contenteditable mode</p>
-            <ul>
-                <li>
-                    <p>Arguments</p>
-                    <ul>
-                        <li class="arg"><code>value: string</code></li>
-                    </ul>
-                </li>
-                <li>
-                    <p>Usage</p>
-                    <pre><code>new TagBuilder(&#x27;div&#x27;).inputmode(&#x27;email&#x27;);</code></pre>
-                </li>
-                <li><span>See also: </span>
-                    <ul class="list-inline refs">
-                        <li><a class="nounderline" href="
-            https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode
-        " target="_blank">
-                                MDN inputmode
-                            </a></li>
-                    </ul>
-                </li>
-            </ul>
-            <h3 id="TagBuilder.contentEditable"><a href="#TagBuilder.contentEditable" data-scroll>contentEditable()</a></h3>
-            <p>Returns: <code>TagBuilder&#x3C;HTMLElement&#x3E;</code></p>
-            <p>Coerce an element into being editable by the user. The browser modifies this tag to allow editing</p>
-            <ul>
-                <li>
-                    <p>Usage</p>
-                    <pre><code>new TagBuilder(&#x27;div&#x27;).contentEditable();</code></pre>
-                </li>
-                <li><span>See also: </span>
-                    <ul class="list-inline refs">
-                        <li><a class="nounderline" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/contenteditable" target="_blank">MDN contenteditable</a></li>
-                    </ul>
-                </li>
-            </ul>
-            <h3 id="TagBuilder.dir"><a href="#TagBuilder.dir" data-scroll>dir( value )</a></h3>
-            <p>Returns: <code>TagBuilder&#x3C;HTMLElement&#x3E;</code></p>
-            <p>Directionality of the element's text</p>
-            <ul>
-                <li>
-                    <p>Arguments</p>
-                    <ul>
-                        <li class="arg"><code>value: 'ltr' | 'rtl' | 'auto'</code></li>
-                    </ul>
-                </li>
-                <li>
-                    <p>Usage</p>
-                    <pre><code>new TagBuilder(&#x27;div&#x27;).dir(&#x27;ltr&#x27;);</code></pre>
-                </li>
-                <li><span>See also: </span>
-                    <ul class="list-inline refs">
-                        <li><a class="nounderline" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/dir" target="_blank">MDN dir</a></li>
-                    </ul>
-                </li>
-            </ul>
-            <h3 id="TagBuilder.draggable"><a href="#TagBuilder.draggable" data-scroll>draggable()</a></h3>
-            <p>Returns: <code>TagBuilder&#x3C;HTMLElement&#x3E;</code></p>
-            <p>Coerces an element into being draggable. Use the Drag and Drop API</p>
-            <ul>
-                <li>
-                    <p>Usage</p>
-                    <pre><code>new TagBuilder(&#x27;div&#x27;).draggable();</code></pre>
-                </li>
-                <li><span>See also: </span>
-                    <ul class="list-inline refs">
-                        <li><a class="nounderline" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/draggable" target="_blank">MDN draggable</a></li>
-                    </ul>
-                </li>
-            </ul>
-            <h3 id="TagBuilder.hidden"><a href="#TagBuilder.hidden" data-scroll>hidden()</a></h3>
-            <p>Returns: <code>TagBuilder&#x3C;HTMLElement&#x3E;</code></p>
-            <p>Coerces an element to indicate that it is not yet, or is no longer, relevant. For example, it can be used to hide elements of the page that can't be used until the login process has been completed. The browser won't render such elements. This attribute must not be used to hide content that could legitimately be shown</p>
-            <ul>
-                <li>
-                    <p>Usage</p>
-                    <pre><code>new TagBuilder(&#x27;div&#x27;).hidden();</code></pre>
-                </li>
-                <li><span>See also: </span>
-                    <ul class="list-inline refs">
-                        <li><a class="nounderline" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/hidden" target="_blank">MDN hidden</a></li>
-                    </ul>
                 </li>
             </ul>
             <h3 id="TagBuilder.slot"><a href="#TagBuilder.slot" data-scroll>slot( value )</a></h3>
@@ -528,21 +474,7 @@ console.log(tag); // HTMLElement
                     </ul>
                 </li>
             </ul>
-            <h3 id="TagBuilder.spellcheck"><a href="#TagBuilder.spellcheck" data-scroll>spellcheck()</a></h3>
-            <p>Returns: <code>TagBuilder&#x3C;HTMLElement&#x3E;</code></p>
-            <p>Coerce the element to be checked for spelling errors</p>
-            <ul>
-                <li>
-                    <p>Usage</p>
-                    <pre><code>new TagBuilder(&#x27;div&#x27;).spellcheck();</code></pre>
-                </li>
-                <li><span>See also: </span>
-                    <ul class="list-inline refs">
-                        <li><a class="nounderline" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/spellcheck" target="_blank">MDN spellcheck</a></li>
-                    </ul>
-                </li>
-            </ul>
-            <h3 id="TagBuilder.tabindex"><a href="#TagBuilder.tabindex" data-scroll>tabindex( index )</a></h3>
+            <h3 id="TagBuilder.tabIndex"><a href="#TagBuilder.tabIndex" data-scroll>tabindex( index )</a></h3>
             <p>Returns: <code>TagBuilder&#x3C;HTMLElement&#x3E;</code></p>
             <p>An integer attribute indicating if the element can take input focus (is focusable), if it should participate to sequential keyboard navigation, and if so, at what position</p>
             <ul>
@@ -562,26 +494,6 @@ console.log(tag); // HTMLElement
                     </ul>
                 </li>
             </ul>
-            <h3 id="TagBuilder.title"><a href="#TagBuilder.title" data-scroll>title( title )</a></h3>
-            <p>Returns: <code>TagBuilder&#x3C;HTMLElement&#x3E;</code></p>
-            <p>Sets the text representing advisory information related to the element it belongs to. Such information can typically, but not necessarily, be presented to the user as a tooltip</p>
-            <ul>
-                <li>
-                    <p>Arguments</p>
-                    <ul>
-                        <li class="arg"><code>title: string</code></li>
-                    </ul>
-                </li>
-                <li>
-                    <p>Usage</p>
-                    <pre><code>new TagBuilder(&#x27;div&#x27;).title(&#x27;foobar&#x27;);</code></pre>
-                </li>
-                <li><span>See also: </span>
-                    <ul class="list-inline refs">
-                        <li><a class="nounderline" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/title" target="_blank">MDN title</a></li>
-                    </ul>
-                </li>
-            </ul>
             <h3 id="TagBuilder.append"><a href="#TagBuilder.append" data-scroll>append( child )</a></h3>
             <p>Returns: <code>TagBuilder&#x3C;HTMLElement&#x3E;</code></p>
             <p>Inserts a set of tag builder objects or DOMString objects after the last child of the Element. DOMString objects are inserted as equivalent Text nodes</p>
@@ -589,7 +501,7 @@ console.log(tag); // HTMLElement
                 <li>
                     <p>Arguments</p>
                     <ul>
-                        <li class="arg"><code>child: ...(html | TagBuilder)[]</code></li>
+                        <li class="arg"><code>child: ...(html | TagBuilder<HTMLElement>)[]</code></li>
                     </ul>
                 </li>
                 <li>
@@ -597,17 +509,11 @@ console.log(tag); // HTMLElement
                     <pre><code>//example using plain text
 new TagBuilder(&#x27;div&#x27;).append(&#x27;foobar foobaz foodad&#x27;);
 
-//example using HTML
-new TagBuilder(&#x27;div&#x27;).append(&#x27;&#x3C;ul&#x3E;&#x3C;li&#x3E;foobar&#x3C;/li&#x3E;&#x3C;li&#x3E;foobaz&#x3C;/li&#x3E;&#x3C;li&#x3E;foodad&#x3C;/li&#x3E;&#x3C;/ul&#x3E;&#x27;);
-
 //example using a tag builder object
 new TagBuilder(&#x27;div&#x27;).append(new TagBuilder(&#x27;div&#x27;).innerHTML(&#x27;foobar&#x27;));
 
 //data types can be used in tandem:
-new TagBuilder(&#x27;div&#x27;).append(&#x27;foobar&#x27;,
-                             &#x27;&#x3C;ul&#x3E;&#x3C;li&#x3E;foobaz&#x3C;/li&#x3E;&#x3C;/ul&#x3E;&#x27;,
-                             new TagBuilder(&#x27;div&#x27;).innerHTML(&#x27;foodad&#x27;)
-);</code></pre>
+new TagBuilder(&#x27;div&#x27;).append(&#x27;foobar&#x27;, new TagBuilder(&#x27;div&#x27;).innerHTML(&#x27;foodad&#x27;));</code></pre>
                 </li>
                 <li><span>See also: </span>
                     <ul class="list-inline refs">
@@ -622,7 +528,7 @@ new TagBuilder(&#x27;div&#x27;).append(&#x27;foobar&#x27;,
                 <li>
                     <p>Arguments</p>
                     <ul>
-                        <li class="arg"><code>child: ...(html | TagBuilder)[]</code></li>
+                        <li class="arg"><code>child: ...(html | TagBuilder<HTMLElement>)[]</code></li>
                     </ul>
                 </li>
                 <li>
@@ -630,17 +536,11 @@ new TagBuilder(&#x27;div&#x27;).append(&#x27;foobar&#x27;,
                     <pre><code>//example using plain text
 new TagBuilder(&#x27;div&#x27;).prepend(&#x27;foobar foobaz foodad&#x27;);
 
-//example using HTML
-new TagBuilder(&#x27;div&#x27;).prepend(&#x27;&#x3C;ul&#x3E;&#x3C;li&#x3E;foobar&#x3C;/li&#x3E;&#x3C;li&#x3E;foobaz&#x3C;/li&#x3E;&#x3C;li&#x3E;foodad&#x3C;/li&#x3E;&#x3C;/ul&#x3E;&#x27;);
-
 //example using a tag builder object
 new TagBuilder(&#x27;div&#x27;).prepend(new TagBuilder(&#x27;div&#x27;).innerHTML(&#x27;foobar&#x27;));
 
 //data types can be used in tandem:
-new TagBuilder(&#x27;div&#x27;).prepend(&#x27;foobar&#x27;,
-                              &#x27;&#x3C;ul&#x3E;&#x3C;li&#x3E;foobaz&#x3C;/li&#x3E;&#x3C;/ul&#x3E;&#x27;,
-                              new TagBuilder(&#x27;div&#x27;).innerHTML(&#x27;foodad&#x27;)
-);</code></pre>
+new TagBuilder(&#x27;div&#x27;).prepend(&#x27;foobar&#x27;, new TagBuilder(&#x27;div&#x27;).innerHTML(&#x27;foodad&#x27;));</code></pre>
                 </li>
                 <li><span>See also: </span>
                     <ul class="list-inline refs">
@@ -657,7 +557,7 @@ new TagBuilder(&#x27;div&#x27;).prepend(&#x27;foobar&#x27;,
                 <li>
                     <p>Arguments</p>
                     <ul>
-                        <li class="arg"><code>sibling: TagBuilder</code></li>
+                        <li class="arg"><code>sibling: TagBuilder<HTMLElement></code></li>
                         <li class="arg"><code> placement: 'after' | 'before' = 'after'</code></li>
                     </ul>
                 </li>
@@ -686,49 +586,6 @@ new TagBuilder(&#x27;div&#x27;).prepend(&#x27;foobar&#x27;,
                     </ul>
                 </li>
             </ul>
-            <h3 id="TagBuilder.innerText"><a href="#TagBuilder.innerText" data-scroll>innerText( text )</a></h3>
-            <p>Returns: <code>TagBuilder&#x3C;HTMLElement&#x3E;</code></p>
-            <p>
-            <p>Represents the "rendered" text content of a node and its descendants</p>
-            <p>`innerText` is easily confused with Node.textContent, but there are important differences between the two. Basically, `innerText` is aware of the rendered appearance of text, while `textContent` is not</p>
-            </p>
-            <ul>
-                <li>
-                    <p>Arguments</p>
-                    <ul>
-                        <li class="arg"><code>text: string</code></li>
-                    </ul>
-                </li>
-                <li>
-                    <p>Usage</p>
-                    <pre><code>new TagBuilder(&#x27;div&#x27;).innerText(&#x27;foobar&#x27;);</code></pre>
-                </li>
-                <li><span>See also: </span>
-                    <ul class="list-inline refs">
-                        <li><a class="nounderline" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/innerText" target="_blank">MDN innerText</a></li>
-                    </ul>
-                </li>
-            </ul>
-            <h3 id="TagBuilder.autocapitalize"><a href="#TagBuilder.autocapitalize" data-scroll>autocapitalize( value )</a></h3>
-            <p>Returns: <code>TagBuilder&#x3C;HTMLElement&#x3E;</code></p>
-            <p>Controls whether and how text input is automatically capitalized as it is entered/edited by the user</p>
-            <ul>
-                <li>
-                    <p>Arguments</p>
-                    <ul>
-                        <li class="arg"><code>value: 'off' | 'on' | 'none' | 'sentences' | 'words' | 'characters'</code></li>
-                    </ul>
-                </li>
-                <li>
-                    <p>Usage</p>
-                    <pre><code>new TagBuilder(&#x27;div&#x27;).autocapitalize(&#x27;words&#x27;);</code></pre>
-                </li>
-                <li><span>See also: </span>
-                    <ul class="list-inline refs">
-                        <li><a class="nounderline" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/autocapitalize" target="_blank">MDN autocapitalize</a></li>
-                    </ul>
-                </li>
-            </ul>
             <h3 id="TagBuilder.bounds"><a href="#TagBuilder.bounds" data-scroll>bounds( width, height )</a></h3>
             <p>Returns: <code>TagBuilder&#x3C;HTMLElement&#x3E;</code></p>
             <p>Set the width and height css properties of the element using CSS values</p>
@@ -743,29 +600,6 @@ new TagBuilder(&#x27;div&#x27;).prepend(&#x27;foobar&#x27;,
                 <li>
                     <p>Usage</p>
                     <pre><code>new TagBuilder(&#x27;div&#x27;).bounds(&#x27;100px&#x27;, &#x27;50%&#x27;);</code></pre>
-                </li>
-            </ul>
-            <h3 id="TagBuilder.caret"><a href="#TagBuilder.caret" data-scroll>caret( color )</a></h3>
-            <p>Returns: <code>TagBuilder&#x3C;HTMLElement&#x3E;</code></p>
-            <p>Set the css caret-color property of the element</p>
-            <ul>
-                <li>
-                    <p>Arguments</p>
-                    <ul>
-                        <li class="arg"><code>color: string</code></li>
-                    </ul>
-                </li>
-                <li>
-                    <p>Usage</p>
-                    <pre><code>new TagBuilder(&#x27;div&#x27;).caret(&#x27;red&#x27;);
-
-//or with any other CSS color value
-new TagBuilder(&#x27;div&#x27;).caret(&#x27;#FFFFFF&#x27;);</code></pre>
-                </li>
-                <li><span>See also: </span>
-                    <ul class="list-inline refs">
-                        <li><a class="nounderline" href="https://developer.mozilla.org/en-US/docs/Web/CSS/caret-color" target="_blank">MDN caret-color</a></li>
-                    </ul>
                 </li>
             </ul>
             <h3 id="TagBuilder.classes"><a href="#TagBuilder.classes" data-scroll>classes( ...aClass )</a></h3>
@@ -920,46 +754,6 @@ new TagBuilder(&#x27;div&#x27;).padding(&#x27;5px&#x27;, &#x27;6px&#x27;, &#x27;
 });</code></pre>
                 </li>
             </ul>
-            <h3 id="TagBuilder.textcase"><a href="#TagBuilder.textcase" data-scroll>textcase( transform )</a></h3>
-            <p>Returns: <code>TagBuilder&#x3C;HTMLElement&#x3E;</code></p>
-            <p>Transform text to a specfic case using the CSS text-transform property</p>
-            <ul>
-                <li>
-                    <p>Arguments</p>
-                    <ul>
-                        <li class="arg"><code>transform: 'uppercase' | 'lowercase' | 'none' | 'capitalize' | 'inherit'</code></li>
-                    </ul>
-                </li>
-                <li>
-                    <p>Usage</p>
-                    <pre><code>new TagBuilder(&#x27;div&#x27;).textcase(&#x27;uppercase&#x27;);</code></pre>
-                </li>
-                <li><span>See also: </span>
-                    <ul class="list-inline refs">
-                        <li><a class="nounderline" href="https://developer.mozilla.org/en-US/docs/Web/CSS/text-transform" target="_blank">MDN text-transform</a></li>
-                    </ul>
-                </li>
-            </ul>
-            <h3 id="TagBuilder.visibility"><a href="#TagBuilder.visibility" data-scroll>visibility( value )</a></h3>
-            <p>Returns: <code>TagBuilder&#x3C;HTMLElement&#x3E;</code></p>
-            <p>The visibility CSS property shows or hides an element without changing the layout of a document. The property can also hide rows or columns in a &#x60;&#x3C;table&#x3E;&#x60;</p>
-            <ul>
-                <li>
-                    <p>Arguments</p>
-                    <ul>
-                        <li class="arg"><code>value: 'visible' | 'hidden' | 'collapse'</code></li>
-                    </ul>
-                </li>
-                <li>
-                    <p>Usage</p>
-                    <pre><code>new TagBuilder(&#x27;div&#x27;).visibility(&#x27;hidden&#x27;);</code></pre>
-                </li>
-                <li><span>See also: </span>
-                    <ul class="list-inline refs">
-                        <li><a class="nounderline" href="https://developer.mozilla.org/en-US/docs/Web/CSS/visibility" target="_blank">MDN visibility</a></li>
-                    </ul>
-                </li>
-            </ul>
             <h3 id="TagBuilder.width"><a href="#TagBuilder.width" data-scroll>width( width )</a></h3>
             <p>Returns: <code>TagBuilder&#x3C;HTMLElement&#x3E;</code></p>
             <p>Set the width of the element</p>
@@ -973,29 +767,6 @@ new TagBuilder(&#x27;div&#x27;).padding(&#x27;5px&#x27;, &#x27;6px&#x27;, &#x27;
                 <li>
                     <p>Usage</p>
                     <pre><code>new TagBuilder(&#x27;div&#x27;).width(&#x27;100px&#x27;);</code></pre>
-                </li>
-            </ul>
-            <h3 id="TagBuilder.screenReaderOnly"><a href="#TagBuilder.screenReaderOnly" data-scroll>screenReaderOnly()</a></h3>
-            <p>Returns: <code>TagBuilder&#x3C;HTMLElement&#x3E;</code></p>
-            <p>
-            <p>Set the element to explicitly be for screen readers only, using the <a href="https://www.w3.org/WAI/tutorials/forms/labels/#note-on-hiding-elements" target="_blank">WCAG Standards</a></p>
-            <p>This will automatically add the following styles inline to the element:
-            <pre><code>element {
-    border: 0,
-    clip: rect(0 0 0 0),
-    height: 1px,
-    margin: -1px,
-    overflow: hidden,
-    padding: 0,
-    position: absolute,
-    width: 1px
-}</code></pre>
-            </p>
-            </p>
-            <ul>
-                <li>
-                    <p>Usage</p>
-                    <pre><code>new TagBuilder(&#x27;div&#x27;).screenReaderOnly();</code></pre>
                 </li>
             </ul>
             <h3 id="TagBuilder.on"><a href="#TagBuilder.on" data-scroll>on( event, listener )</a></h3>
@@ -1041,7 +812,7 @@ new TagBuilder(&#x27;div&#x27;).padding(&#x27;5px&#x27;, &#x27;6px&#x27;, &#x27;
                 </li>
             </ul>
             <h3 id="TagBuilder.buildHTML"><a href="#TagBuilder.buildHTML" data-scroll>buildHTML()</a></h3>
-            <p>Returns: <code>string</code></p>
+            <p>Returns: <code>HTMLElement</code></p>
             <p>This is the required build method when in `headless` mode. It returns the outerHTML of an HTMLElement when in `document` mode, otherwise the HTML markup when in `headless` mode</p>
             <ul>
                 <li>
@@ -1049,7 +820,280 @@ new TagBuilder(&#x27;div&#x27;).padding(&#x27;5px&#x27;, &#x27;6px&#x27;, &#x27;
                     <pre><code>new TagBuilder(&#x27;div&#x27;).buildHTML();</code></pre>
                 </li>
             </ul>
-            <h3 id="TagBuilder.static TagBuilder.parse"><a href="#TagBuilder.static TagBuilder.parse" data-scroll>static TagBuilder.parse( html )</a></h3>
+            <h3 id="TagBuilder.accessKey"><a href="#TagBuilder.accessKey" data-scroll>accessKey( value )</a></h3>
+            <p>Returns: <code>TagBuilder&#x3C;HTMLElement&#x3E;</code></p>
+            <p>Provides a hint for generating a keyboard shortcut for the current element</p>
+            <ul>
+                <li>
+                    <p>Arguments</p>
+                    <ul>
+                        <li class="arg"><code>value: string</code></li>
+                    </ul>
+                </li>
+                <li>
+                    <p>Usage</p>
+                    <pre><code>new TagBuilder(&#x27;div&#x27;).accessKey(&#x27;s&#x27;);</code></pre>
+                </li>
+                <li><span>See also: </span>
+                    <ul class="list-inline refs">
+                        <li><a class="nounderline" href="
+            https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/accesskey
+        " target="_blank">
+                                MDN accesskey
+                            </a></li>
+                    </ul>
+                </li>
+            </ul>
+            <h3 id="TagBuilder.inputmode"><a href="#TagBuilder.inputmode" data-scroll>inputmode( value )</a></h3>
+            <p>Returns: <code>TagBuilder&#x3C;HTMLElement&#x3E;</code></p>
+            <p>Provides a hint to browsers as to the type of virtual keyboard configuration to use when editing this element or its contents. Used primarily on &lt;input&gt; elements, but is usable on any element while in contenteditable mode</p>
+            <ul>
+                <li>
+                    <p>Arguments</p>
+                    <ul>
+                        <li class="arg"><code>value: string</code></li>
+                    </ul>
+                </li>
+                <li>
+                    <p>Usage</p>
+                    <pre><code>new TagBuilder(&#x27;div&#x27;).inputmode(&#x27;email&#x27;);</code></pre>
+                </li>
+                <li><span>See also: </span>
+                    <ul class="list-inline refs">
+                        <li><a class="nounderline" href="
+            https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode
+        " target="_blank">
+                                MDN inputmode
+                            </a></li>
+                    </ul>
+                </li>
+            </ul>
+            <h3 id="TagBuilder.contentEditable"><a href="#TagBuilder.contentEditable" data-scroll>contentEditable()</a></h3>
+            <p>Returns: <code>TagBuilder&#x3C;HTMLElement&#x3E;</code></p>
+            <p>Coerce an element into being editable by the user. The browser modifies this tag to allow editing</p>
+            <ul>
+                <li>
+                    <p>Usage</p>
+                    <pre><code>new TagBuilder(&#x27;div&#x27;).contentEditable();</code></pre>
+                </li>
+                <li><span>See also: </span>
+                    <ul class="list-inline refs">
+                        <li><a class="nounderline" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/contenteditable" target="_blank">MDN contenteditable</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <h3 id="TagBuilder.dir"><a href="#TagBuilder.dir" data-scroll>dir( value )</a></h3>
+            <p>Returns: <code>TagBuilder&#x3C;HTMLElement&#x3E;</code></p>
+            <p>Directionality of the element's text</p>
+            <ul>
+                <li>
+                    <p>Arguments</p>
+                    <ul>
+                        <li class="arg"><code>value: 'ltr' | 'rtl' | 'auto'</code></li>
+                    </ul>
+                </li>
+                <li>
+                    <p>Usage</p>
+                    <pre><code>new TagBuilder(&#x27;div&#x27;).dir(&#x27;ltr&#x27;);</code></pre>
+                </li>
+                <li><span>See also: </span>
+                    <ul class="list-inline refs">
+                        <li><a class="nounderline" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/dir" target="_blank">MDN dir</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <h3 id="TagBuilder.draggable"><a href="#TagBuilder.draggable" data-scroll>draggable()</a></h3>
+            <p>Returns: <code>TagBuilder&#x3C;HTMLElement&#x3E;</code></p>
+            <p>Coerces an element into being draggable. Use the Drag and Drop API</p>
+            <ul>
+                <li>
+                    <p>Usage</p>
+                    <pre><code>new TagBuilder(&#x27;div&#x27;).draggable();</code></pre>
+                </li>
+                <li><span>See also: </span>
+                    <ul class="list-inline refs">
+                        <li><a class="nounderline" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/draggable" target="_blank">MDN draggable</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <h3 id="TagBuilder.hidden"><a href="#TagBuilder.hidden" data-scroll>hidden()</a></h3>
+            <p>Returns: <code>TagBuilder&#x3C;HTMLElement&#x3E;</code></p>
+            <p>Coerces an element to indicate that it is not yet, or is no longer, relevant. For example, it can be used to hide elements of the page that can't be used until the login process has been completed. The browser won't render such elements. This attribute must not be used to hide content that could legitimately be shown</p>
+            <ul>
+                <li>
+                    <p>Usage</p>
+                    <pre><code>new TagBuilder(&#x27;div&#x27;).hidden();</code></pre>
+                </li>
+                <li><span>See also: </span>
+                    <ul class="list-inline refs">
+                        <li><a class="nounderline" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/hidden" target="_blank">MDN hidden</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <h3 id="TagBuilder.spellcheck"><a href="#TagBuilder.spellcheck" data-scroll>spellcheck()</a></h3>
+            <p>Returns: <code>TagBuilder&#x3C;HTMLElement&#x3E;</code></p>
+            <p>Coerce the element to be checked for spelling errors</p>
+            <ul>
+                <li>
+                    <p>Usage</p>
+                    <pre><code>new TagBuilder(&#x27;div&#x27;).spellcheck();</code></pre>
+                </li>
+                <li><span>See also: </span>
+                    <ul class="list-inline refs">
+                        <li><a class="nounderline" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/spellcheck" target="_blank">MDN spellcheck</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <h3 id="TagBuilder.title"><a href="#TagBuilder.title" data-scroll>title( title )</a></h3>
+            <p>Returns: <code>TagBuilder&#x3C;HTMLElement&#x3E;</code></p>
+            <p>Sets the text representing advisory information related to the element it belongs to. Such information can typically, but not necessarily, be presented to the user as a tooltip</p>
+            <ul>
+                <li>
+                    <p>Arguments</p>
+                    <ul>
+                        <li class="arg"><code>title: string</code></li>
+                    </ul>
+                </li>
+                <li>
+                    <p>Usage</p>
+                    <pre><code>new TagBuilder(&#x27;div&#x27;).title(&#x27;foobar&#x27;);</code></pre>
+                </li>
+                <li><span>See also: </span>
+                    <ul class="list-inline refs">
+                        <li><a class="nounderline" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/title" target="_blank">MDN title</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <h3 id="TagBuilder.innerText"><a href="#TagBuilder.innerText" data-scroll>innerText( text )</a></h3>
+            <p>Returns: <code>TagBuilder&#x3C;HTMLElement&#x3E;</code></p>
+            <p>
+            <p>Represents the "rendered" text content of a node and its descendants</p>
+            <p>`innerText` is easily confused with Node.textContent, but there are important differences between the two. Basically, `innerText` is aware of the rendered appearance of text, while `textContent` is not</p>
+            </p>
+            <ul>
+                <li>
+                    <p>Arguments</p>
+                    <ul>
+                        <li class="arg"><code>text: string</code></li>
+                    </ul>
+                </li>
+                <li>
+                    <p>Usage</p>
+                    <pre><code>new TagBuilder(&#x27;div&#x27;).innerText(&#x27;foobar&#x27;);</code></pre>
+                </li>
+                <li><span>See also: </span>
+                    <ul class="list-inline refs">
+                        <li><a class="nounderline" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/innerText" target="_blank">MDN innerText</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <h3 id="TagBuilder.autocapitalize"><a href="#TagBuilder.autocapitalize" data-scroll>autocapitalize( value )</a></h3>
+            <p>Returns: <code>TagBuilder&#x3C;HTMLElement&#x3E;</code></p>
+            <p>Controls whether and how text input is automatically capitalized as it is entered/edited by the user</p>
+            <ul>
+                <li>
+                    <p>Arguments</p>
+                    <ul>
+                        <li class="arg"><code>value: 'off' | 'on' | 'none' | 'sentences' | 'words' | 'characters'</code></li>
+                    </ul>
+                </li>
+                <li>
+                    <p>Usage</p>
+                    <pre><code>new TagBuilder(&#x27;div&#x27;).autocapitalize(&#x27;words&#x27;);</code></pre>
+                </li>
+                <li><span>See also: </span>
+                    <ul class="list-inline refs">
+                        <li><a class="nounderline" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/autocapitalize" target="_blank">MDN autocapitalize</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <h3 id="TagBuilder.caret"><a href="#TagBuilder.caret" data-scroll>caret( color )</a></h3>
+            <p>Returns: <code>TagBuilder&#x3C;HTMLElement&#x3E;</code></p>
+            <p>Set the css caret-color property of the element</p>
+            <ul>
+                <li>
+                    <p>Arguments</p>
+                    <ul>
+                        <li class="arg"><code>color: string</code></li>
+                    </ul>
+                </li>
+                <li>
+                    <p>Usage</p>
+                    <pre><code>new TagBuilder(&#x27;div&#x27;).caret(&#x27;red&#x27;);
+
+//or with any other CSS color value
+new TagBuilder(&#x27;div&#x27;).caret(&#x27;#FFFFFF&#x27;);</code></pre>
+                </li>
+                <li><span>See also: </span>
+                    <ul class="list-inline refs">
+                        <li><a class="nounderline" href="https://developer.mozilla.org/en-US/docs/Web/CSS/caret-color" target="_blank">MDN caret-color</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <h3 id="TagBuilder.textcase"><a href="#TagBuilder.textcase" data-scroll>textcase( transform )</a></h3>
+            <p>Returns: <code>TagBuilder&#x3C;HTMLElement&#x3E;</code></p>
+            <p>Transform text to a specfic case using the CSS text-transform property</p>
+            <ul>
+                <li>
+                    <p>Arguments</p>
+                    <ul>
+                        <li class="arg"><code>transform: 'uppercase' | 'lowercase' | 'none' | 'capitalize' | 'inherit'</code></li>
+                    </ul>
+                </li>
+                <li>
+                    <p>Usage</p>
+                    <pre><code>new TagBuilder(&#x27;div&#x27;).textcase(&#x27;uppercase&#x27;);</code></pre>
+                </li>
+                <li><span>See also: </span>
+                    <ul class="list-inline refs">
+                        <li><a class="nounderline" href="https://developer.mozilla.org/en-US/docs/Web/CSS/text-transform" target="_blank">MDN text-transform</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <h3 id="TagBuilder.visibility"><a href="#TagBuilder.visibility" data-scroll>visibility( value )</a></h3>
+            <p>Returns: <code>TagBuilder&#x3C;HTMLElement&#x3E;</code></p>
+            <p>The visibility CSS property shows or hides an element without changing the layout of a document. The property can also hide rows or columns in a &#x60;&#x3C;table&#x3E;&#x60;</p>
+            <ul>
+                <li>
+                    <p>Arguments</p>
+                    <ul>
+                        <li class="arg"><code>value: 'visible' | 'hidden' | 'collapse'</code></li>
+                    </ul>
+                </li>
+                <li>
+                    <p>Usage</p>
+                    <pre><code>new TagBuilder(&#x27;div&#x27;).visibility(&#x27;hidden&#x27;);</code></pre>
+                </li>
+                <li><span>See also: </span>
+                    <ul class="list-inline refs">
+                        <li><a class="nounderline" href="https://developer.mozilla.org/en-US/docs/Web/CSS/visibility" target="_blank">MDN visibility</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <h3 id="TagBuilder.screenReaderOnly"><a href="#TagBuilder.screenReaderOnly" data-scroll>screenReaderOnly()</a></h3>
+            <p>Returns: <code>TagBuilder&#x3C;HTMLElement&#x3E;</code></p>
+            <p>
+            <p>Set the element to explicitly be for screen readers only, using the <a href="https://www.w3.org/WAI/tutorials/forms/labels/#note-on-hiding-elements" target="_blank">WCAG Standards</a></p>
+            <p>This will automatically add the following styles inline to the element:
+            <pre><code>element {
+    border: 0,
+    clip: rect(0 0 0 0),
+    height: 1px,
+    margin: -1px,
+    overflow: hidden,
+    padding: 0,
+    position: absolute,
+    width: 1px
+}</code></pre>
+            </p>
+            </p>
+            <ul>
+                <li>
+                    <p>Usage</p>
+                    <pre><code>new TagBuilder(&#x27;div&#x27;).screenReaderOnly();</code></pre>
+                </li>
+            </ul>
+            <h3 id="TagBuilder.parse"><a href="#TagBuilder.parse" data-scroll>static TagBuilder.parse( html )</a></h3>
             <p>Returns: <code>TagBuilder&#x3C;HTMLElement&#x3E;</code></p>
             <p>
             <p>Parse an html string of HTML elements and cast that element to a TagBuilder</p>
@@ -1070,7 +1114,7 @@ new TagBuilder(&#x27;div&#x27;).padding(&#x27;5px&#x27;, &#x27;6px&#x27;, &#x27;
             </ul>
         </section>
         <section id="subclasses">
-            <h2>Subclasses</h2>
+            <h2>TabBuilder Subclasses</h2>
             <p>In order to help facilitate a semantic HTML experience and self-documenting code, there are numerous TagBuilder subclasses at your disposal to quickly create specific elements but also semantic-driven elements . These subclasses have unique methods respective to their purpose, for example, the TableBuilder has an <code>addRow()</code> method to quickly add a &#x3C;tr&#x3E; with data and the ListBuilder has an <code>addSublist()</code> method to add a sublist to a &#x3C;ul&#x3E; or &#x3C;ol&#x3E;, the semantic proper way by wrapping the sublist in a &#x3C;li&#x3E;</p>
             <h3 id="AnchorBuilder"><a href="#AnchorBuilder">AnchorBuilder</a></h3>
             <p>This element builder is used to create a hyperlink to web pages, files, email addresses, locations in the same page, or anything else a URL can address</p>
@@ -1479,7 +1523,8 @@ new TagBuilder(&#x27;div&#x27;).padding(&#x27;5px&#x27;, &#x27;6px&#x27;, &#x27;
                     </li>
                 </ul>
             </details>
-            <h3 id="CheckboxInputBuilder"><a href="#CheckboxInputBuilder">CheckboxInputBuilder</a> extends <a href="#InputBuilder" target="_blank" style="margin-left: 20px">InputBuilder</a></h3>
+            <h3 id="CheckboxInputBuilder"><a href="#CheckboxInputBuilder">CheckboxInputBuilder</a> extends <extendLink>InputBuilder</extendLink>
+            </h3>
             <p>This element builder is used to create a check box allowing single values to be selected/deselected</p>
             <details>
                 <summary>Documentation</summary>
@@ -1654,7 +1699,8 @@ new TagBuilder(&#x27;div&#x27;).padding(&#x27;5px&#x27;, &#x27;6px&#x27;, &#x27;
                     </li>
                 </ul>
             </details>
-            <h3 id="DateInputBuilder"><a href="#DateInputBuilder">DateInputBuilder</a> extends <a href="#NumberInputBuilder" target="_blank" style="margin-left: 20px">NumberInputBuilder</a></h3>
+            <h3 id="DateInputBuilder"><a href="#DateInputBuilder">DateInputBuilder</a> extends <extendLink>NumberInputBuilder</extendLink>
+            </h3>
             <p>This element builder is used to create a control for entering a date (year, month, and day, with no time). Opens a date picker or numeric wheels for year, month, day when active in supporting browsers</p>
             <details>
                 <summary>Documentation</summary>
@@ -1684,7 +1730,8 @@ new TagBuilder(&#x27;div&#x27;).padding(&#x27;5px&#x27;, &#x27;6px&#x27;, &#x27;
                     </li>
                 </ul>
             </details>
-            <h3 id="DateTimeLocalInputBuilder"><a href="#DateTimeLocalInputBuilder">DateTimeLocalInputBuilder</a> extends <a href="#DateInputBuilder" target="_blank" style="margin-left: 20px">DateInputBuilder</a></h3>
+            <h3 id="DateTimeLocalInputBuilder"><a href="#DateTimeLocalInputBuilder">DateTimeLocalInputBuilder</a> extends <extendLink>DateInputBuilder</extendLink>
+            </h3>
             <p>This element builder is used to create a control for entering a date and time, with no time zone. Opens a date picker or numeric wheels for date- and time-components when active in supporting browsers</p>
             <details>
                 <summary>Documentation</summary>
@@ -1792,7 +1839,8 @@ new TagBuilder(&#x27;div&#x27;).padding(&#x27;5px&#x27;, &#x27;6px&#x27;, &#x27;
                     </li>
                 </ul>
             </details>
-            <h3 id="DownloadAreaBuilder"><a href="#DownloadAreaBuilder">DownloadAreaBuilder</a> extends <a href="#AreaBuilder" target="_blank" style="margin-left: 20px">AreaBuilder</a></h3>
+            <h3 id="DownloadAreaBuilder"><a href="#DownloadAreaBuilder">DownloadAreaBuilder</a> extends <extendLink>AreaBuilder</extendLink>
+            </h3>
             <p>An extended class of AreaBuilder that creates an &#x60;&#x3C;area&#x3E;&#x60; tag specifically meant to act as a clickable download link</p>
             <details>
                 <summary>Documentation</summary>
@@ -1815,7 +1863,8 @@ new TagBuilder(&#x27;div&#x27;).padding(&#x27;5px&#x27;, &#x27;6px&#x27;, &#x27;
                     </li>
                 </ul>
             </details>
-            <h3 id="DownloadLinkBuilder"><a href="#DownloadLinkBuilder">DownloadLinkBuilder</a> extends <a href="#AnchorBuilder" target="_blank" style="margin-left: 20px">AnchorBuilder</a></h3>
+            <h3 id="DownloadLinkBuilder"><a href="#DownloadLinkBuilder">DownloadLinkBuilder</a> extends <extendLink>AnchorBuilder</extendLink>
+            </h3>
             <p>An extended class of AnchorBuilder that creates an &#x60;&#x3C;a&#x3E;&#x60; tag specifically meant to act as a clickable download link</p>
             <details>
                 <summary>Documentation</summary>
@@ -1837,7 +1886,8 @@ new TagBuilder(&#x27;div&#x27;).padding(&#x27;5px&#x27;, &#x27;6px&#x27;, &#x27;
                     </li>
                 </ul>
             </details>
-            <h3 id="EmailInputBuilder"><a href="#EmailInputBuilder">EmailInputBuilder</a> extends <a href="#TextInputBuilder" target="_blank" style="margin-left: 20px">TextInputBuilder</a></h3>
+            <h3 id="EmailInputBuilder"><a href="#EmailInputBuilder">EmailInputBuilder</a> extends <extendLink>TextInputBuilder</extendLink>
+            </h3>
             <p>This element builder is used to create a field for editing an email address. Looks like a text input, but has validation parameters and relevant keyboard in supporting browsers and devices with dynamic keyboards</p>
             <details>
                 <summary>Documentation</summary>
@@ -1958,7 +2008,8 @@ new TagBuilder(&#x27;div&#x27;).padding(&#x27;5px&#x27;, &#x27;6px&#x27;, &#x27;
                     </li>
                 </ul>
             </details>
-            <h3 id="FileInputBuilder"><a href="#FileInputBuilder">FileInputBuilder</a> extends <a href="#InputBuilder" target="_blank" style="margin-left: 20px">InputBuilder</a></h3>
+            <h3 id="FileInputBuilder"><a href="#FileInputBuilder">FileInputBuilder</a> extends <extendLink>InputBuilder</extendLink>
+            </h3>
             <p>This element builder is used to create a control that lets the user select a file. Use the accept attribute to define the types of files that the control can select</p>
             <details>
                 <summary>Documentation</summary>
@@ -2263,7 +2314,8 @@ new TagBuilder(&#x27;div&#x27;).padding(&#x27;5px&#x27;, &#x27;6px&#x27;, &#x27;
                     </li>
                 </ul>
             </details>
-            <h3 id="ImageInputBuilder"><a href="#ImageInputBuilder">ImageInputBuilder</a> extends <a href="#InputBuilder" target="_blank" style="margin-left: 20px">InputBuilder</a></h3>
+            <h3 id="ImageInputBuilder"><a href="#ImageInputBuilder">ImageInputBuilder</a> extends <extendLink>InputBuilder</extendLink>
+            </h3>
             <p>This element builder is used to create a graphical submit button. Displays an image defined by the src attribute. The alt attribute displays if the image src is missing.</p>
             <details>
                 <summary>Documentation</summary>
@@ -2793,7 +2845,8 @@ new TagBuilder(&#x27;div&#x27;).padding(&#x27;5px&#x27;, &#x27;6px&#x27;, &#x27;
                     </li>
                 </ul>
             </details>
-            <h3 id="MonthInputBuilder"><a href="#MonthInputBuilder">MonthInputBuilder</a> extends <a href="#DateInputBuilder" target="_blank" style="margin-left: 20px">DateInputBuilder</a></h3>
+            <h3 id="MonthInputBuilder"><a href="#MonthInputBuilder">MonthInputBuilder</a> extends <extendLink>DateInputBuilder</extendLink>
+            </h3>
             <p>This element builder is used to create a control for entering a month and year, with no time zone</p>
             <details>
                 <summary>Documentation</summary>
@@ -2819,7 +2872,8 @@ new TagBuilder(&#x27;div&#x27;).padding(&#x27;5px&#x27;, &#x27;6px&#x27;, &#x27;
                     </li>
                 </ul>
             </details>
-            <h3 id="NumberInputBuilder"><a href="#NumberInputBuilder">NumberInputBuilder</a> extends <a href="#InputBuilder" target="_blank" style="margin-left: 20px">InputBuilder</a></h3>
+            <h3 id="NumberInputBuilder"><a href="#NumberInputBuilder">NumberInputBuilder</a> extends <extendLink>InputBuilder</extendLink>
+            </h3>
             <p>This element builder is used to create a control for entering a number. Displays a spinner and adds default validation when supported. Displays a numeric keypad in some devices with dynamic keypads</p>
             <details>
                 <summary>Documentation</summary>
@@ -2917,7 +2971,8 @@ new TagBuilder(&#x27;div&#x27;).padding(&#x27;5px&#x27;, &#x27;6px&#x27;, &#x27;
                     </li>
                 </ul>
             </details>
-            <h3 id="PasswordInputBuilder"><a href="#PasswordInputBuilder">PasswordInputBuilder</a> extends <a href="#TextInputBuilder" target="_blank" style="margin-left: 20px">TextInputBuilder</a></h3>
+            <h3 id="PasswordInputBuilder"><a href="#PasswordInputBuilder">PasswordInputBuilder</a> extends <extendLink>TextInputBuilder</extendLink>
+            </h3>
             <p>This element builder is used to create a single-line text field whose value is obscured. Will alert user if site is not secure</p>
             <details>
                 <summary>Documentation</summary>
@@ -3038,7 +3093,8 @@ new TagBuilder(&#x27;div&#x27;).padding(&#x27;5px&#x27;, &#x27;6px&#x27;, &#x27;
                     </li>
                 </ul>
             </details>
-            <h3 id="RadioInputBuilder"><a href="#RadioInputBuilder">RadioInputBuilder</a> extends <a href="#InputBuilder" target="_blank" style="margin-left: 20px">InputBuilder</a></h3>
+            <h3 id="RadioInputBuilder"><a href="#RadioInputBuilder">RadioInputBuilder</a> extends <extendLink>InputBuilder</extendLink>
+            </h3>
             <p>A radio button, allowing a single value to be selected out of multiple choices with the same name value</p>
             <details>
                 <summary>Documentation</summary>
@@ -3064,7 +3120,8 @@ new TagBuilder(&#x27;div&#x27;).padding(&#x27;5px&#x27;, &#x27;6px&#x27;, &#x27;
                     </li>
                 </ul>
             </details>
-            <h3 id="RangeInputBuilder"><a href="#RangeInputBuilder">RangeInputBuilder</a> extends <a href="#InputBuilder" target="_blank" style="margin-left: 20px">InputBuilder</a></h3>
+            <h3 id="RangeInputBuilder"><a href="#RangeInputBuilder">RangeInputBuilder</a> extends <extendLink>InputBuilder</extendLink>
+            </h3>
             <p>This element builder is used to create a control for entering a number whose exact value is not important. Displays as a range widget defaulting to the middle value. Used in conjunction min and max to define the range of acceptable values</p>
             <details>
                 <summary>Documentation</summary>
@@ -3232,7 +3289,8 @@ new TagBuilder(&#x27;div&#x27;).padding(&#x27;5px&#x27;, &#x27;6px&#x27;, &#x27;
                     </li>
                 </ul>
             </details>
-            <h3 id="SearchInputBuilder"><a href="#SearchInputBuilder">SearchInputBuilder</a> extends <a href="#TextInputBuilder" target="_blank" style="margin-left: 20px">TextInputBuilder</a></h3>
+            <h3 id="SearchInputBuilder"><a href="#SearchInputBuilder">SearchInputBuilder</a> extends <extendLink>TextInputBuilder</extendLink>
+            </h3>
             <p>This element builder is used to create a single-line text field for entering search strings. Line-breaks are automatically removed from the input value. May include a delete icon in supporting browsers that can be used to clear the field. Displays a search icon instead of enter key on some devices with dynamic keypads</p>
             <details>
                 <summary>Documentation</summary>
@@ -3686,14 +3744,15 @@ new TagBuilder(&#x27;div&#x27;).padding(&#x27;5px&#x27;, &#x27;6px&#x27;, &#x27;
             <p>This element builder is used to create tabular data &#x2014; that is, information presented in a two-dimensional table comprised of rows and columns of cells containing data</p>
             <details>
                 <summary>Documentation</summary>
-                <h3><span>constructor( caption? )</span></h3>
+                <h3><span>constructor( caption?, id? )</span></h3>
                 <p>Returns: <code>TableBuilder&#x3C;HTMLTableElement&#x3E;</code></p>
                 <p></p>
                 <ul>
                     <li>
                         <p>Arguments</p>
                         <ul>
-                            <li class="arg"><code>caption?: string, id?: string</code></li>
+                            <li class="arg"><code>caption?: string</code></li>
+                            <li class="arg"><code> id?: string</code></li>
                         </ul>
                     </li>
                     <li>
@@ -3787,16 +3846,17 @@ new TagBuilder(&#x27;div&#x27;).padding(&#x27;5px&#x27;, &#x27;6px&#x27;, &#x27;
                     <li>
                         <p>Arguments</p>
                         <ul>
-                            <li class="arg"><code>...row: string[]</code></li>
+                            <li class="arg"><code>...row: string[][]</code></li>
                         </ul>
                     </li>
                     <li>
                         <p>Usage</p>
-                        <pre><code>new TableBuilder().setRows();</code></pre>
+                        <pre><code>new TableBuilder().setRows([&#x27;A1&#x27;, &#x27;A2&#x27;, &#x27;A3&#x27;], [&#x27;B1&#x27;, &#x27;B2&#x27;, &#x27;B3&#x27;]);</code></pre>
                     </li>
                 </ul>
             </details>
-            <h3 id="TelInputBuilder"><a href="#TelInputBuilder">TelInputBuilder</a> extends <a href="#TextInputBuilder" target="_blank" style="margin-left: 20px">TextInputBuilder</a></h3>
+            <h3 id="TelInputBuilder"><a href="#TelInputBuilder">TelInputBuilder</a> extends <extendLink>TextInputBuilder</extendLink>
+            </h3>
             <p>This element builder is used to create a control for entering a telephone number. Displays a telephone keypad in some devices with dynamic keypads</p>
             <details>
                 <summary>Documentation</summary>
@@ -4125,7 +4185,8 @@ a, a::before {
                     </li>
                 </ul>
             </details>
-            <h3 id="TextInputBuilder"><a href="#TextInputBuilder">TextInputBuilder</a> extends <a href="#InputBuilder" target="_blank" style="margin-left: 20px">InputBuilder</a></h3>
+            <h3 id="TextInputBuilder"><a href="#TextInputBuilder">TextInputBuilder</a> extends <extendLink>InputBuilder</extendLink>
+            </h3>
             <p>This element builder is used to create a single-line text field. Line-breaks are automatically removed from the input value</p>
             <details>
                 <summary>Documentation</summary>
@@ -4210,7 +4271,8 @@ a, a::before {
                     </li>
                 </ul>
             </details>
-            <h3 id="TimeInputBuilder"><a href="#TimeInputBuilder">TimeInputBuilder</a> extends <a href="#DateInputBuilder" target="_blank" style="margin-left: 20px">DateInputBuilder</a></h3>
+            <h3 id="TimeInputBuilder"><a href="#TimeInputBuilder">TimeInputBuilder</a> extends <extendLink>DateInputBuilder</extendLink>
+            </h3>
             <p>This element builder is used to create a control for entering a time value with no time zone</p>
             <details>
                 <summary>Documentation</summary>
@@ -4236,7 +4298,8 @@ a, a::before {
                     </li>
                 </ul>
             </details>
-            <h3 id="UrlInputBuilder"><a href="#UrlInputBuilder">UrlInputBuilder</a> extends <a href="#TextInputBuilder" target="_blank" style="margin-left: 20px">TextInputBuilder</a></h3>
+            <h3 id="UrlInputBuilder"><a href="#UrlInputBuilder">UrlInputBuilder</a> extends <extendLink>TextInputBuilder</extendLink>
+            </h3>
             <p>This element builder is used to create a field for entering a URL. Looks like a text input, but has validation parameters and relevant keyboard in supporting browsers and devices with dynamic keyboards</p>
             <details>
                 <summary>Documentation</summary>
@@ -4407,7 +4470,8 @@ a, a::before {
                     </li>
                 </ul>
             </details>
-            <h3 id="WeekInputBuilder"><a href="#WeekInputBuilder">WeekInputBuilder</a> extends <a href="#DateInputBuilder" target="_blank" style="margin-left: 20px">DateInputBuilder</a></h3>
+            <h3 id="WeekInputBuilder"><a href="#WeekInputBuilder">WeekInputBuilder</a> extends <extendLink>DateInputBuilder</extendLink>
+            </h3>
             <p>This element builder is used to create a control for entering a date consisting of a week-year number and a week number with no time zone</p>
             <details>
                 <summary>Documentation</summary>
@@ -4430,6 +4494,922 @@ a, a::before {
                         <ul class="list-inline refs">
                             <li><a class="nounderline" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/week" target="_blank">MDN week</a></li>
                         </ul>
+                    </li>
+                </ul>
+            </details>
+        </section>
+        <section>
+            <h2 id="SVGBuilder">SVGBuilder</h2>
+            <h3><a href="#SVGBuilder">SVGBuilder</a></h3>
+            <p>This element builder is used to create XML-based markup language for describing two-dimensional based vector graphics</p>
+            <details open>
+                <summary>Documentation</summary>
+                <h3><span>constructor( viewBox?, id?, xmlns? )</span></h3>
+                <p>Returns: <code>SVGBuilder</code></p>
+                <p></p>
+                <ul>
+                    <li>
+                        <p>Arguments</p>
+                        <ul>
+                            <li class="arg"><code>viewBox?: string</code></li>
+                            <li class="arg"><code> id?: string</code></li>
+                            <li class="arg"><code> xmlns?: string</code></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>Usage</p>
+                        <pre><code>new SVGBuilder(&#x27;0 0 500 500&#x27;, &#x27;mySVG&#x27;);</code></pre>
+                    </li>
+                    <li><span>See also: </span>
+                        <ul class="list-inline refs">
+                            <li><a class="nounderline" href="https://developer.mozilla.org/en-US/docs/Web/SVG" target="_blank">MDN SVG</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <h3 id="SVGBuilder.attr"><a href="#SVGBuilder.attr" data-scroll>attr( key, value )</a></h3>
+                <p>Returns: <code>SVGBuilder&#x3C;SVGElement&#x3E;</code></p>
+                <p>Alias for element.setAttribute()</p>
+                <ul>
+                    <li>
+                        <p>Arguments</p>
+                        <ul>
+                            <li class="arg"><code>key: string</code></li>
+                            <li class="arg"><code> value: any</code></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>Usage</p>
+                        <pre><code>new SVGBuilder(&#x27;0 0 500 500&#x27;, &#x27;mySVG&#x27;).attr(&#x27;data-scroll&#x27;, true);</code></pre>
+                    </li>
+                </ul>
+                <h3 id="SVGBuilder.slot"><a href="#SVGBuilder.slot" data-scroll>slot( value )</a></h3>
+                <p>Returns: <code>SVGBuilder&#x3C;SVGElement&#x3E;</code></p>
+                <p>Assigns a slot in a shadow DOM shadow tree to an element: An element with a slot attribute is assigned to the slot created by the &lt;slot&gt; element whose name attribute's value matches that slot attribute's value</p>
+                <ul>
+                    <li>
+                        <p>Arguments</p>
+                        <ul>
+                            <li class="arg"><code>value: string</code></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>Usage</p>
+                        <pre><code>new SVGBuilder(&#x27;0 0 500 500&#x27;, &#x27;mySVG&#x27;).slot(&#x27;description&#x27;);</code></pre>
+                    </li>
+                    <li><span>See also: </span>
+                        <ul class="list-inline refs">
+                            <li><a class="nounderline" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/slot" target="_blank">MDN slot</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <h3 id="SVGBuilder.tabIndex"><a href="#SVGBuilder.tabIndex" data-scroll>tabindex( index )</a></h3>
+                <p>Returns: <code>SVGBuilder&#x3C;SVGElement&#x3E;</code></p>
+                <p>An integer attribute indicating if the element can take input focus (is focusable), if it should participate to sequential keyboard navigation, and if so, at what position</p>
+                <ul>
+                    <li>
+                        <p>Arguments</p>
+                        <ul>
+                            <li class="arg"><code>index: number</code></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>Usage</p>
+                        <pre><code>new SVGBuilder(&#x27;0 0 500 500&#x27;, &#x27;mySVG&#x27;).tabindex(&#x27;-1&#x27;);</code></pre>
+                    </li>
+                    <li><span>See also: </span>
+                        <ul class="list-inline refs">
+                            <li><a class="nounderline" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/tabindex" target="_blank">MDN tabindex</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <h3 id="SVGBuilder.append"><a href="#SVGBuilder.append" data-scroll>append( child )</a></h3>
+                <p>Returns: <code>SVGBuilder&#x3C;SVGElement&#x3E;</code></p>
+                <p>Inserts a set of tag builder objects or DOMString objects after the last child of the Element. DOMString objects are inserted as equivalent Text nodes</p>
+                <ul>
+                    <li>
+                        <p>Arguments</p>
+                        <ul>
+                            <li class="arg"><code>child: ...(html | SVGBuilder<SVGElement>)[]</code></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>Usage</p>
+                        <pre><code>//example using plain text
+new SVGBuilder(&#x27;0 0 500 500&#x27;, &#x27;mySVG&#x27;).append(&#x27;foobar foobaz foodad&#x27;);
+
+//example using a tag builder object
+new SVGBuilder(&#x27;0 0 500 500&#x27;, &#x27;mySVG&#x27;).append(new SVGBuilder(&#x27;0 0 500 500&#x27;, &#x27;mySVG&#x27;).innerHTML(&#x27;foobar&#x27;));
+
+//data types can be used in tandem:
+new SVGBuilder(&#x27;0 0 500 500&#x27;, &#x27;mySVG&#x27;).append(&#x27;foobar&#x27;, new SVGBuilder(&#x27;0 0 500 500&#x27;, &#x27;mySVG&#x27;).innerHTML(&#x27;foodad&#x27;));</code></pre>
+                    </li>
+                    <li><span>See also: </span>
+                        <ul class="list-inline refs">
+                            <li><a class="nounderline" href="https://developer.mozilla.org/en-US/docs/Web/API/Element/append](https://developer.mozilla.org/en-US/docs/Web/API/Element/append" target="_blank">MDN append</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <h3 id="SVGBuilder.prepend"><a href="#SVGBuilder.prepend" data-scroll>prepend( child )</a></h3>
+                <p>Returns: <code>SVGBuilder&#x3C;SVGElement&#x3E;</code></p>
+                <p>Inserts a set of tag builder objects or DOMString objects before the first child of the Element. DOMString objects are inserted as equivalent Text nodes</p>
+                <ul>
+                    <li>
+                        <p>Arguments</p>
+                        <ul>
+                            <li class="arg"><code>child: ...(html | SVGBuilder<SVGElement>)[]</code></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>Usage</p>
+                        <pre><code>//example using plain text
+new SVGBuilder(&#x27;0 0 500 500&#x27;, &#x27;mySVG&#x27;).prepend(&#x27;foobar foobaz foodad&#x27;);
+
+//example using a tag builder object
+new SVGBuilder(&#x27;0 0 500 500&#x27;, &#x27;mySVG&#x27;).prepend(new SVGBuilder(&#x27;0 0 500 500&#x27;, &#x27;mySVG&#x27;).innerHTML(&#x27;foobar&#x27;));
+
+//data types can be used in tandem:
+new SVGBuilder(&#x27;0 0 500 500&#x27;, &#x27;mySVG&#x27;).prepend(&#x27;foobar&#x27;, new SVGBuilder(&#x27;0 0 500 500&#x27;, &#x27;mySVG&#x27;).innerHTML(&#x27;foodad&#x27;));</code></pre>
+                    </li>
+                    <li><span>See also: </span>
+                        <ul class="list-inline refs">
+                            <li><a class="nounderline" href="https://developer.mozilla.org/en-US/docs/Web/API/Element/prepend](https://developer.mozilla.org/en-US/docs/Web/API/Element/prepend" target="_blank">MDN prepend</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <h3 id="SVGBuilder.insertAdjacent"><a href="#SVGBuilder.insertAdjacent" data-scroll>insertAdjacent( sibling, placement )</a></h3>
+                <p>Returns: <code>SVGBuilder&#x3C;SVGElement&#x3E;</code></p>
+                <p>
+                <p>Insert a sibling adjacent to the owning element. This is only guaranteed to work in `headless` mode</p>
+                </p>
+                <ul>
+                    <li>
+                        <p>Arguments</p>
+                        <ul>
+                            <li class="arg"><code>sibling: SVGBuilder<SVGElement></code></li>
+                            <li class="arg"><code> placement: 'after' | 'before' = 'after'</code></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>Usage</p>
+                        <pre><code>new SVGBuilder(&#x27;0 0 500 500&#x27;, &#x27;mySVG&#x27;).insertAdjacent(new SVGBuilder(&#x27;0 0 500 500&#x27;, &#x27;mySVG&#x27;) &#x27;before&#x27;);</code></pre>
+                    </li>
+                </ul>
+                <h3 id="SVGBuilder.innerHTML"><a href="#SVGBuilder.innerHTML" data-scroll>innerHTML( html )</a></h3>
+                <p>Returns: <code>SVGBuilder&#x3C;SVGElement&#x3E;</code></p>
+                <p>A DOMString containing the HTML serialization of the element's descendants. Setting the value of innerHTML removes all of the element's descendants and replaces them with nodes constructed by parsing the HTML given in the string htmlString</p>
+                <ul>
+                    <li>
+                        <p>Arguments</p>
+                        <ul>
+                            <li class="arg"><code>html: string</code></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>Usage</p>
+                        <pre><code>new SVGBuilder(&#x27;0 0 500 500&#x27;, &#x27;mySVG&#x27;).innerHTML(&#x27;foobar&#x27;);</code></pre>
+                    </li>
+                    <li><span>See also: </span>
+                        <ul class="list-inline refs">
+                            <li><a class="nounderline" href="https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML" target="_blank">MDN innerHTML</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <h3 id="SVGBuilder.bounds"><a href="#SVGBuilder.bounds" data-scroll>bounds( width, height )</a></h3>
+                <p>Returns: <code>SVGBuilder&#x3C;SVGElement&#x3E;</code></p>
+                <p>Set the width and height css properties of the element using CSS values</p>
+                <ul>
+                    <li>
+                        <p>Arguments</p>
+                        <ul>
+                            <li class="arg"><code>width: string</code></li>
+                            <li class="arg"><code> height: string</code></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>Usage</p>
+                        <pre><code>new SVGBuilder(&#x27;0 0 500 500&#x27;, &#x27;mySVG&#x27;).bounds(&#x27;100px&#x27;, &#x27;50%&#x27;);</code></pre>
+                    </li>
+                </ul>
+                <h3 id="SVGBuilder.classes"><a href="#SVGBuilder.classes" data-scroll>classes( ...aClass )</a></h3>
+                <p>Returns: <code>SVGBuilder&#x3C;SVGElement&#x3E;</code></p>
+                <p>Add classes to the element</p>
+                <ul>
+                    <li>
+                        <p>Arguments</p>
+                        <ul>
+                            <li class="arg"><code>...aClass: string[]</code></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>Usage</p>
+                        <pre><code>new SVGBuilder(&#x27;0 0 500 500&#x27;, &#x27;mySVG&#x27;).classes(&#x27;foo&#x27;, &#x27;bar&#x27;, &#x27;baz&#x27;, &#x27;dad&#x27;);</code></pre>
+                    </li>
+                </ul>
+                <h3 id="SVGBuilder.height"><a href="#SVGBuilder.height" data-scroll>height( height )</a></h3>
+                <p>Returns: <code>SVGBuilder&#x3C;SVGElement&#x3E;</code></p>
+                <p>Set the height of the element</p>
+                <ul>
+                    <li>
+                        <p>Arguments</p>
+                        <ul>
+                            <li class="arg"><code>height: string</code></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>Usage</p>
+                        <pre><code>new SVGBuilder(&#x27;0 0 500 500&#x27;, &#x27;mySVG&#x27;).height(&#x27;100px&#x27;);</code></pre>
+                    </li>
+                </ul>
+                <h3 id="SVGBuilder.margin"><a href="#SVGBuilder.margin" data-scroll>margin( ...cssShorthand )</a></h3>
+                <p>Returns: <code>SVGBuilder&#x3C;SVGElement&#x3E;</code></p>
+                <p>CSS margin short-hand equivalent rest parameters. This behaves exactly like you would use in CSS files</p>
+                <ul>
+                    <li>
+                        <p>Arguments</p>
+                        <ul>
+                            <li class="arg"><code>...cssShorthand: string[]</code></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>Usage</p>
+                        <pre><code>//apply to all sides:
+new SVGBuilder(&#x27;0 0 500 500&#x27;, &#x27;mySVG&#x27;).margin(&#x27;5px&#x27;); //CSS equivalent = margin: 5px;
+
+//apply to vertical | horizontal
+new SVGBuilder(&#x27;0 0 500 500&#x27;, &#x27;mySVG&#x27;).margin(&#x27;5px&#x27;, &#x27;10px&#x27;); //CSS equivalent = margin: 5px 10px;
+
+//apply to top | horizontal | bottom
+new SVGBuilder(&#x27;0 0 500 500&#x27;, &#x27;mySVG&#x27;).margin(&#x27;5px&#x27;, &#x27;10px&#x27;, &#x27;8px&#x27;); //CSS equivalent = margin: 5px 10px 8px;
+
+//apply to top | right | bottom | left
+new SVGBuilder(&#x27;0 0 500 500&#x27;, &#x27;mySVG&#x27;).margin(&#x27;5px&#x27;, &#x27;6px&#x27;, &#x27;7px&#x27;, &#x27;8px&#x27;); //CSS equivalent = margin: 5px 6px 7px 8px;</code></pre>
+                    </li>
+                    <li><span>See also: </span>
+                        <ul class="list-inline refs">
+                            <li><a class="nounderline" href="https://developer.mozilla.org/en-US/docs/Web/CSS/margin" target="_blank">MDN margin</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <h3 id="SVGBuilder.origin"><a href="#SVGBuilder.origin" data-scroll>origin( top?, right?, bottom?, left? )</a></h3>
+                <p>Returns: <code>SVGBuilder&#x3C;SVGElement&#x3E;</code></p>
+                <p>Set position properties using CSS values. If the argmuents are null or undefined they will be ignored</p>
+                <ul>
+                    <li>
+                        <p>Arguments</p>
+                        <ul>
+                            <li class="arg"><code>top?: string</code></li>
+                            <li class="arg"><code> right?: string</code></li>
+                            <li class="arg"><code> bottom?: string</code></li>
+                            <li class="arg"><code> left?: string</code></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>Usage</p>
+                        <pre><code>//setting the left property ignoring the rest
+new SVGBuilder(&#x27;0 0 500 500&#x27;, &#x27;mySVG&#x27;).origin(null, null, null, &#x27;-10px&#x27;); //CSS equivalent = left: -10px;</code></pre>
+                    </li>
+                </ul>
+                <h3 id="SVGBuilder.padding"><a href="#SVGBuilder.padding" data-scroll>padding( ...cssShorthand )</a></h3>
+                <p>Returns: <code>SVGBuilder&#x3C;SVGElement&#x3E;</code></p>
+                <p>CSS padding short-hand equivalent rest parameters. This behaves exactly like you would use in CSS files</p>
+                <ul>
+                    <li>
+                        <p>Arguments</p>
+                        <ul>
+                            <li class="arg"><code>...cssShorthand: string[]</code></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>Usage</p>
+                        <pre><code>//apply to all sides:
+new SVGBuilder(&#x27;0 0 500 500&#x27;, &#x27;mySVG&#x27;).padding(&#x27;5px&#x27;); //CSS equivalent = padding: 5px;
+
+//apply to vertical | horizontal
+new SVGBuilder(&#x27;0 0 500 500&#x27;, &#x27;mySVG&#x27;).padding(&#x27;5px&#x27;, &#x27;10px&#x27;); //CSS equivalent = padding: 5px 10px;
+
+//apply to top | horizontal | bottom
+new SVGBuilder(&#x27;0 0 500 500&#x27;, &#x27;mySVG&#x27;).padding(&#x27;5px&#x27;, &#x27;10px&#x27;, &#x27;8px&#x27;); //CSS equivalent = padding: 5px 10px 8px;
+
+//apply to top | right | bottom | left
+new SVGBuilder(&#x27;0 0 500 500&#x27;, &#x27;mySVG&#x27;).padding(&#x27;5px&#x27;, &#x27;6px&#x27;, &#x27;7px&#x27;, &#x27;8px&#x27;); //CSS equivalent = padding: 5px 6px 7px 8px;</code></pre>
+                    </li>
+                    <li><span>See also: </span>
+                        <ul class="list-inline refs">
+                            <li><a class="nounderline" href="https://developer.mozilla.org/en-US/docs/Web/CSS/padding" target="_blank">MDN padding</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <h3 id="SVGBuilder.position"><a href="#SVGBuilder.position" data-scroll>position( value )</a></h3>
+                <p>Returns: <code>SVGBuilder&#x3C;SVGElement&#x3E;</code></p>
+                <p>Sets how an element is positioned in a document. The top, right, bottom, and left properties determine the final location of positioned elements</p>
+                <ul>
+                    <li>
+                        <p>Arguments</p>
+                        <ul>
+                            <li class="arg"><code>value: 'relative' | 'absolute' | 'static' | 'fixed' | 'sticky'</code></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>Usage</p>
+                        <pre><code>new SVGBuilder(&#x27;0 0 500 500&#x27;, &#x27;mySVG&#x27;).position(&#x27;relative&#x27;);</code></pre>
+                    </li>
+                    <li><span>See also: </span>
+                        <ul class="list-inline refs">
+                            <li><a class="nounderline" href="https://developer.mozilla.org/en-US/docs/Web/CSS/position" target="_blank">MDN position</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <h3 id="SVGBuilder.style"><a href="#SVGBuilder.style" data-scroll>style( obj )</a></h3>
+                <p>Returns: <code>SVGBuilder&#x3C;SVGElement&#x3E;</code></p>
+                <p>
+                <p>CSS property-value pairs. Each property/value pair you provide is validated against using the users agents native <a href="https://developer.mozilla.org/en-US/docs/Web/API/CSS/supports" target="_blank"><code>window.CSS.supports()</code></a>method. Anything that is not supported will be ignored</p>
+                <p class="italic">Notice how the usage example demonstrates the names of the CSS properties are not the javascript camelcase variants, they are the CSS property names as-is</p>
+                </p>
+                <ul>
+                    <li>
+                        <p>Arguments</p>
+                        <ul>
+                            <li class="arg"><code>obj: { [key: string]: string | number | boolean }</code></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>Usage</p>
+                        <pre><code>new SVGBuilder(&#x27;0 0 500 500&#x27;, &#x27;mySVG&#x27;).style({
+    &#x27;padding-left&#x27;: &#x27;20px&#x27;,
+    position: &#x27;relative&#x27;,
+    color: &#x27;red&#x27;,
+    &#x27;border-top-left-radius&#x27; : &#x27;2.5em&#x27;
+});</code></pre>
+                    </li>
+                </ul>
+                <h3 id="SVGBuilder.width"><a href="#SVGBuilder.width" data-scroll>width( width )</a></h3>
+                <p>Returns: <code>SVGBuilder&#x3C;SVGElement&#x3E;</code></p>
+                <p>Set the width of the element</p>
+                <ul>
+                    <li>
+                        <p>Arguments</p>
+                        <ul>
+                            <li class="arg"><code>width: string</code></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>Usage</p>
+                        <pre><code>new SVGBuilder(&#x27;0 0 500 500&#x27;, &#x27;mySVG&#x27;).width(&#x27;100px&#x27;);</code></pre>
+                    </li>
+                </ul>
+                <h3 id="SVGBuilder.on"><a href="#SVGBuilder.on" data-scroll>on( event, listener )</a></h3>
+                <p>Returns: <code>SVGBuilder&#x3C;SVGElement&#x3E;</code></p>
+                <p>Sets up a function that will be called whenever the specified event is delivered to the target</p>
+                <ul>
+                    <li>
+                        <p>Arguments</p>
+                        <ul>
+                            <li class="arg"><code>event: keyof GlobalEventHandlersEventMap</code></li>
+                            <li class="arg"><code> listener: (this: SVGElement, env: Event)</code></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>Usage</p>
+                        <pre><code>new SVGBuilder(&#x27;0 0 500 500&#x27;, &#x27;mySVG&#x27;).on(&#x27;click&#x27;, () =&#x3E; alert(&#x27;Hello World&#x27;));</code></pre>
+                    </li>
+                    <li><span>See also: </span>
+                        <ul class="list-inline refs">
+                            <li><a class="nounderline" href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener" target="_blank">MDN addEventListener</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <h3 id="SVGBuilder.clone"><a href="#SVGBuilder.clone" data-scroll>clone()</a></h3>
+                <p>Returns: <code>SVGBuilder&#x3C;SVGElement&#x3E;</code></p>
+                <p>
+                <p>Clone the current tag builder. This deep clones the node it respectively manages</p>
+                <p class="italic">Note: this uses the same HTMLElement.cloneNode() method native to browsers, therefor, things like id's and individual configurations for a given node will be duplicated as-is</p>
+                </p>
+                <ul>
+                    <li>
+                        <p>Usage</p>
+                        <pre><code>new SVGBuilder(&#x27;0 0 500 500&#x27;, &#x27;mySVG&#x27;).clone();</code></pre>
+                    </li>
+                </ul>
+                <h3 id="SVGBuilder.build"><a href="#SVGBuilder.build" data-scroll>build()</a></h3>
+                <p>Returns: <code>SVGElement</code></p>
+                <p>The node the current builder manages as an SVGElement</p>
+                <ul>
+                    <li>
+                        <p>Usage</p>
+                        <pre><code>new SVGBuilder(&#x27;0 0 500 500&#x27;, &#x27;mySVG&#x27;).build();</code></pre>
+                    </li>
+                </ul>
+                <h3 id="SVGBuilder.buildHTML"><a href="#SVGBuilder.buildHTML" data-scroll>buildHTML()</a></h3>
+                <p>Returns: <code>SVGElement</code></p>
+                <p>This is the required build method when in `headless` mode. It returns the outerHTML of an SVGElement when in `document` mode, otherwise the HTML markup when in `headless` mode</p>
+                <ul>
+                    <li>
+                        <p>Usage</p>
+                        <pre><code>new SVGBuilder(&#x27;0 0 500 500&#x27;, &#x27;mySVG&#x27;).buildHTML();</code></pre>
+                    </li>
+                </ul>
+            </details>
+        </section>
+        <section>
+            <h2 id="SVGElementBuilder">SVGElementBuilder<T extends SVGElement>
+            </h2>
+            <h3><a href="#SVGElementBuilder">SVGElementBuilder<T extends SVGElement></a></h3>
+            <p>This element builder is used to create any kind of SVG element, or SVG animation</p>
+            <details open>
+                <summary>Documentation</summary>
+                <h3><span>constructor( element, xmlns?, id? )</span></h3>
+                <p>Returns: <code>SVGElementBuilder&#x3C;T extends SVGElement&#x3E;</code></p>
+                <p></p>
+                <ul>
+                    <li>
+                        <p>Arguments</p>
+                        <ul>
+                            <li class="arg"><code>element: string</code></li>
+                            <li class="arg"><code> xmlns?: string</code></li>
+                            <li class="arg"><code> id?: string</code></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>Usage</p>
+                        <pre><code>new SVGElementBuilder&#x3C;SVGCircleElement&#x3E;(&#x27;circle&#x27;, &#x27;myCircleSVG&#x27;)</code></pre>
+                    </li>
+                    <li><span>See also: </span>
+                        <ul class="list-inline refs">
+                            <li><a class="nounderline" href="https://developer.mozilla.org/en-US/docs/Web/SVG/Element" target="_blank">MDN Element</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <h3 id="SVGElementBuilder.attr"><a href="#SVGElementBuilder.attr" data-scroll>attr( key, value )</a></h3>
+                <p>Returns: <code>SVGElementBuilder&#x3C;T extends SVGElement&#x3E;</code></p>
+                <p>Alias for element.setAttribute()</p>
+                <ul>
+                    <li>
+                        <p>Arguments</p>
+                        <ul>
+                            <li class="arg"><code>key: string</code></li>
+                            <li class="arg"><code> value: any</code></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>Usage</p>
+                        <pre><code>new SVGElementBuilder&#x3C;SVGCircleElement&#x3E;(&#x27;circle&#x27;, &#x27;myCircleSVG&#x27;).attr(&#x27;data-scroll&#x27;, true);</code></pre>
+                    </li>
+                </ul>
+                <h3 id="SVGElementBuilder.slot"><a href="#SVGElementBuilder.slot" data-scroll>slot( value )</a></h3>
+                <p>Returns: <code>SVGElementBuilder&#x3C;T extends SVGElement&#x3E;</code></p>
+                <p>Assigns a slot in a shadow DOM shadow tree to an element: An element with a slot attribute is assigned to the slot created by the &lt;slot&gt; element whose name attribute's value matches that slot attribute's value</p>
+                <ul>
+                    <li>
+                        <p>Arguments</p>
+                        <ul>
+                            <li class="arg"><code>value: string</code></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>Usage</p>
+                        <pre><code>new SVGElementBuilder&#x3C;SVGCircleElement&#x3E;(&#x27;circle&#x27;, &#x27;myCircleSVG&#x27;).slot(&#x27;description&#x27;);</code></pre>
+                    </li>
+                    <li><span>See also: </span>
+                        <ul class="list-inline refs">
+                            <li><a class="nounderline" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/slot" target="_blank">MDN slot</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <h3 id="SVGElementBuilder.tabIndex"><a href="#SVGElementBuilder.tabIndex" data-scroll>tabindex( index )</a></h3>
+                <p>Returns: <code>SVGElementBuilder&#x3C;T extends SVGElement&#x3E;</code></p>
+                <p>An integer attribute indicating if the element can take input focus (is focusable), if it should participate to sequential keyboard navigation, and if so, at what position</p>
+                <ul>
+                    <li>
+                        <p>Arguments</p>
+                        <ul>
+                            <li class="arg"><code>index: number</code></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>Usage</p>
+                        <pre><code>new SVGElementBuilder&#x3C;SVGCircleElement&#x3E;(&#x27;circle&#x27;, &#x27;myCircleSVG&#x27;).tabindex(&#x27;-1&#x27;);</code></pre>
+                    </li>
+                    <li><span>See also: </span>
+                        <ul class="list-inline refs">
+                            <li><a class="nounderline" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/tabindex" target="_blank">MDN tabindex</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <h3 id="SVGElementBuilder.append"><a href="#SVGElementBuilder.append" data-scroll>append( child )</a></h3>
+                <p>Returns: <code>SVGElementBuilder&#x3C;T extends SVGElement&#x3E;</code></p>
+                <p>Inserts a set of tag builder objects or DOMString objects after the last child of the Element. DOMString objects are inserted as equivalent Text nodes</p>
+                <ul>
+                    <li>
+                        <p>Arguments</p>
+                        <ul>
+                            <li class="arg"><code>child: ...(html | SVGElementBuilder<T extends SVGElement>)[]</code></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>Usage</p>
+                        <pre><code>//example using plain text
+new SVGElementBuilder&#x3C;SVGCircleElement&#x3E;(&#x27;circle&#x27;, &#x27;myCircleSVG&#x27;).append(&#x27;foobar foobaz foodad&#x27;);
+
+//example using a tag builder object
+new SVGElementBuilder&#x3C;SVGCircleElement&#x3E;(&#x27;circle&#x27;, &#x27;myCircleSVG&#x27;).append(new SVGElementBuilder&#x3C;SVGCircleElement&#x3E;(&#x27;circle&#x27;, &#x27;myCircleSVG&#x27;).innerHTML(&#x27;foobar&#x27;));
+
+//data types can be used in tandem:
+new SVGElementBuilder&#x3C;SVGCircleElement&#x3E;(&#x27;circle&#x27;, &#x27;myCircleSVG&#x27;).append(&#x27;foobar&#x27;, new SVGElementBuilder&#x3C;SVGCircleElement&#x3E;(&#x27;circle&#x27;, &#x27;myCircleSVG&#x27;).innerHTML(&#x27;foodad&#x27;));</code></pre>
+                    </li>
+                    <li><span>See also: </span>
+                        <ul class="list-inline refs">
+                            <li><a class="nounderline" href="https://developer.mozilla.org/en-US/docs/Web/API/Element/append](https://developer.mozilla.org/en-US/docs/Web/API/Element/append" target="_blank">MDN append</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <h3 id="SVGElementBuilder.prepend"><a href="#SVGElementBuilder.prepend" data-scroll>prepend( child )</a></h3>
+                <p>Returns: <code>SVGElementBuilder&#x3C;T extends SVGElement&#x3E;</code></p>
+                <p>Inserts a set of tag builder objects or DOMString objects before the first child of the Element. DOMString objects are inserted as equivalent Text nodes</p>
+                <ul>
+                    <li>
+                        <p>Arguments</p>
+                        <ul>
+                            <li class="arg"><code>child: ...(html | SVGElementBuilder<T extends SVGElement>)[]</code></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>Usage</p>
+                        <pre><code>//example using plain text
+new SVGElementBuilder&#x3C;SVGCircleElement&#x3E;(&#x27;circle&#x27;, &#x27;myCircleSVG&#x27;).prepend(&#x27;foobar foobaz foodad&#x27;);
+
+//example using a tag builder object
+new SVGElementBuilder&#x3C;SVGCircleElement&#x3E;(&#x27;circle&#x27;, &#x27;myCircleSVG&#x27;).prepend(new SVGElementBuilder&#x3C;SVGCircleElement&#x3E;(&#x27;circle&#x27;, &#x27;myCircleSVG&#x27;).innerHTML(&#x27;foobar&#x27;));
+
+//data types can be used in tandem:
+new SVGElementBuilder&#x3C;SVGCircleElement&#x3E;(&#x27;circle&#x27;, &#x27;myCircleSVG&#x27;).prepend(&#x27;foobar&#x27;, new SVGElementBuilder&#x3C;SVGCircleElement&#x3E;(&#x27;circle&#x27;, &#x27;myCircleSVG&#x27;).innerHTML(&#x27;foodad&#x27;));</code></pre>
+                    </li>
+                    <li><span>See also: </span>
+                        <ul class="list-inline refs">
+                            <li><a class="nounderline" href="https://developer.mozilla.org/en-US/docs/Web/API/Element/prepend](https://developer.mozilla.org/en-US/docs/Web/API/Element/prepend" target="_blank">MDN prepend</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <h3 id="SVGElementBuilder.insertAdjacent"><a href="#SVGElementBuilder.insertAdjacent" data-scroll>insertAdjacent( sibling, placement )</a></h3>
+                <p>Returns: <code>SVGElementBuilder&#x3C;T extends SVGElement&#x3E;</code></p>
+                <p>
+                <p>Insert a sibling adjacent to the owning element. This is only guaranteed to work in `headless` mode</p>
+                </p>
+                <ul>
+                    <li>
+                        <p>Arguments</p>
+                        <ul>
+                            <li class="arg"><code>sibling: SVGElementBuilder<T extends SVGElement></code></li>
+                            <li class="arg"><code> placement: 'after' | 'before' = 'after'</code></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>Usage</p>
+                        <pre><code>new SVGElementBuilder&#x3C;SVGCircleElement&#x3E;(&#x27;circle&#x27;, &#x27;myCircleSVG&#x27;).insertAdjacent(new SVGElementBuilder&#x3C;SVGCircleElement&#x3E;(&#x27;circle&#x27;, &#x27;myCircleSVG&#x27;) &#x27;before&#x27;);</code></pre>
+                    </li>
+                </ul>
+                <h3 id="SVGElementBuilder.innerHTML"><a href="#SVGElementBuilder.innerHTML" data-scroll>innerHTML( html )</a></h3>
+                <p>Returns: <code>SVGElementBuilder&#x3C;T extends SVGElement&#x3E;</code></p>
+                <p>A DOMString containing the HTML serialization of the element's descendants. Setting the value of innerHTML removes all of the element's descendants and replaces them with nodes constructed by parsing the HTML given in the string htmlString</p>
+                <ul>
+                    <li>
+                        <p>Arguments</p>
+                        <ul>
+                            <li class="arg"><code>html: string</code></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>Usage</p>
+                        <pre><code>new SVGElementBuilder&#x3C;SVGCircleElement&#x3E;(&#x27;circle&#x27;, &#x27;myCircleSVG&#x27;).innerHTML(&#x27;foobar&#x27;);</code></pre>
+                    </li>
+                    <li><span>See also: </span>
+                        <ul class="list-inline refs">
+                            <li><a class="nounderline" href="https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML" target="_blank">MDN innerHTML</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <h3 id="SVGElementBuilder.bounds"><a href="#SVGElementBuilder.bounds" data-scroll>bounds( width, height )</a></h3>
+                <p>Returns: <code>SVGElementBuilder&#x3C;T extends SVGElement&#x3E;</code></p>
+                <p>Set the width and height css properties of the element using CSS values</p>
+                <ul>
+                    <li>
+                        <p>Arguments</p>
+                        <ul>
+                            <li class="arg"><code>width: string</code></li>
+                            <li class="arg"><code> height: string</code></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>Usage</p>
+                        <pre><code>new SVGElementBuilder&#x3C;SVGCircleElement&#x3E;(&#x27;circle&#x27;, &#x27;myCircleSVG&#x27;).bounds(&#x27;100px&#x27;, &#x27;50%&#x27;);</code></pre>
+                    </li>
+                </ul>
+                <h3 id="SVGElementBuilder.classes"><a href="#SVGElementBuilder.classes" data-scroll>classes( ...aClass )</a></h3>
+                <p>Returns: <code>SVGElementBuilder&#x3C;T extends SVGElement&#x3E;</code></p>
+                <p>Add classes to the element</p>
+                <ul>
+                    <li>
+                        <p>Arguments</p>
+                        <ul>
+                            <li class="arg"><code>...aClass: string[]</code></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>Usage</p>
+                        <pre><code>new SVGElementBuilder&#x3C;SVGCircleElement&#x3E;(&#x27;circle&#x27;, &#x27;myCircleSVG&#x27;).classes(&#x27;foo&#x27;, &#x27;bar&#x27;, &#x27;baz&#x27;, &#x27;dad&#x27;);</code></pre>
+                    </li>
+                </ul>
+                <h3 id="SVGElementBuilder.height"><a href="#SVGElementBuilder.height" data-scroll>height( height )</a></h3>
+                <p>Returns: <code>SVGElementBuilder&#x3C;T extends SVGElement&#x3E;</code></p>
+                <p>Set the height of the element</p>
+                <ul>
+                    <li>
+                        <p>Arguments</p>
+                        <ul>
+                            <li class="arg"><code>height: string</code></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>Usage</p>
+                        <pre><code>new SVGElementBuilder&#x3C;SVGCircleElement&#x3E;(&#x27;circle&#x27;, &#x27;myCircleSVG&#x27;).height(&#x27;100px&#x27;);</code></pre>
+                    </li>
+                </ul>
+                <h3 id="SVGElementBuilder.margin"><a href="#SVGElementBuilder.margin" data-scroll>margin( ...cssShorthand )</a></h3>
+                <p>Returns: <code>SVGElementBuilder&#x3C;T extends SVGElement&#x3E;</code></p>
+                <p>CSS margin short-hand equivalent rest parameters. This behaves exactly like you would use in CSS files</p>
+                <ul>
+                    <li>
+                        <p>Arguments</p>
+                        <ul>
+                            <li class="arg"><code>...cssShorthand: string[]</code></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>Usage</p>
+                        <pre><code>//apply to all sides:
+new SVGElementBuilder&#x3C;SVGCircleElement&#x3E;(&#x27;circle&#x27;, &#x27;myCircleSVG&#x27;).margin(&#x27;5px&#x27;); //CSS equivalent = margin: 5px;
+
+//apply to vertical | horizontal
+new SVGElementBuilder&#x3C;SVGCircleElement&#x3E;(&#x27;circle&#x27;, &#x27;myCircleSVG&#x27;).margin(&#x27;5px&#x27;, &#x27;10px&#x27;); //CSS equivalent = margin: 5px 10px;
+
+//apply to top | horizontal | bottom
+new SVGElementBuilder&#x3C;SVGCircleElement&#x3E;(&#x27;circle&#x27;, &#x27;myCircleSVG&#x27;).margin(&#x27;5px&#x27;, &#x27;10px&#x27;, &#x27;8px&#x27;); //CSS equivalent = margin: 5px 10px 8px;
+
+//apply to top | right | bottom | left
+new SVGElementBuilder&#x3C;SVGCircleElement&#x3E;(&#x27;circle&#x27;, &#x27;myCircleSVG&#x27;).margin(&#x27;5px&#x27;, &#x27;6px&#x27;, &#x27;7px&#x27;, &#x27;8px&#x27;); //CSS equivalent = margin: 5px 6px 7px 8px;</code></pre>
+                    </li>
+                    <li><span>See also: </span>
+                        <ul class="list-inline refs">
+                            <li><a class="nounderline" href="https://developer.mozilla.org/en-US/docs/Web/CSS/margin" target="_blank">MDN margin</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <h3 id="SVGElementBuilder.origin"><a href="#SVGElementBuilder.origin" data-scroll>origin( top?, right?, bottom?, left? )</a></h3>
+                <p>Returns: <code>SVGElementBuilder&#x3C;T extends SVGElement&#x3E;</code></p>
+                <p>Set position properties using CSS values. If the argmuents are null or undefined they will be ignored</p>
+                <ul>
+                    <li>
+                        <p>Arguments</p>
+                        <ul>
+                            <li class="arg"><code>top?: string</code></li>
+                            <li class="arg"><code> right?: string</code></li>
+                            <li class="arg"><code> bottom?: string</code></li>
+                            <li class="arg"><code> left?: string</code></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>Usage</p>
+                        <pre><code>//setting the left property ignoring the rest
+new SVGElementBuilder&#x3C;SVGCircleElement&#x3E;(&#x27;circle&#x27;, &#x27;myCircleSVG&#x27;).origin(null, null, null, &#x27;-10px&#x27;); //CSS equivalent = left: -10px;</code></pre>
+                    </li>
+                </ul>
+                <h3 id="SVGElementBuilder.padding"><a href="#SVGElementBuilder.padding" data-scroll>padding( ...cssShorthand )</a></h3>
+                <p>Returns: <code>SVGElementBuilder&#x3C;T extends SVGElement&#x3E;</code></p>
+                <p>CSS padding short-hand equivalent rest parameters. This behaves exactly like you would use in CSS files</p>
+                <ul>
+                    <li>
+                        <p>Arguments</p>
+                        <ul>
+                            <li class="arg"><code>...cssShorthand: string[]</code></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>Usage</p>
+                        <pre><code>//apply to all sides:
+new SVGElementBuilder&#x3C;SVGCircleElement&#x3E;(&#x27;circle&#x27;, &#x27;myCircleSVG&#x27;).padding(&#x27;5px&#x27;); //CSS equivalent = padding: 5px;
+
+//apply to vertical | horizontal
+new SVGElementBuilder&#x3C;SVGCircleElement&#x3E;(&#x27;circle&#x27;, &#x27;myCircleSVG&#x27;).padding(&#x27;5px&#x27;, &#x27;10px&#x27;); //CSS equivalent = padding: 5px 10px;
+
+//apply to top | horizontal | bottom
+new SVGElementBuilder&#x3C;SVGCircleElement&#x3E;(&#x27;circle&#x27;, &#x27;myCircleSVG&#x27;).padding(&#x27;5px&#x27;, &#x27;10px&#x27;, &#x27;8px&#x27;); //CSS equivalent = padding: 5px 10px 8px;
+
+//apply to top | right | bottom | left
+new SVGElementBuilder&#x3C;SVGCircleElement&#x3E;(&#x27;circle&#x27;, &#x27;myCircleSVG&#x27;).padding(&#x27;5px&#x27;, &#x27;6px&#x27;, &#x27;7px&#x27;, &#x27;8px&#x27;); //CSS equivalent = padding: 5px 6px 7px 8px;</code></pre>
+                    </li>
+                    <li><span>See also: </span>
+                        <ul class="list-inline refs">
+                            <li><a class="nounderline" href="https://developer.mozilla.org/en-US/docs/Web/CSS/padding" target="_blank">MDN padding</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <h3 id="SVGElementBuilder.position"><a href="#SVGElementBuilder.position" data-scroll>position( value )</a></h3>
+                <p>Returns: <code>SVGElementBuilder&#x3C;T extends SVGElement&#x3E;</code></p>
+                <p>Sets how an element is positioned in a document. The top, right, bottom, and left properties determine the final location of positioned elements</p>
+                <ul>
+                    <li>
+                        <p>Arguments</p>
+                        <ul>
+                            <li class="arg"><code>value: 'relative' | 'absolute' | 'static' | 'fixed' | 'sticky'</code></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>Usage</p>
+                        <pre><code>new SVGElementBuilder&#x3C;SVGCircleElement&#x3E;(&#x27;circle&#x27;, &#x27;myCircleSVG&#x27;).position(&#x27;relative&#x27;);</code></pre>
+                    </li>
+                    <li><span>See also: </span>
+                        <ul class="list-inline refs">
+                            <li><a class="nounderline" href="https://developer.mozilla.org/en-US/docs/Web/CSS/position" target="_blank">MDN position</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <h3 id="SVGElementBuilder.style"><a href="#SVGElementBuilder.style" data-scroll>style( obj )</a></h3>
+                <p>Returns: <code>SVGElementBuilder&#x3C;T extends SVGElement&#x3E;</code></p>
+                <p>
+                <p>CSS property-value pairs. Each property/value pair you provide is validated against using the users agents native <a href="https://developer.mozilla.org/en-US/docs/Web/API/CSS/supports" target="_blank"><code>window.CSS.supports()</code></a>method. Anything that is not supported will be ignored</p>
+                <p class="italic">Notice how the usage example demonstrates the names of the CSS properties are not the javascript camelcase variants, they are the CSS property names as-is</p>
+                </p>
+                <ul>
+                    <li>
+                        <p>Arguments</p>
+                        <ul>
+                            <li class="arg"><code>obj: { [key: string]: string | number | boolean }</code></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>Usage</p>
+                        <pre><code>new SVGElementBuilder&#x3C;SVGCircleElement&#x3E;(&#x27;circle&#x27;, &#x27;myCircleSVG&#x27;).style({
+    &#x27;padding-left&#x27;: &#x27;20px&#x27;,
+    position: &#x27;relative&#x27;,
+    color: &#x27;red&#x27;,
+    &#x27;border-top-left-radius&#x27; : &#x27;2.5em&#x27;
+});</code></pre>
+                    </li>
+                </ul>
+                <h3 id="SVGElementBuilder.width"><a href="#SVGElementBuilder.width" data-scroll>width( width )</a></h3>
+                <p>Returns: <code>SVGElementBuilder&#x3C;T extends SVGElement&#x3E;</code></p>
+                <p>Set the width of the element</p>
+                <ul>
+                    <li>
+                        <p>Arguments</p>
+                        <ul>
+                            <li class="arg"><code>width: string</code></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>Usage</p>
+                        <pre><code>new SVGElementBuilder&#x3C;SVGCircleElement&#x3E;(&#x27;circle&#x27;, &#x27;myCircleSVG&#x27;).width(&#x27;100px&#x27;);</code></pre>
+                    </li>
+                </ul>
+                <h3 id="SVGElementBuilder.on"><a href="#SVGElementBuilder.on" data-scroll>on( event, listener )</a></h3>
+                <p>Returns: <code>SVGElementBuilder&#x3C;T extends SVGElement&#x3E;</code></p>
+                <p>Sets up a function that will be called whenever the specified event is delivered to the target</p>
+                <ul>
+                    <li>
+                        <p>Arguments</p>
+                        <ul>
+                            <li class="arg"><code>event: keyof GlobalEventHandlersEventMap</code></li>
+                            <li class="arg"><code> listener: (this: T extends SVGElement, env: Event)</code></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>Usage</p>
+                        <pre><code>new SVGElementBuilder&#x3C;SVGCircleElement&#x3E;(&#x27;circle&#x27;, &#x27;myCircleSVG&#x27;).on(&#x27;click&#x27;, () =&#x3E; alert(&#x27;Hello World&#x27;));</code></pre>
+                    </li>
+                    <li><span>See also: </span>
+                        <ul class="list-inline refs">
+                            <li><a class="nounderline" href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener" target="_blank">MDN addEventListener</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <h3 id="SVGElementBuilder.clone"><a href="#SVGElementBuilder.clone" data-scroll>clone()</a></h3>
+                <p>Returns: <code>SVGElementBuilder&#x3C;T extends SVGElement&#x3E;</code></p>
+                <p>
+                <p>Clone the current tag builder. This deep clones the node it respectively manages</p>
+                <p class="italic">Note: this uses the same HTMLElement.cloneNode() method native to browsers, therefor, things like id's and individual configurations for a given node will be duplicated as-is</p>
+                </p>
+                <ul>
+                    <li>
+                        <p>Usage</p>
+                        <pre><code>new SVGElementBuilder&#x3C;SVGCircleElement&#x3E;(&#x27;circle&#x27;, &#x27;myCircleSVG&#x27;).clone();</code></pre>
+                    </li>
+                </ul>
+                <h3 id="SVGElementBuilder.build"><a href="#SVGElementBuilder.build" data-scroll>build()</a></h3>
+                <p>Returns: <code>T extends SVGElement</code></p>
+                <p>The node the current builder manages as an T extends SVGElement</p>
+                <ul>
+                    <li>
+                        <p>Usage</p>
+                        <pre><code>new SVGElementBuilder&#x3C;SVGCircleElement&#x3E;(&#x27;circle&#x27;, &#x27;myCircleSVG&#x27;).build();</code></pre>
+                    </li>
+                </ul>
+                <h3 id="SVGElementBuilder.buildHTML"><a href="#SVGElementBuilder.buildHTML" data-scroll>buildHTML()</a></h3>
+                <p>Returns: <code>SVGElement</code></p>
+                <p>This is the required build method when in `headless` mode. It returns the outerHTML of an T extends SVGElement when in `document` mode, otherwise the HTML markup when in `headless` mode</p>
+                <ul>
+                    <li>
+                        <p>Usage</p>
+                        <pre><code>new SVGElementBuilder&#x3C;SVGCircleElement&#x3E;(&#x27;circle&#x27;, &#x27;myCircleSVG&#x27;).buildHTML();</code></pre>
+                    </li>
+                </ul>
+                <h3 id="SVGElementBuilder.fill"><a href="#SVGElementBuilder.fill" data-scroll>fill( value )</a></h3>
+                <p>Returns: <code>SVGElementBuilder&#x3C;T extends SVGElement&#x3E;</code></p>
+                <p></p>
+                <ul>
+                    <li>
+                        <p>Arguments</p>
+                        <ul>
+                            <li class="arg"><code>value: string</code></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>Usage</p>
+                        <pre><code>new SVGElementBuilder&#x3C;SVGCircleElement&#x3E;(&#x27;circle&#x27;, &#x27;myCircleSVG&#x27;).fill(&#x27;rgba(0,0,0,0.5)&#x27;);</code></pre>
+                    </li>
+                </ul>
+                <h3 id="SVGElementBuilder.stroke"><a href="#SVGElementBuilder.stroke" data-scroll>stroke( stroke, width )</a></h3>
+                <p>Returns: <code>SVGElementBuilder&#x3C;T extends SVGElement&#x3E;</code></p>
+                <p></p>
+                <ul>
+                    <li>
+                        <p>Arguments</p>
+                        <ul>
+                            <li class="arg"><code>stroke: string</code></li>
+                            <li class="arg"><code> width: string | number</code></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>Usage</p>
+                        <pre><code>new SVGElementBuilder&#x3C;SVGCircleElement&#x3E;(&#x27;circle&#x27;, &#x27;myCircleSVG&#x27;).stroke(&#x27;rgba(0,0,0,0.5)&#x27;, 2);</code></pre>
+                    </li>
+                </ul>
+                <h3 id="SVGElementBuilder.preserveAspectRatio"><a href="#SVGElementBuilder.preserveAspectRatio" data-scroll>preserveAspectRatio( value )</a></h3>
+                <p>Returns: <code>SVGElementBuilder&#x3C;T extends SVGElement&#x3E;</code></p>
+                <p></p>
+                <ul>
+                    <li>
+                        <p>Arguments</p>
+                        <ul>
+                            <li class="arg"><code>value: string</code></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>Usage</p>
+                        <pre><code>new SVGElementBuilder&#x3C;SVGCircleElement&#x3E;(&#x27;circle&#x27;, &#x27;myCircleSVG&#x27;).preserveAspectRatio(&#x27;xMidYMid meet&#x27;);</code></pre>
+                    </li>
+                </ul>
+                <h3 id="SVGElementBuilder.x"><a href="#SVGElementBuilder.x" data-scroll>x( value )</a></h3>
+                <p>Returns: <code>SVGElementBuilder&#x3C;T extends SVGElement&#x3E;</code></p>
+                <p></p>
+                <ul>
+                    <li>
+                        <p>Arguments</p>
+                        <ul>
+                            <li class="arg"><code>value: string | number</code></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>Usage</p>
+                        <pre><code>new SVGElementBuilder&#x3C;SVGCircleElement&#x3E;(&#x27;circle&#x27;, &#x27;myCircleSVG&#x27;).x(25);</code></pre>
+                    </li>
+                </ul>
+                <h3 id="SVGElementBuilder.y"><a href="#SVGElementBuilder.y" data-scroll>y( value )</a></h3>
+                <p>Returns: <code>SVGElementBuilder&#x3C;T extends SVGElement&#x3E;</code></p>
+                <p></p>
+                <ul>
+                    <li>
+                        <p>Arguments</p>
+                        <ul>
+                            <li class="arg"><code>value: string | number</code></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>Usage</p>
+                        <pre><code>new SVGElementBuilder&#x3C;SVGCircleElement&#x3E;(&#x27;circle&#x27;, &#x27;myCircleSVG&#x27;).y(25);</code></pre>
+                    </li>
+                </ul>
+                <h3 id="SVGElementBuilder.viewBox"><a href="#SVGElementBuilder.viewBox" data-scroll>viewBox( viewBox )</a></h3>
+                <p>Returns: <code>SVGElementBuilder&#x3C;T extends SVGElement&#x3E;</code></p>
+                <p></p>
+                <ul>
+                    <li>
+                        <p>Arguments</p>
+                        <ul>
+                            <li class="arg"><code>viewBox: string</code></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>Usage</p>
+                        <pre><code>new SVGElementBuilder&#x3C;SVGCircleElement&#x3E;(&#x27;circle&#x27;, &#x27;myCircleSVG&#x27;).viewBox(&#x27;0 0 500 500&#x27;);</code></pre>
                     </li>
                 </ul>
             </details>
